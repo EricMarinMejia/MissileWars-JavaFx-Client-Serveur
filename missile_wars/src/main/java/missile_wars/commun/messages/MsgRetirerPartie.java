@@ -2,7 +2,6 @@ package missile_wars.commun.messages;
 
 import ca.ntro.app.messages.MessageNtro;
 import missile_wars.commun.modeles.ModeleHistorique;
-import missile_wars.commun.modeles.valeurs.Partie;
 
 public class MsgRetirerPartie extends MessageNtro {
 

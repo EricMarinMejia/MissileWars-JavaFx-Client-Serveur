@@ -2,7 +2,7 @@ package missile_wars.commun.messages;
 
 import ca.ntro.app.messages.MessageNtro;
 import missile_wars.commun.enums.Cadran;
-import missile_wars.commun.modeles.ModeleJeu;
+import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 
 public class MsgAjouterPoint extends MessageNtro {
@@ -11,11 +11,11 @@ public class MsgAjouterPoint extends MessageNtro {
 	private MondeMissileWars2d mondeMS2d;
 	
 	
-	public void ajouterPointA(ModeleJeu jeu) {
+	public void ajouterPointA(ModelePartie jeu) {
 		jeu.ajouterPointPour(Cadran.valueOf(cadran));
 	}
 	
-	public void copierDonneesDans(ModeleJeu jeu) {
+	public void copierDonneesDans(ModelePartie jeu) {
 		jeu.copierDonneesDe(mondeMS2d);
 	}
 		

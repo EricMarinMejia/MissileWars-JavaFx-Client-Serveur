@@ -1,11 +1,14 @@
 package missile_wars.frontal.taches;
 
-import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.create;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.viewLoader;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
 
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import missile_wars.frontal.fragments.FragmentPartie;
+import missile_wars.frontal.vue.fragments.FragmentPartie;
 import missile_wars.frontal.vues.VueAccueil;
 import missile_wars.frontal.vues.VueHistorique;
 import missile_wars.frontal.vues.VueRacine;

@@ -6,7 +6,7 @@ import ca.ntro.core.reflection.observer.Modified;
 
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
-import missile_wars.commun.modeles.ModeleJeu;
+import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.donnees.DonneesVueJeu;
 import missile_wars.frontal.evenements.EvtActionJoueur;
 import missile_wars.frontal.vues.VueAccueil;
@@ -70,15 +70,15 @@ public class AfficherJeu {
 	private static void observerModeleJeu(FrontendTasks tasks) {
 		tasks.task("observerModeleJeu")
 		
-		.waitsFor(modified(ModeleJeu.class))
+		.waitsFor(modified(ModelePartie.class))
 		
 		.thenExecutes(inputs -> {
 			
 			VueAccueil vueJeu = inputs.get(created(VueAccueil.class));
 			DonneesVueJeu donneesVueJeu = inputs.get(created(DonneesVueJeu.class));
-			Modified<ModeleJeu> modifiedJeu = inputs.get(modified(ModeleJeu.class));
+			Modified<ModelePartie> modifiedJeu = inputs.get(modified(ModelePartie.class));
 			
-			ModeleJeu modeleJeu = modifiedJeu.currentValue();
+			ModelePartie modeleJeu = modifiedJeu.currentValue();
 			
 			modeleJeu.afficherInfoPartieSur(vueJeu);
 			modeleJeu.copierDonneesDans(donneesVueJeu);

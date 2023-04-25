@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
-import missile_wars.commun.modeles.valeurs.Partie;
 import missile_wars.frontal.vues.VueHistorique;
 
 public class ModeleHistorique implements Model, WriteObjectGraph{
@@ -19,7 +17,7 @@ public class ModeleHistorique implements Model, WriteObjectGraph{
 	private int nbPagesTotales = 1;
 	private int prochainIdPartie = 1;
 	
-	private List<Partie> lesPartiesJouees = new ArrayList<>();
+	private List<ModelePartie> lesPartiesJouees = new ArrayList<>();
 	
 	public ModeleHistorique() {
 		
@@ -73,18 +71,18 @@ public class ModeleHistorique implements Model, WriteObjectGraph{
 		this.prochainIdPartie = prochainIdPartie;
 	}
 
-	public List<Partie> getLesPartiesJouees() {
+	public List<ModelePartie> getLesPartiesJouees() {
 		return lesPartiesJouees;
 	}
 
-	public void setLesPartiesJouees(List<Partie> lesPartiesJouees) {
+	public void setLesPartiesJouees(List<ModelePartie> lesPartiesJouees) {
 		this.lesPartiesJouees = lesPartiesJouees;
 	}
 	
 	public void afficherSur(VueHistorique vueHistorique) {
 		vueHistorique.viderListeParties();
 		
-		for(Partie partie : lesPartiesJouees) {
+		for(ModelePartie partie : lesPartiesJouees) {
 			vueHistorique.ajouterPartie(partie);
 		}
 	}

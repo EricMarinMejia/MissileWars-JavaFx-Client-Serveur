@@ -10,7 +10,7 @@ public class DorsalMissileWars extends LocalBackendNtro {
 	@Override
 	public void createTasks(BackendTasks tasks) {
 		ModifierHistorique.creerTaches(tasks);
-		ModifierJeu.creerTaches(tasks);
+//		ModifierJeu.creerTaches(tasks);
 	}
 
 	@Override
