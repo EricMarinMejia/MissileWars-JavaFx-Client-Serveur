@@ -21,6 +21,12 @@
             styleClass="bouton"
             id="boutonAfficherAccueil">
         </Button>
+        <Button
+            fx:id="boutonNouvellePartie2"
+            text="%boutonNouvellePartie2"
+            styleClass="bouton"
+            id="boutonNouvellePartie2">
+        </Button>
 
     </HBox>
     

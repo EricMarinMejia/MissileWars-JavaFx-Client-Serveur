@@ -13,10 +13,13 @@ public class VueFileAttente extends ViewFx {
 	@FXML
 	private Button boutonAfficherAccueil;
 	
+	@FXML
+	private Button boutonNouvellePartie2;
 	
 	@Override
 	public void initialiser() {
 		Ntro.assertNotNull("boutonAfficherAccueil", boutonAfficherAccueil);
+		Ntro.assertNotNull("boutonNouvellePartie2", boutonNouvellePartie2);
 		
 		installerEvtAfficherAccueil();
 	}
@@ -28,5 +31,8 @@ public class VueFileAttente extends ViewFx {
 			evtAfficherAccueil.trigger();
 		});
 	}
+	
+	
+	
 	
 }
