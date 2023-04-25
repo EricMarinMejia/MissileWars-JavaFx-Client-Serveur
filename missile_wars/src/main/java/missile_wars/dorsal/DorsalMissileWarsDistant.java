@@ -6,10 +6,10 @@ import missile_wars.commun.Declarations;
 
 public class DorsalMissileWarsDistant extends RemoteBackendNtro {
 
-	@Override
-	public void registerServer(ServerRegistrar registrar) {
-		Declarations.declarerServeur(registrar);
-		
-	}
-
+    @Override
+    public void registerServer(ServerRegistrar registrar) {
+        Declarations.declarerServeur(registrar);
+        
+    }
+    
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="missile_wars.frontal.fragments.FragmentCouleur" 
+    styleClass="conteneur,vue-couleur">
+    <HBox>
+        <Pane styleClass="grand-espace-horizontal"/>
+        <HBox styleClass="conteneur,couleur" fx:id="horizontalOuVertical">
+            <Button 
+                fx:id="boutonJoindrePartie" 
+                text="%joindrePartie"
+                styleClass="gros-bouton">
+            </Button>
+            <Pane minHeight="20" minWidth="20"/>
+            <Label
+                fx:id="labelNomCouleur"
+                styleClass="label-nom-joueur">
+            </Label>
+            <Pane minHeight="20" minWidth="20"/>
+            <Button 
+                fx:id="boutonRetirerCouleur" 
+                text="%retirerCouleur"
+                styleClass="gros-bouton,bouton-rouge">
+            </Button>
+        </HBox>
+        <Pane styleClass="grand-espace-horizontal"/>
+    </HBox>
+    <Pane styleClass="petit-espace-vertical"/>
+</VBox>

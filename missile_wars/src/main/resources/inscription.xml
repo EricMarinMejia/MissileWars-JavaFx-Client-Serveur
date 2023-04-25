@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+<VBox xmlns="http://javafx.com/javafx/19"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="missile_wars.frontal.vues.VueSInscrire">
+	<children>
+		<HBox
+			styleClass="name_entry_container">
+			<children>
+				<Label text="%votreNomUtilisateur" />
+				<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
+			</children>
+		</HBox>
+		<HBox VBox.vgrow="ALWAYS">
+			<children>
+				
+				<ScrollPane HBox.hgrow="ALWAYS">
+					<content>
+						<VBox
+							fx:id="vbAssociationContainer">
+							<children>
+								
+							</children>
+						</VBox>
+					</content>
+				</ScrollPane>
+				<VBox
+					fx:id="exit_container">
+					<children>
+						<Button fx:id="buttonAnnuler" text="%annuler" />
+						<Button fx:id="buttonReset" text="%reset" />
+						<Button fx:id="buttonValider" text="%valider" />
+					</children>
+				</VBox>
+				
+			</children>
+		</HBox>
+	</children>
+	
+	<Button
+        text="%boutonVersMenu"
+        styleClass="gros-bouton"
+        fx:id="boutonVersPages">
+    </Button>
+
+	<Button
+            fx:id="boutonVersFileAttente"
+            text="%boutonVersFileAttente"
+            styleClass="gros-bouton"
+            id="bouton-vers-file-attente">
+    </Button>
+</VBox>

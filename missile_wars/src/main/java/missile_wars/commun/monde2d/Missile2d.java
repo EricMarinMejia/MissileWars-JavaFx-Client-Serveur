@@ -1,129 +1,138 @@
 package missile_wars.commun.monde2d;
 
-import ca.ntro.app.NtroApp;
 import ca.ntro.app.fx.controls.ResizableWorld2dCanvasFx;
 import ca.ntro.app.fx.controls.World2dMouseEventFx;
-import ca.ntro.app.fx.world2d.World2dFx;
 import ca.ntro.core.initialization.Ntro;
-import missile_wars.commun.enums.Cadran;
-import missile_wars.commun.messages.MsgAjouterPoint;
+import javafx.scene.image.Image;
 
 public class Missile2d extends ObjetMissileWars2d {
+    private static final double EPSILON = 1;
+    private static final double VITESSE_MISSILE = 100;
 
-	private Joueur2d joueurBas;
-	private Joueur2d joueurHaut;
+    public Missile2d() {
+        super();
+    }
 
-	public Missile2d() {
-		super();
-	}
+    @Override
+    public void initialize() {
+        setWidth(10);
+        setHeight(10);
+        setTopLeftX(100);
+        setTopLeftY(100);
 
-	public Missile2d(Joueur2d joueurBas, Joueur2d joueurHaut) {
-		super();
+        double vitesse = 50 + Ntro.random().nextInt(100);
 
-		setJoueurBas(joueurBas);
-		setJoueurHaut(joueurHaut);
-		choisirEtatInitial();
-	}
+        setSpeedX(vitesse);
+        setSpeedY(vitesse);
+    }
 
-	public Missile2d(Joueur2d joueur, String cadran) {
-		super();
+    @Override
+    public void drawOn(ResizableWorld2dCanvasFx canvas) {
+        Image image = new Image("/grass.png");
+        canvas.drawOnWorld(gc -> {
+            gc.drawImage(image,getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
+        });
+    }
 
-		missileLancer(joueur, cadran);
-	}
+    @Override
+    protected boolean onMouseEvent(World2dMouseEventFx mouseEvent) {
+        return false;
+    }
 
-	private void missileLancer(Joueur2d joueur, String cadran) {
-		if (cadran.equals("GAUCHE")) {
-			setTopLeftX(joueur.getTopLeftX());
-			setTopLeftY(joueur.getTopLeftY());
-			setSpeedY(-50);
-		} else {
-			setTopLeftX(joueur.getTopLeftX());
-			setTopLeftY(joueur.getTopLeftY());
-			setSpeedY(+50);
-		}
-	}
+    @Override
+    public String id() {
+        return "un missile";
+    }
 
-	@Override
-	public void initialize() {
-		setWidth(10);
-		setHeight(15);
-	}
+    public void monter() {
+        setSpeedY(-VITESSE_MISSILE);
+    }
 
-	private void choisirEtatInitial() {
-		//Mets le missile hors de porté
-		setTopLeftX(1000);
-		setTopLeftY(1000);
-	}
+    public void descendre() {
+        setSpeedY(VITESSE_MISSILE);
+    }
 
-	@Override
-	public void drawOn(ResizableWorld2dCanvasFx canvas) {
+    public void gauche() { 
+        setSpeedX(VITESSE_MISSILE);
+    }
 
-		canvas.drawOnWorld(gc -> {
+    public void droite() { 
+        setSpeedY(-VITESSE_MISSILE);
+    }
 
-			gc.fillRect(getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
+    public void arreter() {
+        setSpeedY(0);
+        setSpeedX(0);
+    }
 
-		});
 
-	}
+    @Override
+    public void onTimePasses(double secondesPassees) {
+        super.onTimePasses(secondesPassees);
 
-	@Override
-	public void onTimePasses(double secondsElapsed) {
-		super.onTimePasses(secondsElapsed);
+        if (balleFrappeMurGauche()) {
 
-		if (missileToucheMurAdversaire()) {
-			// A retirer plus tard.
-			// Relance un missile automatiquement pour des raisons de test.
-			// Ajouter plus tard un else if (missileToucheBase(); pour finir partie.
-			// Ajouter if else (missileRecu)
-			choisirEtatInitial();
-			ajouterPoint(Cadran.GAUCHE);
+            balleRebondiSurMurGauche();
 
-		}
-		if (missileToucheBaseAlliee()) {
-			choisirEtatInitial();
-			ajouterPoint(Cadran.DROITE);
-		}
-	}
+        } else if (balleFrappeMurDroit()) {
 
-	private boolean missileToucheBaseAlliee() {
-		return collidesWith(0, getWorld2d().getHeight() - 1, getWorld2d().getWidth(), 1);
-	}
+            balleRebondiSurMurDroit();
 
-	private void ajouterPoint(Cadran cadran) {
-		MsgAjouterPoint msgAjouterPoint = NtroApp.newMessage(MsgAjouterPoint.class);
-		msgAjouterPoint.setMondeMS2d(getWorld2d());
-		msgAjouterPoint.setCadran(cadran.name());
-		msgAjouterPoint.send();
-	}
+        } else if (balleFrappePlafond()) {
 
-	private boolean missileToucheMurAdversaire() {
-		return collidesWith(0, 0, getWorld2d().getWidth(), 1);
-	}
+            balleRebondiSurPlafond();
 
-	@Override
-	public String id() {
-		return "missile";
-	}
+        } else if (balleFrappePlancher()) {
 
-	@Override
-	protected boolean onMouseEvent(World2dMouseEventFx mouseEvent) {
-		return false;
-	}
+            balleRebondiSurPlancher();
+        }
+    }
 
-	public Joueur2d getJoueurBas() {
-		return joueurBas;
-	}
+    private boolean balleFrappePlancher() {
+        return collidesWith(0,
+                getWorld2d().getHeight(),
+                getWorld2d().getWidth(),
+                1);
+    }
 
-	public void setJoueurBas(Joueur2d joueurBas) {
-		this.joueurBas = joueurBas;
-	}
+    private boolean balleFrappePlafond() {
+        return collidesWith(0,
+                0,
+                getWorld2d().getWidth(),
+                1);
+    }
 
-	public Joueur2d getJoueurHaut() {
-		return joueurHaut;
-	}
+    private boolean balleFrappeMurDroit() {
+        return collidesWith(getWorld2d().getWidth(),
+                0,
+                1,
+                getWorld2d().getHeight());
+    }
 
-	public void setJoueurHaut(Joueur2d joueurHaut) {
-		this.joueurHaut = joueurHaut;
-	}
+    private boolean balleFrappeMurGauche() {
+        return collidesWith(0,
+                0,
+                1,
+                getWorld2d().getHeight());
+    }
 
+    private void balleRebondiSurPlancher() {
+        setTopLeftY(getWorld2d().getHeight() - this.getHeight() - EPSILON);
+        setSpeedY(-getSpeedY());
+    }
+
+    private void balleRebondiSurPlafond() {
+        setTopLeftY(0 + EPSILON);
+        setSpeedY(-getSpeedY());
+    }
+
+    private void balleRebondiSurMurDroit() {
+        setTopLeftX(getWorld2d().getWidth() - this.getWidth() - EPSILON);
+        setSpeedX(-getSpeedX());
+    }
+
+    private void balleRebondiSurMurGauche() {
+        setTopLeftX(0 + EPSILON);
+        setSpeedX(-getSpeedX());
+    }
 }

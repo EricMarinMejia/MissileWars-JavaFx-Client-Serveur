@@ -1,105 +1,94 @@
 package missile_wars.frontal.taches;
 
+import ca.ntro.app.tasks.frontend.FrontendTasks;
+import missile_wars.frontal.vues.VueMenu;
+import missile_wars.frontal.vues.VueRacine;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
-
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
-import ca.ntro.app.tasks.frontend.FrontendTasks;
-import missile_wars.frontal.fragments.FragmentPartie;
-import missile_wars.frontal.vues.VueAccueil;
-import missile_wars.frontal.vues.VueHistorique;
-import missile_wars.frontal.vues.VueRacine;
 
 public class Initialisation {
+    public static void creerTaches(FrontendTasks taches) {
+        taches.taskGroup("Initialisation")
+                .contains(sousTaches -> {
+                    creerVueRacine(sousTaches);
+                    creerVueMenu(sousTaches);
+                    // creerVueDidacticiel(sousTaches);
+                    // creerVueDidacticiel(sousTaches);
 
-	public static void creerTaches(FrontendTasks tasks) {
-		tasks.taskGroup("Initialisation").andContains(subTasks -> {
-			creerVueRacine(subTasks);
-			installerVueRacine(subTasks);
-			afficherFenetre(subTasks);
+                    installerVueRacine(sousTaches);
+                    installerVueMenu(sousTaches);
 
-			creerVueHistorique(subTasks);
-			installerVueHistorique(subTasks);
+                    afficherFenetre(sousTaches);
+                });
+    }
 
-			creerVueAccueil(subTasks);
-		});
-	}
+    private static void creerVueRacine(FrontendTasks sousTaches) {
+        sousTaches.task(create(VueRacine.class))
+                .waitsFor(viewLoader(VueRacine.class))
+                .thenExecutesAndReturnsValue(entrees -> {
+                    ViewLoader<VueRacine> viewLoader = entrees.get(viewLoader(VueRacine.class));
+                    VueRacine vueRacine = viewLoader.createView();
+                    return vueRacine;
+                });
+    }
 
-	private static void afficherFenetre(FrontendTasks subTasks) {
-		subTasks.task("afficherFenetre").waitsFor(window()).thenExecutes(inputs -> {
-			Window window = inputs.get(window());
-			window.resize(1000, 500);
-			window.show();
-		});
-	}
+    private static void installerVueRacine(FrontendTasks sousTaches) {
+        sousTaches.task("installerVueRacine")
+                .waitsFor(window())
+                .waitsFor(create(VueRacine.class))
+                .thenExecutes(entrees -> {
+                    VueRacine vueRacine = entrees.get(created(VueRacine.class));
+                    Window window = entrees.get(window());
+                    window.installRootView(vueRacine);
+                });
+    }
 
-	private static void creerVueRacine(FrontendTasks tasks) {
+    private static void creerVueMenu(FrontendTasks taches) {
+        taches.task(create(VueMenu.class))
+                .waitsFor(viewLoader(VueMenu.class))
+                .thenExecutesAndReturnsValue(entrees -> {
+                    ViewLoader<VueMenu> viewLoader = entrees.get(viewLoader(VueMenu.class));
+                    VueMenu vueAccueil = viewLoader.createView();
+                    return vueAccueil;
+                });
+    }
 
-		tasks.task(create(VueRacine.class))
+    private static void installerVueMenu(FrontendTasks taches) {
+        taches.task("installerVueMenu")
+                .waitsFor(created(VueRacine.class))
+                .waitsFor(created(VueMenu.class))
+                .thenExecutes(entrees -> {
+                    VueRacine vueRacine = entrees.get(created(VueRacine.class));
+                    VueMenu vueMenu = entrees.get(created(VueMenu.class));
+                    vueRacine.afficherSousVue(vueMenu);
+                });
+    }
 
-				.waitsFor(viewLoader(VueRacine.class))
+    // private static void creerVuePages(FrontendTasks taches) {
+    // taches.task(create(VuePages.class))
+    // .waitsFor(viewLoader(VuePages.class))
+    // .waitsFor(viewLoader(FragmentPage.class))
+    // .thenExecutesAndReturnsValue(entrees -> {
+    // ViewLoader<VuePages> viewLoaderPages =
+    // entrees.get(viewLoader(VuePages.class));
+    // VuePages vuePages = viewLoaderPages.createView();
 
-				.thenExecutesAndReturnsValue(inputs -> {
+    // ViewLoader<FragmentPage> viewLoaderPage =
+    // entrees.get(viewLoader(FragmentPage.class));
 
-					ViewLoader<VueRacine> viewLoader = inputs.get(viewLoader(VueRacine.class));
+    // vuePages.setFragmentPage(viewLoaderPage);
 
-					VueRacine vueRacine = viewLoader.createView();
+    // return vuePages;
+    // });
+    // }
 
-					return vueRacine;
-				});
-	}
 
-	private static void installerVueRacine(FrontendTasks tasks) {
-
-		tasks.task("installerVueRacine")
-
-				.waitsFor(window())
-
-				.waitsFor(created(VueRacine.class))
-
-				.thenExecutes(inputs -> {
-
-					VueRacine vueRacine = inputs.get(created(VueRacine.class));
-					Window window = inputs.get(window());
-
-					window.installRootView(vueRacine);
-				});
-	}
-
-	private static void creerVueHistorique(FrontendTasks tasks) {
-		tasks.task(create(VueHistorique.class))
-				.waitsFor(viewLoader(VueHistorique.class))
-				.waitsFor(viewLoader(FragmentPartie.class))
-				.thenExecutesAndReturnsValue(inputs -> {
-					ViewLoader<VueHistorique> viewLoader = inputs.get(viewLoader(VueHistorique.class));
-					ViewLoader<FragmentPartie> viewLoaderParties = inputs.get(viewLoader(FragmentPartie.class));
-					
-					VueHistorique vueHistorique = viewLoader.createView();
-					
-					vueHistorique.setViewLoaderParties(viewLoaderParties);
-					return vueHistorique;
-				});
-	}
-
-	private static void installerVueHistorique(FrontendTasks tasks) {
-		tasks.task("installerVueHistorique")
-				.waitsFor(created(VueRacine.class))
-				.waitsFor(created(VueHistorique.class))
-				.thenExecutes(inputs -> {
-					VueRacine vueRacine = inputs.get(created(VueRacine.class));
-					VueHistorique vueHistorique = inputs.get(created(VueHistorique.class));
-					vueRacine.afficherSousVue(vueHistorique);
-				});
-	}
-
-	private static void creerVueAccueil(FrontendTasks subTasks) {
-		subTasks.task(create(VueAccueil.class)).waitsFor(viewLoader(VueAccueil.class))
-				.thenExecutesAndReturnsValue(inputs -> {
-					ViewLoader<VueAccueil> viewLoader = inputs.get(viewLoader(VueAccueil.class));
-					VueAccueil vueAccueil = viewLoader.createView();
-
-					return vueAccueil;
-				});
-	}
-
+    private static void afficherFenetre(FrontendTasks sousTaches) {
+        sousTaches.task("afficherFenetre").waitsFor(window())
+                .thenExecutes(entrees -> {
+                    Window fenetre = entrees.get(window());
+                    fenetre.show();
+                });
+    }
 }

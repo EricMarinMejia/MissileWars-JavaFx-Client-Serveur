@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import missile_wars.frontal.controles.CanvasPartie?>
+<?import jaEvtsdaaasdadvafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="missile_wars.frontal.vues.VueMenu"
+    styleClass="conteneur"
+    id="vue-menu">
+    <VBox styleClass="conteneur" id="vue-partie">
+
+        <Button
+            fx:id="boutonVersInscription"
+            text="%boutonVersFileAttente"
+            styleClass="gros-bouton"
+            id="bouton-vers-file-attente">
+        </Button>
+
+        <Button
+            fx:id="boutonVersParametres"
+            text="%boutonVersParametres"
+            styleClass="gros-bouton"
+            id="bouton-vers-parametres">
+        </Button>
+
+        <Button
+            fx:id="boutonVersDidacticiel"
+            text="%boutonVersDidacticiel"
+            styleClass="gros-bouton"
+            id="bouton-vers-didacticiel">
+        </Button>
+
+        <Pane styleClass="petit-espace-vertical" />
+    </VBox>
+</VBox>
