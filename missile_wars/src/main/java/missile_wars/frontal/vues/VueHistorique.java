@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import missile_wars.commun.modeles.ModeleHistorique;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.evenements.EvtAfficherAccueil;
-import missile_wars.frontal.vue.fragments.FragmentPartie;
+import missile_wars.frontal.vues.fragments.FragmentPartie;
 
 public class VueHistorique extends ViewFx {
 	

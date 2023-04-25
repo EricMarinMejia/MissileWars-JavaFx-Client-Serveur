@@ -13,10 +13,10 @@ import missile_wars.frontal.taches.AfficherHistorique;
 import missile_wars.frontal.taches.AfficherJeu;
 import missile_wars.frontal.taches.Initialisation;
 import missile_wars.frontal.taches.Navigation;
-import missile_wars.frontal.vue.fragments.FragmentPartie;
 import missile_wars.frontal.vues.VueAccueil;
 import missile_wars.frontal.vues.VueHistorique;
 import missile_wars.frontal.vues.VueRacine;
+import missile_wars.frontal.vues.fragments.FragmentPartie;
 
 public class FrontalMissileWars implements FrontendFx{
 

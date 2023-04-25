@@ -8,10 +8,10 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import missile_wars.frontal.vue.fragments.FragmentPartie;
 import missile_wars.frontal.vues.VueAccueil;
 import missile_wars.frontal.vues.VueHistorique;
 import missile_wars.frontal.vues.VueRacine;
+import missile_wars.frontal.vues.fragments.FragmentPartie;
 
 public class Initialisation {
 

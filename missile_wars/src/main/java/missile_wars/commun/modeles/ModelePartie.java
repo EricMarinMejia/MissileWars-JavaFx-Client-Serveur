@@ -5,8 +5,8 @@ import ca.ntro.app.models.Model;
 import missile_wars.commun.enums.Cadran;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.donnees.DonneesVueJeu;
-import missile_wars.frontal.vue.fragments.FragmentPartie;
 import missile_wars.frontal.vues.VueAccueil;
+import missile_wars.frontal.vues.fragments.FragmentPartie;
 
 public class ModelePartie implements Model {
 	

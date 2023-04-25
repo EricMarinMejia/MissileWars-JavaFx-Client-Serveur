@@ -1,4 +1,4 @@
-package missile_wars.frontal.vue.fragments;
+package missile_wars.frontal.vues.fragments;
 
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFragmentFx;
