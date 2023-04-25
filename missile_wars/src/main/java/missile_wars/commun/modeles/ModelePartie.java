@@ -5,7 +5,7 @@ import ca.ntro.app.models.Model;
 import missile_wars.commun.enums.Cadran;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.donnees.DonneesVueJeu;
-import missile_wars.frontal.vues.VueAccueil;
+import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.fragments.FragmentPartie;
 
 public class ModelePartie implements Model {
@@ -127,7 +127,7 @@ public class ModelePartie implements Model {
 	}
 
 
-	public void afficherInfoPartieSur(VueAccueil vueJeu) {
+	public void afficherInfoPartieSur(VuePartie vueJeu) {
 		vueJeu.afficherNomPremierJoueur(nomJoueur1);
 		vueJeu.afficherNomDeuxiemeJoueur(nomJoueur2);
 		

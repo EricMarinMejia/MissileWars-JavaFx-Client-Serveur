@@ -1,15 +1,19 @@
 package missile_wars.frontal.taches;
 
+import static ca.ntro.app.tasks.frontend.FrontendTasks.clock;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.create;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.modified;
+
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.clock.Tick;
 import ca.ntro.core.reflection.observer.Modified;
-
-import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
-
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.donnees.DonneesVueJeu;
 import missile_wars.frontal.evenements.EvtActionJoueur;
 import missile_wars.frontal.vues.VueAccueil;
+import missile_wars.frontal.vues.VuePartie;
 
 public class AfficherJeu {
 
@@ -60,10 +64,10 @@ public class AfficherJeu {
 		
 			Tick tick = inputs.get(clock().nextTick());
 			DonneesVueJeu donneesVueJeu = inputs.get(created(DonneesVueJeu.class));
-			VueAccueil vueJeu = inputs.get(created(VueAccueil.class));
+			VuePartie vuePartie = inputs.get(created(VuePartie.class));
 			
 			donneesVueJeu.reagirTempsQuiPasse(tick.elapsedTime());
-			donneesVueJeu.afficherSur(vueJeu);
+			donneesVueJeu.afficherSur(vuePartie);
 		});
 	}
 	
@@ -74,7 +78,7 @@ public class AfficherJeu {
 		
 		.thenExecutes(inputs -> {
 			
-			VueAccueil vueJeu = inputs.get(created(VueAccueil.class));
+			VuePartie vueJeu = inputs.get(created(VuePartie.class));
 			DonneesVueJeu donneesVueJeu = inputs.get(created(DonneesVueJeu.class));
 			Modified<ModelePartie> modifiedJeu = inputs.get(modified(ModelePartie.class));
 			

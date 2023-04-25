@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import missile_wars.frontal.controles.CanvasPartie?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="missile_wars.frontal.vues.VueFileAttente"
+    fx:id="vboxPartie"
+    styleClass="conteneur"
+    id="vue-menu">
+
+    <HBox>
+
+        <Button
+            fx:id="boutonAfficherAccueil"
+            text="%retourMenu"
+            styleClass="bouton"
+            id="boutonAfficherAccueil">
+        </Button>
+
+    </HBox>
+    
+
+</VBox>

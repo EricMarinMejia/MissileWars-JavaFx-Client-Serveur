@@ -9,7 +9,9 @@ import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import missile_wars.frontal.vues.VueAccueil;
+import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueHistorique;
+import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.VueRacine;
 import missile_wars.frontal.vues.fragments.FragmentPartie;
 
@@ -22,9 +24,13 @@ public class Initialisation {
 			afficherFenetre(subTasks);
 
 			creerVueHistorique(subTasks);
-			installerVueHistorique(subTasks);
-
+			
 			creerVueAccueil(subTasks);
+			installerVueAccueil(subTasks);
+			
+			creerVueFileAttente(subTasks);
+			creerVuePartie(subTasks);
+
 		});
 	}
 
@@ -83,16 +89,17 @@ public class Initialisation {
 					return vueHistorique;
 				});
 	}
-
-	private static void installerVueHistorique(FrontendTasks tasks) {
-		tasks.task("installerVueHistorique")
-				.waitsFor(created(VueRacine.class))
-				.waitsFor(created(VueHistorique.class))
-				.thenExecutes(inputs -> {
-					VueRacine vueRacine = inputs.get(created(VueRacine.class));
-					VueHistorique vueHistorique = inputs.get(created(VueHistorique.class));
-					vueRacine.afficherSousVue(vueHistorique);
-				});
+	
+	private static void installerVueAccueil(FrontendTasks tasks) {
+		tasks.task("installerVueAccueil")
+		.waitsFor(created(VueRacine.class))
+		.waitsFor(created(VueAccueil.class))
+		.thenExecutes(inputs -> {
+			VueRacine vueRacine = inputs.get(created(VueRacine.class));
+			VueAccueil vueAccueil= inputs.get(created(VueAccueil.class));
+			vueRacine.afficherSousVue(vueAccueil);
+		});
+		
 	}
 
 	private static void creerVueAccueil(FrontendTasks subTasks) {
@@ -104,5 +111,28 @@ public class Initialisation {
 					return vueAccueil;
 				});
 	}
+	
+	private static void creerVueFileAttente(FrontendTasks subTasks) {
+		subTasks.task(create(VueFileAttente.class))
+		.waitsFor(viewLoader(VueFileAttente.class))
+		.thenExecutesAndReturnsValue(inputs -> {
+			ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
+			VueFileAttente vueFileAttente= viewLoader.createView();
 
+			return vueFileAttente;
+		});
+	}
+	
+	private static void creerVuePartie(FrontendTasks subTasks) {
+		subTasks.task(create(VuePartie.class))
+		.waitsFor(viewLoader(VuePartie.class))
+		.thenExecutesAndReturnsValue(inputs -> {
+			ViewLoader<VuePartie> viewLoader = inputs.get(viewLoader(VuePartie.class));
+			VuePartie vuePartie = viewLoader.createView();
+			
+			return vuePartie;
+		});
+	}
+	
+	
 }

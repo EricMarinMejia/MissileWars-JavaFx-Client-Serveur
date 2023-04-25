@@ -5,7 +5,7 @@ import ca.ntro.core.initialization.Ntro;
 import missile_wars.commun.enums.Action;
 import missile_wars.commun.enums.Cadran;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
-import missile_wars.frontal.vues.VueAccueil;
+import missile_wars.frontal.vues.VuePartie;
 
 public class DonneesVueJeu implements ViewData {
 
@@ -17,7 +17,7 @@ public class DonneesVueJeu implements ViewData {
 		private long imagesAfficheesDepuisDernierCalculFps = 0;
 		
 		
-		public void afficherSur(VueAccueil vueJeu) {
+		public void afficherSur(VuePartie vueJeu) {
 			calculerFpsSiNecessaire();
 			vueJeu.viderCanvas();
 			vueJeu.afficherImagesParSecondes("FPS " + fpsCourant);

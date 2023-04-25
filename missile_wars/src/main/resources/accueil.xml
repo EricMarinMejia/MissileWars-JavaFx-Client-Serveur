@@ -13,41 +13,7 @@
     styleClass="conteneur"
     id="vue-menu">
 
-    <Pane styleClass="petit-espace-vertical" />
-
-    <HBox VBox.vgrow="ALWAYS" styleClass="conteneur" id="jeu-conteneur">
-
-        <Pane styleClass="petit-espace-horizontal" />
-
-        <CanvasPartie
-            HBox.hgrow="ALWAYS"
-            fx:id="canvasJeu"
-            id="idJeu">
-        </CanvasPartie>
-
-        <Pane styleClass="petit-espace-horizontal" />
-
-    </HBox>
-
-    <Pane styleClass="petit-espace-vertical" />
-
     <HBox styleClass="conteneur">
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Label
-            fx:id="labelNomPremierJoueur"
-            styleClass="label-nom-joueur">
-        </Label>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Label
-            fx:id="labelScorePremierJoueur"
-            styleClass="label-nom-joueur">
-        </Label>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
 
         <Button
             fx:id="boutonAfficherHistorique"
@@ -55,26 +21,14 @@
             styleClass="bouton"
             id="boutonHistorique">
         </Button>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Label
-            fx:id="labelScoreDeuxiemeJoueur"
-            styleClass="label-nom-joueur">
-        </Label>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Label
-            fx:id="labelNomDeuxiemeJoueur"
-            styleClass="label-nom-joueur">
-        </Label>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
+        <Button
+            fx:id="boutonAfficherFileAttente"
+            text="%boutonFileAttente"
+            styleClass="bouton"
+            id="boutonFileAttente">
+        </Button>
 
     </HBox>
-    
-    <Pane styleClass="petit-espace-vertical" />
     
 
 </VBox>
