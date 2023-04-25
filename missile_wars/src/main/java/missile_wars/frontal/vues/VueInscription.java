@@ -16,11 +16,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import missile_wars.commun.messages.MsgActualiserInscriptionJoueur;
 import missile_wars.commun.valeurs.KeyStringRepresentation;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
 import missile_wars.frontal.evenements.EvtRemettreTouchesParDefaut;
 import missile_wars.frontal.vues.fragments.FragmentActionTouche;
 
 public class VueInscription extends ViewFx {
+	
+	@FXML
+	private Button buttonAnnuler;
 	
 	@FXML
 	private Button buttonReset;
@@ -99,11 +103,11 @@ public class VueInscription extends ViewFx {
 	
 	private void installerButtonAnnuler() {
 		EvtRemettreInfosActuelles evtRemettreInfosActuelles = NtroApp.newEvent(EvtRemettreInfosActuelles.class);
-		EvtAfficherAccueil evtAfficherAccueil = NtroApp.newEvent(EvtAfficherAccueil.class);
+		EvtAfficherMenu evtAfficherMenu = NtroApp.newEvent(EvtAfficherMenu.class);
 		
 		this.buttonAnnuler.setOnAction(evtFx -> {
 			evtRemettreInfosActuelles.trigger();
-			evtAfficherAccueil.trigger();
+			evtAfficherMenu.trigger();
 		});
 		
 	}
@@ -119,7 +123,7 @@ public class VueInscription extends ViewFx {
 	}
 
 	private void installerBoutonValider() {
-		EvtAfficherAccueil evtAfficherAccueil = NtroApp.newEvent(EvtAfficherAccueil.class);
+		EvtAfficherMenu evtAfficherMenu= NtroApp.newEvent(EvtAfficherMenu.class);
 		MsgActualiserInscriptionJoueur msgActualiser = NtroApp.newMessage(MsgActualiserInscriptionJoueur.class);
 		this.buttonValider.setOnAction(evtFx -> {
 			
@@ -132,7 +136,7 @@ public class VueInscription extends ViewFx {
 			msgActualiser.setTouches(touches);
 			
 			msgActualiser.send();
-			evtAfficherAccueil.trigger();
+			evtAfficherMenu.trigger();
 		});
 	}
 	

@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.controles.CanvasPartie;
-import missile_wars.frontal.evenements.EvtAfficherAccueil;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
 
 public class VuePartie extends ViewFx {
 	
@@ -42,7 +42,7 @@ public class VuePartie extends ViewFx {
     
     
     private void installerBoutonQuitterPartie() {
-		EvtAfficherAccueil evtAfficherAccueil = NtroApp.newEvent(EvtAfficherAccueil.class);
+    	EvtAfficherMenu evtAfficherAccueil = NtroApp.newEvent(EvtAfficherMenu.class);
 		
 		this.boutonQuitterPartie.setOnAction(evtFx -> {
 			evtAfficherAccueil.trigger();
