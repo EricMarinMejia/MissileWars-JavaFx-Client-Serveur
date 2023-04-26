@@ -1,87 +1,7 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Button?>
-<?import missile_wars.frontal.controles.CanvasPartie?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.control.Label?>
 
-<VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="missile_wars.frontal.vues.VuePartie"
-    fx:id="vboxPartie"
-    styleClass="conteneur"
-    id="vue-menu">
-
-    <Pane styleClass="petit-espace-vertical" />
-
-    <HBox VBox.vgrow="ALWAYS" styleClass="conteneur" id="jeu-conteneur">
-
-        <Pane styleClass="petit-espace-horizontal" />
-
-        <CanvasPartie
-            HBox.hgrow="ALWAYS"
-            fx:id="canvasJeu"
-            id="idJeu">
-        </CanvasPartie>
-
-        <Pane styleClass="petit-espace-horizontal" />
-
-    </HBox>
-
-    <Pane styleClass="petit-espace-vertical" />
-
-    <HBox styleClass="conteneur">
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Label
-            fx:id="labelNomPremierJoueur"
-            styleClass="label-nom-joueur">
-        </Label>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Label
-            fx:id="labelScorePremierJoueur"
-            styleClass="label-nom-joueur">
-        </Label>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Button
-            fx:id="boutonQuitter"
-            text="%buttonHistorique"
-            styleClass="bouton"
-            id="boutonHistorique">
-        </Button>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Label
-            fx:id="labelScoreDeuxiemeJoueur"
-            styleClass="label-nom-joueur">
-        </Label>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-        <Label
-            fx:id="labelNomDeuxiemeJoueur"
-            styleClass="label-nom-joueur">
-        </Label>
-
-        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-
-    </HBox>
-    
-    <Pane styleClass="petit-espace-vertical" />
-    
-
-</VBox>
-=======
-<<<<<<<< HEAD:missile_wars/src/main/resources/accueil.xml
-<?xml version="1.0" encoding="UTF-8"?>
+<!--
 
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
@@ -116,7 +36,7 @@
 
 </VBox>
 ========
-<?xml version="1.0" encoding="UTF-8"?>
+-->
 
 
 <?import javafx.scene.layout.HBox?>
@@ -134,24 +54,28 @@
     <HBox styleClass="conteneur">
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
         <Label
+            fx:id="labelNomJoueur1"
             styleClass="label-nom-joueur">
         </Label>
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
         <Label
+            fx:id="labelNomJoueur2"
             styleClass="label-nom-joueur">
         </Label>
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
         <Button
-            fx:id="boutonQuitterPartie"
+            fx:id="boutonQuitter"
             text="%boutonVersMenu"
             styleClass="gros-bouton">
         </Button>
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
         <Label
+            fx:id="labelScoreJoueur1"
             styleClass="label-nom-joueur">
         </Label>
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
         <Label
+            fx:id="labelScoreJoueur2"
             styleClass="label-nom-joueur">
         </Label>
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
@@ -176,5 +100,3 @@
     </Button>
     -->
 </VBox>
->>>>>>>> antonii:missile_wars/src/main/resources/partie.xml
->>>>>>> antonii

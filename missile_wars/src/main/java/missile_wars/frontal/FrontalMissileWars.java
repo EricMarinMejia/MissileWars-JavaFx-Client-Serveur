@@ -7,6 +7,8 @@ import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import missile_wars.frontal.evenements.EvtActionJoueur;
 import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
+import missile_wars.frontal.evenements.EvtAfficherFileAttente;
+import missile_wars.frontal.evenements.EvtAfficherHistorique;
 import missile_wars.frontal.evenements.EvtAfficherInscription;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.evenements.EvtAfficherPages;
@@ -60,6 +62,8 @@ public class FrontalMissileWars implements FrontendFx{
         registrar.registerEvent(EvtAfficherPartie.class);
         registrar.registerEvent(EvtRemettreInfosActuelles.class);
         registrar.registerEvent(EvtRemettreTouchesParDefaut.class);
+        registrar.registerEvent(EvtAfficherHistorique.class);
+        registrar.registerEvent(EvtAfficherFileAttente.class);
     }
 
     @Override

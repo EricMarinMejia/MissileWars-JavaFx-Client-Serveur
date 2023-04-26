@@ -19,19 +19,19 @@ public class VuePartie extends ViewFx {
 	private Button boutonQuitter;
 	
 	@FXML
-	private CanvasPartie canvasJeu;
+	private CanvasPartie canvasPartie;
 	
 	@FXML
-	private Label labelNomPremierJoueur;
+	private Label labelNomJoueur1;
 	
 	@FXML
-	private Label labelNomDeuxiemeJoueur;
+	private Label labelNomJoueur2;
 	
 	@FXML 
-	private Label labelScorePremierJoueur;
+	private Label labelScoreJoueur1;
 	
 	@FXML
-	private Label labelScoreDeuxiemeJoueur;
+	private Label labelScoreJoueur2;
 	
 	@FXML
 	private VBox vboxPartie;
@@ -40,16 +40,16 @@ public class VuePartie extends ViewFx {
 
 	@Override
 	public void initialiser() {
-		Ntro.assertNotNull("labelNomPremierJoueur", labelNomPremierJoueur);
-		Ntro.assertNotNull("labelNomDeuxiemeJoueur", labelNomDeuxiemeJoueur);
-		Ntro.assertNotNull("labelScorePremierJoueur", labelScorePremierJoueur);
-		Ntro.assertNotNull("labelScoreDeuxiemeJoueur", labelScoreDeuxiemeJoueur);
+		Ntro.assertNotNull("labelNomJoueur1", labelNomJoueur1);
+		Ntro.assertNotNull("labelNomJoueur2", labelNomJoueur2);
+		Ntro.assertNotNull("labelScoreJoueur1", labelScoreJoueur1);
+		Ntro.assertNotNull("labelScoreJoueur2", labelScoreJoueur2);
 		
 		
 		Ntro.assertNotNull("boutonQuitter", boutonQuitter);
-		Ntro.assertNotNull(canvasJeu);
+		Ntro.assertNotNull("canvasPartie", canvasPartie);
 		
-		Ntro.assertNotNull("vboxPartie", vboxPartie);
+//		Ntro.assertNotNull("vboxPartie", vboxPartie);
 		
 		installerEvtAfficherAccueil();
 		installerEvtActionJoueur();
@@ -69,7 +69,7 @@ public class VuePartie extends ViewFx {
 
         EvtActionJoueur evtNtro = NtroApp.newEvent(EvtActionJoueur.class);
 
-        vboxPartie.addEventFilter(KeyEvent.KEY_PRESSED, evtFx -> {
+//        vboxPartie.addEventFilter(KeyEvent.KEY_PRESSED, evtFx -> {
 
 //            if(evtFx.getCode().equals(KeyCode.W)) {
 //
@@ -118,9 +118,9 @@ public class VuePartie extends ViewFx {
 //                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.TIRER));
 //                evtNtro.trigger();
 //            }
-        });
+//        });
 
-        vboxPartie.addEventFilter(KeyEvent.KEY_RELEASED, evtFx -> {
+//        vboxPartie.addEventFilter(KeyEvent.KEY_RELEASED, evtFx -> {
 
 //            if(evtFx.getCode().equals(KeyCode.W)
 //                    || evtFx.getCode().equals(KeyCode.S)
@@ -138,36 +138,36 @@ public class VuePartie extends ViewFx {
 //                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.ARRET));
 //                evtNtro.trigger();
 //            }
-        });
+//        });
     }
 
 	public void viderCanvas() {
-		canvasJeu.clearCanvas();
+		canvasPartie.clearCanvas();
 	}
 
 	public void afficherMissileWars2d(MondeMissileWars2d mondeMS2d) {
-		mondeMS2d.drawOn(canvasJeu);
+		mondeMS2d.drawOn(canvasPartie);
 		
 	}
 	
 	public void afficherImagesParSecondes(String fps) {
-		canvasJeu.afficherFps(fps);
+		canvasPartie.afficherFps(fps);
 	}
 	
 	public void afficherNomPremierJoueur(String nomPremierJoueur) {
-		labelNomPremierJoueur.setText(nomPremierJoueur);
+		labelNomJoueur1.setText(nomPremierJoueur);
 	}
 	
 	public void afficherNomDeuxiemeJoueur(String nomDeuxiemeJoueur) {
-		labelNomDeuxiemeJoueur.setText(nomDeuxiemeJoueur);
+		labelNomJoueur2.setText(nomDeuxiemeJoueur);
 	}
 	
 	public void afficherScorePremierJoueur(String scorePremierJoueur) {
-		labelScorePremierJoueur.setText(scorePremierJoueur);
+		labelScoreJoueur1.setText(scorePremierJoueur);
 	}
 	
 	public void afficherScoreDeuxiemeJoueur(String scoreDeuxiemeJoueur) {
-		labelScoreDeuxiemeJoueur.setText(scoreDeuxiemeJoueur);
+		labelScoreJoueur2.setText(scoreDeuxiemeJoueur);
 	}
 
 }

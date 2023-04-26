@@ -37,9 +37,7 @@
 				text="%add"
 				styleClass="gros-bouton"
 				id="bouton-s-inscrire"></Button>
-			<!-- ajouter -->
 			<Pane styleClass="grand-espace-vertical" />
-			<!-- ajouter -->
 			<HBox styleClass="conteneur,conteneur-parent">
 				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
 				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs" id="conteneur-Couleurs">

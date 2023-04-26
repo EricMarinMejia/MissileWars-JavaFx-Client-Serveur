@@ -12,7 +12,6 @@ import ca.ntro.core.reflection.observer.Modified;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.donnees.DonneesVueJeu;
 import missile_wars.frontal.evenements.EvtActionJoueur;
-import missile_wars.frontal.vues.VueAccueil;
 import missile_wars.frontal.vues.VuePartie;
 
 public class AfficherJeu {

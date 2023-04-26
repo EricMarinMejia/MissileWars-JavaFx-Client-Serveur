@@ -1,6 +1,5 @@
 package missile_wars.frontal.taches;
 
-import static ca.ntro.app.tasks.frontend.FrontendTasks.create;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 
@@ -8,8 +7,6 @@ import ca.ntro.app.tasks.frontend.FrontendTasks;
 import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
 import missile_wars.frontal.evenements.EvtAfficherFileAttente;
 import missile_wars.frontal.evenements.EvtAfficherHistorique;
-import missile_wars.frontal.evenements.EvtAfficherMenu;
-import missile_wars.frontal.vues.VueAccueil;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueHistorique;
@@ -22,7 +19,7 @@ public class Navigation {
 		.waitsFor("Initialisation")
 		.andContains(subTasks -> {
 			afficherVueHistorique(subTasks);
-			afficherVueAccueil(subTasks);
+//			afficherVueAccueil(subTasks);
 			afficherVueFileAttente(subTasks);
 			afficherVuePartie(subTasks);
 			afficherVueDidacticiel(subTasks);
@@ -30,17 +27,17 @@ public class Navigation {
 		
 	}
 	
-	private static void afficherVueAccueil(FrontendTasks subTasks) {
-		subTasks.task("afficherVueAccueil")
-		.waitsFor(create(VueAccueil.class))
-		.waitsFor(event(EvtAfficherMenu.class))
-		.thenExecutes(inputs -> {
-			VueRacine vueRacine = inputs.get(created(VueRacine.class));
-			VueAccueil vueAccueil = inputs.get(created(VueAccueil.class));
-			
-			vueRacine.afficherSousVue(vueAccueil);
-		});
-	}
+//	private static void afficherVueAccueil(FrontendTasks subTasks) {
+//		subTasks.task("afficherVueAccueil")
+//		.waitsFor(create(VueAccueil.class))
+//		.waitsFor(event(EvtAfficherMenu.class))
+//		.thenExecutes(inputs -> {
+//			VueRacine vueRacine = inputs.get(created(VueRacine.class));
+//			VueAccueil vueAccueil = inputs.get(created(VueAccueil.class));
+//			
+//			vueRacine.afficherSousVue(vueAccueil);
+//		});
+//	}
 	
 	private static void afficherVueHistorique(FrontendTasks subTasks) {
 		subTasks.task("afficherVueHistorique")
