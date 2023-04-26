@@ -1,8 +1,5 @@
 package missile_wars.frontal.vues;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.views.ViewFx;
@@ -14,7 +11,6 @@ import javafx.scene.layout.VBox;
 import missile_wars.commun.maquettes.MaquetteCouleurs;
 import missile_wars.commun.messages.MsgAjouterCouleur;
 import missile_wars.commun.valeurs.Couleur;
-import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.vues.fragments.FragmentCouleur;
 
 public class VueParametres extends ViewFx {

@@ -11,8 +11,8 @@
 <VBox xmlns:fx="http://javafx.com/fxml"
 	fx:controller="missile_wars.frontal.vues.VueParametres">
 	<VBox styleClass="conteneur">
-		<!-- <Text styleClass="titre"
-			text="Ceci est la page des parametres !"></Text> -->
+		<Text styleClass="titre"
+			text="Ceci est la page des parametres !"></Text>
 		<!--		<ImageView>
 			<image>
 				<Image url="@WorkForce2023.png" />
@@ -36,33 +36,26 @@
 				fx:id="boutonAddColor"
 				text="%add"
 				styleClass="gros-bouton"
-				id="bouton-s-inscrire">
-			</Button>
+				id="bouton-s-inscrire"></Button>
+			<!-- ajouter -->
 			<Pane styleClass="grand-espace-vertical" />
+			<!-- ajouter -->
 			<HBox styleClass="conteneur,conteneur-parent">
-				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs"
-					id="conteneur-Couleurs">
+				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs" id="conteneur-Couleurs">
 				</VBox>
-				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
+				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
 			</HBox>
-			<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical" />
+			<!-- ajouter -->
+			<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
 		</VBox>
 		<Button
 			fx:id="boutonAddColor"
 			text="%add"
 			styleClass="gros-bouton"
-			id="bouton-s-inscrire">
-		</Button>
+			id="bouton-s-inscrire"></Button>
 	</VBox>
-
 	<VBox styleClass="colorpicker">
 		<ColorPicker styleClass="colorpicker"></ColorPicker>
 	</VBox>
-
-	<Button
-		fx:id="boutonVersMenu"
-		text="%boutonVersMenu"
-		styleClass="gros-bouton">
-	</Button>
 </VBox>

@@ -13,14 +13,17 @@ public class AfficherParametres {
 
 	public static void creerTaches(FrontendTasks tasks) {
 
-		tasks.taskGroup("AfficherParametres").waitsFor("Initialisation").andContains(subTasks -> {
+		tasks.taskGroup("AfficherParametres")
+		.waitsFor("Initialisation")
+		.andContains(subTasks -> {
 			// ajouter l'appel
 			afficherParametres(subTasks);
 		});
 	}
 
 	private static void afficherParametres(FrontendTasks subTasks) {
-		subTasks.task("afficherParametres").waitsFor(modified(ModeleParametres.class))
+		subTasks.task("afficherParametres")
+		.waitsFor(modified(ModeleParametres.class))
 
 				.executes(inputs -> {
 

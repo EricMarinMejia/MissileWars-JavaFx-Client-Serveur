@@ -7,8 +7,10 @@ import missile_wars.commun.messages.MsgActualiserInscriptionJoueur;
 import missile_wars.commun.messages.MsgActualiserInscriptionJoueurNom;
 import missile_wars.commun.messages.MsgActualiserInscriptionJoueurTouche;
 import missile_wars.commun.modeles.ModeleInscriptionJoueur;
+import missile_wars.commun.modeles.ModeleParametres;
 import missile_wars.commun.monde2d.Missile2d;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
+import missile_wars.commun.valeurs.Couleur;
 import missile_wars.commun.valeurs.KeyStringRepresentation;
 
 public class Declarations {
@@ -21,10 +23,12 @@ public class Declarations {
 
 	public static void declarerModeles(ModelRegistrar registrar) {
 			registrar.registerModel(ModeleInscriptionJoueur.class);
+			registrar.registerModel(ModeleParametres.class);
 			
 			registrar.registerValue(KeyStringRepresentation.class);
 			registrar.registerValue(MondeMissileWars2d.class);
 			registrar.registerValue(Missile2d.class);
+			registrar.registerValue(Couleur.class);
 	}
 	
 	

@@ -6,7 +6,7 @@
 <?import missile_wars.frontal.controles.CanevasDidacticiel?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="missile_wars.frontal.vue.VueDidacticiel" styleClass="conteneur">
+    fx:controller="missile_wars.frontal.vues.VueDidacticiel" styleClass="conteneur">
     
     <Label text="%didacticielTitre" styleClass="texte-large" />
     

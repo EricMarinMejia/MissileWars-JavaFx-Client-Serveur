@@ -1,11 +1,20 @@
 package missile_wars.frontal.taches;
 
-import ca.ntro.app.tasks.frontend.FrontendTasks;
-import missile_wars.frontal.vues.VueMenu;
-import missile_wars.frontal.vues.VueRacine;
-import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.create;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.viewLoader;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
+
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
+import ca.ntro.app.tasks.frontend.FrontendTasks;
+import missile_wars.commun.modeles.ModeleInscriptionJoueur;
+import missile_wars.frontal.vues.VueInscription;
+import missile_wars.frontal.vues.VueMenu;
+import missile_wars.frontal.vues.VueParametres;
+import missile_wars.frontal.vues.VueRacine;
+import missile_wars.frontal.vues.fragments.FragmentActionTouche;
+import missile_wars.frontal.vues.fragments.FragmentCouleur;
 
 public class Initialisation {
     public static void creerTaches(FrontendTasks taches) {
@@ -18,6 +27,9 @@ public class Initialisation {
 
                     installerVueRacine(sousTaches);
                     installerVueMenu(sousTaches);
+                    
+                    creerVueParametres(sousTaches);
+                    creerVueSInscrire(sousTaches);
 
                     afficherFenetre(sousTaches);
                 });
@@ -36,7 +48,7 @@ public class Initialisation {
     private static void installerVueRacine(FrontendTasks sousTaches) {
         sousTaches.task("installerVueRacine")
                 .waitsFor(window())
-                .waitsFor(create(VueRacine.class))
+                .waitsFor(created(VueRacine.class))
                 .thenExecutes(entrees -> {
                     VueRacine vueRacine = entrees.get(created(VueRacine.class));
                     Window window = entrees.get(window());
@@ -64,6 +76,57 @@ public class Initialisation {
                     vueRacine.afficherSousVue(vueMenu);
                 });
     }
+    
+    private static void creerVueSInscrire(FrontendTasks tasks) {
+
+        tasks.task(create(VueInscription.class))
+
+                .waitsFor(viewLoader(VueInscription.class))
+                .waitsFor(viewLoader(FragmentActionTouche.class))
+
+                .thenExecutesAndReturnsValue(inputs -> {
+
+                    ViewLoader<VueInscription> viewLoader = inputs.get(viewLoader(VueInscription.class));
+                    ViewLoader<FragmentActionTouche> viewLoaderActionTouche = inputs.get(viewLoader(FragmentActionTouche.class));
+
+                    VueInscription vueInscription = viewLoader.createView();
+                    
+                    vueInscription.setViewLoaderActionTouche(viewLoaderActionTouche);
+                    vueInscription.memoriserTouchesDefaut(ModeleInscriptionJoueur.instancierTouchesDefaut());
+                    
+                    return vueInscription;
+                });
+    }
+    private static void creerVueParametres(FrontendTasks tasks) {
+
+		tasks.task(create(VueParametres.class))
+				.waitsFor(viewLoader(VueParametres.class))
+				.waitsFor(viewLoader(FragmentCouleur.class))
+				.thenExecutesAndReturnsValue(inputs -> {
+
+					ViewLoader<VueParametres> viewLoader = inputs.get(viewLoader(VueParametres.class));
+					ViewLoader<FragmentCouleur> viewLoaderCouleurs = inputs.get(viewLoader(FragmentCouleur.class));
+					VueParametres VueParametres = viewLoader.createView();
+					VueParametres.setViewLoaderCouleurs(viewLoaderCouleurs);
+					return VueParametres;
+				});
+	}
+
+//	private static void creerVueHistorique(FrontendTasks tasks) {
+//		tasks.task(create(VueHistorique.class))
+//				.waitsFor(viewLoader(VueHistorique.class))
+//				.waitsFor(viewLoader(FragmentPartie.class))
+//				.thenExecutesAndReturnsValue(inputs -> {
+//					ViewLoader<VueHistorique> viewLoader = inputs.get(viewLoader(VueHistorique.class));
+//					ViewLoader<FragmentPartie> viewLoaderParties = inputs.get(viewLoader(FragmentPartie.class));
+//					
+//					VueHistorique vueHistorique = viewLoader.createView();
+//					
+//					vueHistorique.setViewLoaderParties(viewLoaderParties);
+//					return vueHistorique;
+//				});
+//	}
+
 
     // private static void creerVuePages(FrontendTasks taches) {
     // taches.task(create(VuePages.class))

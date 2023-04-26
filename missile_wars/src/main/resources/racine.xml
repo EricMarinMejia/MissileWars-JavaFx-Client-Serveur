@@ -4,6 +4,6 @@
 <?import javafx.scene.control.Button?>
 
 <StackPane xmlns:fx="http://javafx.com/fxml" 
-    fx:controller="missile_wars.frontal.vue.VueRacine" styleClass="conteneur" id="vue-racine" >
+    fx:controller="missile_wars.frontal.vues.VueRacine" styleClass="conteneur" id="vue-racine" >
     
 </StackPane>

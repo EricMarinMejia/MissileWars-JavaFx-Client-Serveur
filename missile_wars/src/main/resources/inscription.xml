@@ -9,7 +9,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/19"
 	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="missile_wars.frontal.vues.VueSInscrire">
+	fx:controller="missile_wars.frontal.vues.VueInscription">
 	<children>
 		<HBox
 			styleClass="name_entry_container">
@@ -44,16 +44,4 @@
 		</HBox>
 	</children>
 	
-	<Button
-        text="%boutonVersMenu"
-        styleClass="gros-bouton"
-        fx:id="boutonVersPages">
-    </Button>
-
-	<Button
-            fx:id="boutonVersFileAttente"
-            text="%boutonVersFileAttente"
-            styleClass="gros-bouton"
-            id="bouton-vers-file-attente">
-    </Button>
 </VBox>

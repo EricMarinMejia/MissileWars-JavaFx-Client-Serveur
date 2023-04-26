@@ -2,7 +2,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 <?import missile_wars.frontal.controles.CanvasPartie?>
-<?import jaEvtsdaaasdadvafx.scene.layout.HBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
@@ -13,7 +13,7 @@
 
         <Button
             fx:id="boutonVersInscription"
-            text="%boutonVersFileAttente"
+            text="%boutonVersInscription"
             styleClass="gros-bouton"
             id="bouton-vers-file-attente">
         </Button>

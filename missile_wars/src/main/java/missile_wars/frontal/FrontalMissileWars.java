@@ -7,15 +7,28 @@ import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import missile_wars.frontal.evenements.EvtActionJoueur;
 import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
+import missile_wars.frontal.evenements.EvtAfficherInscription;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.evenements.EvtAfficherPages;
+import missile_wars.frontal.evenements.EvtAfficherParametres;
+import missile_wars.frontal.evenements.EvtAfficherPartie;
+import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
+import missile_wars.frontal.evenements.EvtRemettreTouchesParDefaut;
 import missile_wars.frontal.taches.AfficherDidacticiel;
+import missile_wars.frontal.taches.AfficherParametres;
+import missile_wars.frontal.taches.AfficherPartie;
+import missile_wars.frontal.taches.AfficherSInscrire;
 import missile_wars.frontal.taches.Initialisation;
 import missile_wars.frontal.taches.Navigation;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
+import missile_wars.frontal.vues.VueInscription;
 import missile_wars.frontal.vues.VueMenu;
 import missile_wars.frontal.vues.VueParametres;
+import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.VueRacine;
+import missile_wars.frontal.vues.fragments.FragmentActionTouche;
+import missile_wars.frontal.vues.fragments.FragmentCouleur;
 
 public class FrontalMissileWars implements FrontendFx{
 
@@ -23,6 +36,11 @@ public class FrontalMissileWars implements FrontendFx{
     public void createTasks(FrontendTasks tasks) {
         Initialisation.creerTaches(tasks);
         AfficherDidacticiel.creerTaches(tasks);
+//        AfficherPages.creerTaches(tasks);
+        AfficherParametres.creerTaches(tasks);
+        AfficherPartie.creerTaches(tasks);
+        AfficherSInscrire.creerTaches(tasks);
+        
         Navigation.creerTaches(tasks);
     }
 
@@ -36,6 +54,12 @@ public class FrontalMissileWars implements FrontendFx{
         registrar.registerEvent(EvtAfficherDidacticiel.class);
         registrar.registerEvent(EvtAfficherPages.class);
         registrar.registerEvent(EvtActionJoueur.class);
+        registrar.registerEvent(EvtAfficherInscription.class);
+        registrar.registerEvent(EvtAfficherMenu.class);
+        registrar.registerEvent(EvtAfficherParametres.class);
+        registrar.registerEvent(EvtAfficherPartie.class);
+        registrar.registerEvent(EvtRemettreInfosActuelles.class);
+        registrar.registerEvent(EvtRemettreTouchesParDefaut.class);
     }
 
     @Override
@@ -43,8 +67,13 @@ public class FrontalMissileWars implements FrontendFx{
         registrar.registerView(VueRacine.class, "/racine.xml");
         registrar.registerView(VueMenu.class, "/menu.xml");
         registrar.registerView(VueDidacticiel.class, "/didacticiel.xml");
-        registrar.registerView(VueFileAttente.class, "/file-attente.xml");       
-        registrar.registerView(VueParametres.class, "/parametres.xml");       
+        registrar.registerView(VueFileAttente.class, "/file-attente.xml");
+        registrar.registerView(VueParametres.class, "/parametres.xml");
+        registrar.registerView(VueInscription.class, "/inscription.xml");
+        registrar.registerView(VuePartie.class, "/partie.xml");
+        
+        registrar.registerFragment(FragmentActionTouche.class, "/fragments/action_touche.xml");
+        registrar.registerFragment(FragmentCouleur.class, "/fragments/couleur.xml");
 
         registrar.registerStylesheet("/dev.css");
         registrar.registerStylesheet("/prod.css");

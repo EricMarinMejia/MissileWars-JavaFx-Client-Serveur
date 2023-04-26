@@ -11,7 +11,7 @@
 <?import missile_wars.frontal.controles.FlexBoxDonnees?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="missile_wars.frontal.vue.VuePages" styleClass="conteneur">
+    fx:controller="missile_wars.frontal.vues.VuePages" styleClass="conteneur">
 
     <Label text="%titre" styleClass="texte-large" />
 

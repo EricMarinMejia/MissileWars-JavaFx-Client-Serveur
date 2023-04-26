@@ -38,7 +38,7 @@ public class AfficherSInscrire {
 	public static void afficherSInscrire(FrontendTasks tasks) {
 		
 		tasks.task("afficherSInscrire")
-		
+		.waitsFor(created(VueInscription.class))
 		.waitsFor(modified(ModeleInscriptionJoueur.class))
 		
 		.executes(inputs -> {
@@ -67,6 +67,7 @@ public class AfficherSInscrire {
 	
 	public static void remettreTouchesParDefaut(FrontendTasks tasks) {
 		tasks.task("remettreTouchesParDefaut")
+		.waitsFor(created(VueInscription.class))
 		.waitsFor(event(EvtRemettreTouchesParDefaut.class))
 		.executes(inputs -> {
 			
