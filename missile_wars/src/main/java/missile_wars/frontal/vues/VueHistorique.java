@@ -36,11 +36,11 @@ public class VueHistorique extends ViewFx {
 	}
 	
 	private void installerEvtRevenirMenu() {
-		EvtAfficherMenu evtAfficherAccueil = NtroApp.newEvent(EvtAfficherMenu.class);
+		EvtAfficherMenu evtAfficherMenu = NtroApp.newEvent(EvtAfficherMenu.class);
 		
 		boutonRevenirMenu.setOnAction(evtFx -> {
 			System.out.println("[VueHistorique] clic: " + evtFx.getEventType());
-			evtAfficherAccueil.trigger();
+			evtAfficherMenu.trigger();
 		});
 	}
 

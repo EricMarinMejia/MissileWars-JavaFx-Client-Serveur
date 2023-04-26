@@ -19,6 +19,7 @@ import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.VueRacine;
 import missile_wars.frontal.vues.fragments.FragmentActionTouche;
 import missile_wars.frontal.vues.fragments.FragmentCouleur;
+import missile_wars.frontal.vues.fragments.FragmentPartie;
 
 public class Initialisation {
     public static void creerTaches(FrontendTasks taches) {
@@ -146,10 +147,13 @@ public class Initialisation {
     private static void creerVueHistorique(FrontendTasks subTasks) {
     	subTasks.task(create(VueHistorique.class))
     		.waitsFor(viewLoader(VueHistorique.class))
+    		.waitsFor(viewLoader(FragmentPartie.class))
     		.thenExecutesAndReturnsValue(inputs -> {
     			
     			ViewLoader<VueHistorique> viewLoader = inputs.get(viewLoader(VueHistorique.class));
+    			ViewLoader<FragmentPartie> viewLoaderFragmentPartie = inputs.get(viewLoader(FragmentPartie.class));
     			VueHistorique vueHistorique = viewLoader.createView();
+    			vueHistorique.setViewLoaderParties(viewLoaderFragmentPartie);
     			return vueHistorique;
     			
     		});

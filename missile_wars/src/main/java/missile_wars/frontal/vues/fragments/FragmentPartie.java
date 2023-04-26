@@ -64,7 +64,7 @@ public class FragmentPartie extends ViewFragmentFx {
 	}
 	
 	public void afficherResultatPartie(String resultat) {
-		String resultatTraduit = this.resources().getString(resultat);
+		String resultatTraduit = "draw"; // this.resources().getString(resultat);
 		resultatPartie.setText(resultatTraduit);
 	}
 	
