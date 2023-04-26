@@ -16,11 +16,15 @@ public class FragmentCouleur extends ViewFragmentFx {
 
     @FXML
     private Label labelNomCouleur;
+    
+    @FXML
+    private Button boutonRetirerCouleur;
 
     @Override
     public void initialiser() {
         Ntro.assertNotNull("boutonJoindrePartie", boutonJoindrePartie);
         Ntro.assertNotNull("labelNomCouleur", labelNomCouleur);
+        Ntro.assertNotNull("boutonRetirerCouleur", boutonRetirerCouleur);
         installerEvtAfficherMenu();
     }
 

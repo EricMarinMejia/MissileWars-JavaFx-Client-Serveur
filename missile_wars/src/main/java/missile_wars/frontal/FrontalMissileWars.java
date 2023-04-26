@@ -22,6 +22,7 @@ import missile_wars.frontal.taches.Initialisation;
 import missile_wars.frontal.taches.Navigation;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
+import missile_wars.frontal.vues.VueHistorique;
 import missile_wars.frontal.vues.VueInscription;
 import missile_wars.frontal.vues.VueMenu;
 import missile_wars.frontal.vues.VueParametres;
@@ -71,6 +72,7 @@ public class FrontalMissileWars implements FrontendFx {
         registrar.registerView(VueFileAttente.class, "/file-attente.xml");
         registrar.registerView(VueParametres.class, "/parametres.xml");
         registrar.registerView(VueInscription.class, "/inscription.xml");
+        registrar.registerView(VueHistorique.class, "/historique.xml");
         registrar.registerView(VuePartie.class, "/partie.xml");
         
         registrar.registerFragment(FragmentActionTouche.class, "/fragments/action_touche.xml");

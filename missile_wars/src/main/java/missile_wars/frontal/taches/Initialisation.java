@@ -8,10 +8,10 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import ca.ntro.core.initialization.Ntro;
 import missile_wars.commun.modeles.ModeleInscriptionJoueur;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
+import missile_wars.frontal.vues.VueHistorique;
 import missile_wars.frontal.vues.VueInscription;
 import missile_wars.frontal.vues.VueMenu;
 import missile_wars.frontal.vues.VueParametres;
@@ -36,6 +36,7 @@ public class Initialisation {
                     creerVueParametres(sousTaches);
                     creerVueSInscrire(sousTaches);
                     creerVueFileAttente(sousTaches);
+                    creerVueHistorique(sousTaches);
 
                     afficherFenetre(sousTaches);
                 });
@@ -138,6 +139,18 @@ public class Initialisation {
     			ViewLoader<VuePartie> viewLoader = inputs.get(viewLoader(VuePartie.class));
     			VuePartie vuePartie = viewLoader.createView();
     			return vuePartie;
+    			
+    		});
+    }
+
+    private static void creerVueHistorique(FrontendTasks subTasks) {
+    	subTasks.task(create(VueHistorique.class))
+    		.waitsFor(viewLoader(VueHistorique.class))
+    		.thenExecutesAndReturnsValue(inputs -> {
+    			
+    			ViewLoader<VueHistorique> viewLoader = inputs.get(viewLoader(VueHistorique.class));
+    			VueHistorique vueHistorique = viewLoader.createView();
+    			return vueHistorique;
     			
     		});
     }

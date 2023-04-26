@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
 import missile_wars.frontal.evenements.EvtAfficherFileAttente;
+import missile_wars.frontal.evenements.EvtAfficherHistorique;
 import missile_wars.frontal.evenements.EvtAfficherInscription;
 import missile_wars.frontal.evenements.EvtAfficherParametres;
 
@@ -19,6 +20,8 @@ public class VueMenu extends ViewFx {
 	private Button boutonVersDidacticiel;
     @FXML
     private Button boutonVersFileAttente;
+    @FXML
+    private Button boutonVersHistorique;
 
 	@Override
 	public void initialiser() {
@@ -26,10 +29,12 @@ public class VueMenu extends ViewFx {
 		Ntro.assertNotNull("boutonVersDidacticiel", boutonVersDidacticiel);
 		Ntro.assertNotNull("boutonVersInscription", boutonVersInscription);
 		Ntro.assertNotNull("boutonVersFileAttente", boutonVersFileAttente);
+		Ntro.assertNotNull("boutonVersHistorique", boutonVersHistorique);
 		installerEvtAfficherParametres();
 		installerEvtAfficherInscription();
 		installerEvtAfficherDidacticiel();
 		installerEvtAfficherFileAttente();
+		installerEvtAfficherHistorique();
 	}
 
 	private void installerEvtAfficherInscription() {
@@ -59,4 +64,12 @@ public class VueMenu extends ViewFx {
 			evtNtro.trigger();
 		});
 	}
+	
+	private void installerEvtAfficherHistorique() {
+		EvtAfficherHistorique evtNtro = NtroApp.newEvent(EvtAfficherHistorique.class);
+		boutonVersHistorique.setOnAction(evtFx -> {
+			evtNtro.trigger();
+		});
+	}
+	
 }

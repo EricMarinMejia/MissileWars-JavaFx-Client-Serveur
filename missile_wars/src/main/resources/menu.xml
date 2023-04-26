@@ -33,6 +33,13 @@
         </Button>
 
         <Button
+            fx:id="boutonVersHistorique"
+            text="%boutonVersHistorique"
+            styleClass="gros-bouton"
+            id="bouton-vers-historique">
+        </Button>
+
+        <Button
             fx:id="boutonVersFileAttente"
             text="%boutonVersFileAttente"
             styleClass="gros-bouton"
