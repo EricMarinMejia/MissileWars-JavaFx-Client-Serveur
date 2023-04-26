@@ -6,6 +6,7 @@ import ca.ntro.app.models.ModelRegistrar;
 import missile_wars.commun.messages.MsgActualiserInscriptionJoueur;
 import missile_wars.commun.messages.MsgActualiserInscriptionJoueurNom;
 import missile_wars.commun.messages.MsgActualiserInscriptionJoueurTouche;
+import missile_wars.commun.messages.MsgAjouterCouleur;
 import missile_wars.commun.messages.MsgAjouterPoint;
 import missile_wars.commun.messages.MsgRetirerPartie;
 import missile_wars.commun.modeles.ModeleHistorique;
@@ -22,6 +23,7 @@ public class Declarations {
 	public static void declarerMessages(MessageRegistrar registrar) {
 		registrar.registerMessage(MsgRetirerPartie.class);
 		registrar.registerMessage(MsgAjouterPoint.class);
+		registrar.registerMessage(MsgAjouterCouleur.class);
 		registrar.registerMessage(MsgActualiserInscriptionJoueur.class);
 		registrar.registerMessage(MsgActualiserInscriptionJoueurTouche.class);
 		registrar.registerMessage(MsgActualiserInscriptionJoueurNom.class);

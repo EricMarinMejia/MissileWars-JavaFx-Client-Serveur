@@ -18,17 +18,17 @@
 				<Image url="@WorkForce2023.png" />
 			</image>
 		</ImageView>-->
-		<!--		<Button
+			<Button
 			fx:id="boutonJoindreMenu"
 			text="%rejoindre"
 			styleClass="gros-bouton"
-			id="bouton-joindre-menu"></Button>-->
-		<!--		<Label text="%lesParametres" styleClass="moyen-texte" />-->
-		<!--		<Label
+			id="bouton-joindre-menu"></Button>
+			<Label text="%lesParametres" styleClass="moyen-texte" />
+			<Label
 			fx:id="labelParametres"
 			styleClass="petit-texte"
 			id="label-message"
-			text="[labelParametres]"></Label>-->
+			text="[labelParametres]"></Label>
 		<VBox styleClass="conteneur"
 			id="vue-parametres">
 			<Pane styleClass="petit-espace-vertical" />

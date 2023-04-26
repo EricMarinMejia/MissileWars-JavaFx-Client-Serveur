@@ -77,7 +77,7 @@ public class ModeleParametres implements Model, WatchJson, WriteObjectGraph {
 	}
 
 	public void afficherSur(VueParametres vueParametres) {
-		//vueParametres.afficherParametresEnTexte(this.toString());
+		vueParametres.afficherParametresEnTexte(this.toString());
 		vueParametres.viderListeCouleurs();
             
             // ajouter

@@ -7,12 +7,16 @@ import ca.ntro.app.tasks.frontend.FrontendTasks;
 import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
 import missile_wars.frontal.evenements.EvtAfficherFileAttente;
 import missile_wars.frontal.evenements.EvtAfficherHistorique;
+import missile_wars.frontal.evenements.EvtAfficherInscription;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
+import missile_wars.frontal.evenements.EvtAfficherParametres;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueHistorique;
+import missile_wars.frontal.vues.VueInscription;
 import missile_wars.frontal.vues.VueMenu;
+import missile_wars.frontal.vues.VueParametres;
 import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.VueRacine;
 
@@ -27,6 +31,8 @@ public class Navigation {
 			afficherVuePartie(subTasks, tasks);
 			afficherVueDidacticiel(subTasks, tasks);
 			afficherVueMenu(subTasks);
+			afficherVueParametres(subTasks);
+			afficherVueInscription(subTasks);
 		});
 		
 	}
@@ -87,6 +93,30 @@ public class Navigation {
         });
 	}
 
+    private static void afficherVueParametres(FrontendTasks subTasks) {
+    	subTasks.task("afficherVueParametres")
+        .waitsFor(event(EvtAfficherParametres.class))
+        .thenExecutes(entrees -> { 
+			supprimerTachesDynamiques();
+            VueRacine vueRacine = entrees.get(created(VueRacine.class));
+            VueParametres vueParametres = entrees.get(created(VueParametres.class));
+            vueRacine.afficherSousVue(vueParametres);
+            
+        });
+    }
+    
+    private static void afficherVueInscription(FrontendTasks subTasks) {
+    	subTasks.task("afficherVueInscription")
+        .waitsFor(event(EvtAfficherInscription.class))
+        .thenExecutes(entrees -> { 
+			supprimerTachesDynamiques();
+            VueRacine vueRacine = entrees.get(created(VueRacine.class));
+            VueInscription vueInscription = entrees.get(created(VueInscription.class));
+            vueRacine.afficherSousVue(vueInscription);
+            
+        });
+    }
+
     private static void afficherVueDidacticiel(FrontendTasks sousTaches, FrontendTasks taches) {
         sousTaches.task("afficherVueDidacticiel")
         .waitsFor(event(EvtAfficherDidacticiel.class))
@@ -99,5 +129,6 @@ public class Navigation {
             AfficherDidacticiel.creerTaches(taches);
         });
     }
+    
 	
 }
