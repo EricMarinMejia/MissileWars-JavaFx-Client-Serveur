@@ -1,2 +1,2 @@
-# 4f5_Antonii_Spasov
+# 4f5_missile_wars
 ## Environment
