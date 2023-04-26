@@ -55,7 +55,7 @@ public class AfficherJeu {
 	}
 	
 	private static void prochaineImageJeu(FrontendTasks subTasks) {
-		subTasks.task("prochaineImagePartie")
+		subTasks.task("prochaineImageJeu")
 		
 		.waitsFor(clock().nextTick())
 		

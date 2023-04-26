@@ -8,10 +8,12 @@ import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
 import missile_wars.frontal.evenements.EvtAfficherFileAttente;
 import missile_wars.frontal.evenements.EvtAfficherHistorique;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
+import missile_wars.frontal.evenements.EvtAfficherPartie;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueHistorique;
 import missile_wars.frontal.vues.VueMenu;
+import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.VueRacine;
 
 public class Navigation {
@@ -21,31 +23,26 @@ public class Navigation {
 		.waitsFor("Initialisation")
 		.andContains(subTasks -> {
 			afficherVueHistorique(subTasks);
-//			afficherVueAccueil(subTasks);
 			afficherVueFileAttente(subTasks);
-			afficherVuePartie(subTasks);
-			afficherVueDidacticiel(subTasks);
+			afficherVuePartie(subTasks, tasks);
+			afficherVueDidacticiel(subTasks, tasks);
 			afficherVueMenu(subTasks);
 		});
 		
 	}
 	
-//	private static void afficherVueAccueil(FrontendTasks subTasks) {
-//		subTasks.task("afficherVueAccueil")
-//		.waitsFor(create(VueAccueil.class))
-//		.waitsFor(event(EvtAfficherMenu.class))
-//		.thenExecutes(inputs -> {
-//			VueRacine vueRacine = inputs.get(created(VueRacine.class));
-//			VueAccueil vueAccueil = inputs.get(created(VueAccueil.class));
-//			
-//			vueRacine.afficherSousVue(vueAccueil);
-//		});
-//	}
+	
+	private static void supprimerTachesDynamiques() {
+		AfficherDidacticiel.supprimerTachesDynamiques();
+		AfficherPartie.supprimerTachesDynamiques();
+	}
+	
 	
 	private static void afficherVueHistorique(FrontendTasks subTasks) {
 		subTasks.task("afficherVueHistorique")
 		.waitsFor(event(EvtAfficherHistorique.class))
 		.thenExecutes(inputs -> {
+			supprimerTachesDynamiques();
 			VueRacine vueRacine = inputs.get(created(VueRacine.class));
 			VueHistorique vueHistorique = inputs.get(created(VueHistorique.class));
 			
@@ -57,6 +54,7 @@ public class Navigation {
 		subTasks.task("afficherVueFileAttente")
 		.waitsFor(event(EvtAfficherFileAttente.class))
 		.thenExecutes(inputs -> {
+			supprimerTachesDynamiques();
 			VueRacine vueRacine = inputs.get(created(VueRacine.class));
 			VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
 			
@@ -68,6 +66,7 @@ public class Navigation {
 		subTasks.task("afficherVueMenu")
 		.waitsFor(event(EvtAfficherMenu.class))
 		.thenExecutes(inputs -> {
+			supprimerTachesDynamiques();
 			VueRacine vueRacine = inputs.get(created(VueRacine.class));
 			VueMenu vueMenu = inputs.get(created(VueMenu.class));
 			
@@ -75,17 +74,29 @@ public class Navigation {
 		});
 	}
 
-	private static void afficherVuePartie(FrontendTasks subTasks) {
-		
+	private static void afficherVuePartie(FrontendTasks subTasks, FrontendTasks tasks) {
+		subTasks.task("afficherVuePartie")
+        .waitsFor(event(EvtAfficherPartie.class))
+        .thenExecutes(entrees -> { 
+			supprimerTachesDynamiques();
+            VueRacine vueRacine = entrees.get(created(VueRacine.class));
+            VuePartie vuePartie = entrees.get(created(VuePartie.class));
+            vueRacine.afficherSousVue(vuePartie);
+            
+            AfficherPartie.creerTaches(tasks);
+        });
 	}
 
-    private static void afficherVueDidacticiel(FrontendTasks sousTaches) { 
+    private static void afficherVueDidacticiel(FrontendTasks sousTaches, FrontendTasks taches) {
         sousTaches.task("afficherVueDidacticiel")
         .waitsFor(event(EvtAfficherDidacticiel.class))
         .thenExecutes(entrees -> { 
+			supprimerTachesDynamiques();
             VueRacine vueRacine = entrees.get(created(VueRacine.class));
             VueDidacticiel vueDidacticiel = entrees.get(created(VueDidacticiel.class));
             vueRacine.afficherSousVue(vueDidacticiel);
+            
+            AfficherDidacticiel.creerTaches(taches);
         });
     }
 	

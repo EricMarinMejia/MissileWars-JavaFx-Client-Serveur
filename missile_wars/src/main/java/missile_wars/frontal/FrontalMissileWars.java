@@ -37,10 +37,9 @@ public class FrontalMissileWars implements FrontendFx{
     @Override
     public void createTasks(FrontendTasks tasks) {
         Initialisation.creerTaches(tasks);
-        AfficherDidacticiel.creerTaches(tasks);
-//        AfficherPages.creerTaches(tasks);
+//        AfficherDidacticiel.creerTaches(tasks);
         AfficherParametres.creerTaches(tasks);
-        AfficherPartie.creerTaches(tasks);
+//        AfficherPartie.creerTaches(tasks);
         AfficherSInscrire.creerTaches(tasks);
         
         Navigation.creerTaches(tasks);
