@@ -16,9 +16,7 @@ import missile_wars.frontal.evenements.EvtAfficherParametres;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
 import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
 import missile_wars.frontal.evenements.EvtRemettreTouchesParDefaut;
-import missile_wars.frontal.taches.AfficherDidacticiel;
 import missile_wars.frontal.taches.AfficherParametres;
-import missile_wars.frontal.taches.AfficherPartie;
 import missile_wars.frontal.taches.AfficherSInscrire;
 import missile_wars.frontal.taches.Initialisation;
 import missile_wars.frontal.taches.Navigation;
@@ -32,7 +30,7 @@ import missile_wars.frontal.vues.VueRacine;
 import missile_wars.frontal.vues.fragments.FragmentActionTouche;
 import missile_wars.frontal.vues.fragments.FragmentCouleur;
 
-public class FrontalMissileWars implements FrontendFx{
+public class FrontalMissileWars implements FrontendFx {
 
     @Override
     public void createTasks(FrontendTasks tasks) {

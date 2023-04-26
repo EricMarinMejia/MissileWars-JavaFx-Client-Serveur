@@ -1,8 +1,12 @@
 package missile_wars.commun.modeles;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.Model;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
+import missile_wars.commun.valeurs.Equipe;
 import missile_wars.frontal.donnees.DonneesVueJeu;
 import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.fragments.FragmentPartie;
@@ -10,21 +14,18 @@ import missile_wars.frontal.vues.fragments.FragmentPartie;
 public class ModelePartie implements Model {
 	
 	private MondeMissileWars2d mondeMS2d = new MondeMissileWars2d();
+	
+	
+	private List<Equipe> lesEquipes = new ArrayList<>();
 
 	private String partieGagnee;
 	
-	private String nomJoueur1 = "Alfred Laidron";
-	private String nomJoueur2 = "Nule Hatre";
-
-	private int nbMissileJoueur1;
-	private int nbMissileJoueur2;
-	
-	private int scoreJoueur1 = 0;
-	private int scoreJoueur2 = 0;
 
 	private String datePartie;
 	
 	private int idPartie;
+	
+	private int quantiteJoueursCible = 2; //un nombre pair.
 	
 	public MondeMissileWars2d getMondeMS2d() {
 		return mondeMS2d;
@@ -46,64 +47,6 @@ public class ModelePartie implements Model {
 	}
 
 
-	public String getNomJoueur1() {
-		return nomJoueur1;
-	}
-
-
-	public void setNomJoueur1(String nomJoueur1) {
-		this.nomJoueur1 = nomJoueur1;
-	}
-
-
-	public String getNomJoueur2() {
-		return nomJoueur2;
-	}
-
-
-	public void setNomJoueur2(String nomJoueur2) {
-		this.nomJoueur2 = nomJoueur2;
-	}
-
-
-	public int getNbMissileJoueur1() {
-		return nbMissileJoueur1;
-	}
-
-
-	public void setNbMissileJoueur1(int nbMissileJoueur1) {
-		this.nbMissileJoueur1 = nbMissileJoueur1;
-	}
-
-
-	public int getNbMissileJoueur2() {
-		return nbMissileJoueur2;
-	}
-
-
-	public void setNbMissileJoueur2(int nbMissileJoueur2) {
-		this.nbMissileJoueur2 = nbMissileJoueur2;
-	}
-
-
-	public int getScoreJoueur1() {
-		return scoreJoueur1;
-	}
-
-
-	public void setScoreJoueur1(int scoreJoueur1) {
-		this.scoreJoueur1 = scoreJoueur1;
-	}
-
-
-	public int getScoreJoueur2() {
-		return scoreJoueur2;
-	}
-
-
-	public void setScoreJoueur2(int scoreJoueur2) {
-		this.scoreJoueur2 = scoreJoueur2;
-	}
 
 
 	public String getDatePartie() {
@@ -125,13 +68,24 @@ public class ModelePartie implements Model {
 		this.idPartie = idPartie;
 	}
 
+	
+	public ModelePartie() {
+		this.lesEquipes.add(new Equipe());
+		this.lesEquipes.add(new Equipe());
+	}
 
 	public void afficherInfoPartieSur(VuePartie vueJeu) {
-		vueJeu.afficherNomPremierJoueur(nomJoueur1);
-		vueJeu.afficherNomDeuxiemeJoueur(nomJoueur2);
+//		vueJeu.afficherNomPremierJoueur(nomJoueur1);
+//		vueJeu.afficherNomDeuxiemeJoueur(nomJoueur2);
+//		
+//		vueJeu.afficherScorePremierJoueur(String.valueOf(scoreJoueur1));
+//		vueJeu.afficherScoreDeuxiemeJoueur(String.valueOf(scoreJoueur2));
+
+		vueJeu.afficherNomPremierJoueur("joueur 1");
+		vueJeu.afficherNomDeuxiemeJoueur("joueur 2");
 		
-		vueJeu.afficherScorePremierJoueur(String.valueOf(scoreJoueur1));
-		vueJeu.afficherScoreDeuxiemeJoueur(String.valueOf(scoreJoueur2));
+		vueJeu.afficherScorePremierJoueur(String.valueOf("1"));
+		vueJeu.afficherScoreDeuxiemeJoueur(String.valueOf("2"));
 	}
 	
 	
@@ -143,6 +97,26 @@ public class ModelePartie implements Model {
 		this.mondeMS2d.copyDataFrom(mondeMS2d);
 	}
 	
+	public List<Equipe> getLesEquipes() {
+		return lesEquipes;
+	}
+
+
+	public void setLesEquipes(List<Equipe> lesEquipes) {
+		this.lesEquipes = lesEquipes;
+	}
+
+
+	public int getQuantiteJoueursCible() {
+		return quantiteJoueursCible;
+	}
+
+
+	public void setQuantiteJoueursCible(int quantiteJoueursCible) {
+		this.quantiteJoueursCible = quantiteJoueursCible;
+	}
+
+
 	public void ajouterPointPour(Object cadran) {
 //		
 //		switch(cadran) {
@@ -163,12 +137,12 @@ public class ModelePartie implements Model {
 
 	public void afficherSur(FragmentPartie fragmentPartie) {
 		fragmentPartie.afficherResultatPartie(partieGagnee);
-		fragmentPartie.afficherNomPremierJoueur(nomJoueur1);
-		fragmentPartie.afficherNomDeuxiemeJoueur(nomJoueur2);
-		fragmentPartie.afficherNbMissileJ1(String.valueOf(nbMissileJoueur1));
-		fragmentPartie.afficherNbMissileJ2(String.valueOf(nbMissileJoueur2));
-		fragmentPartie.afficherPointageJ1(String.valueOf(scoreJoueur1));
-		fragmentPartie.afficherPointageJ2(String.valueOf(scoreJoueur2));
+		fragmentPartie.afficherNomPremierJoueur("joueur 1");
+		fragmentPartie.afficherNomDeuxiemeJoueur("joueur 2");
+		fragmentPartie.afficherNbMissileJ1(String.valueOf("1"));
+		fragmentPartie.afficherNbMissileJ2(String.valueOf("2"));
+		fragmentPartie.afficherPointageJ1(String.valueOf("1"));
+		fragmentPartie.afficherPointageJ2(String.valueOf("2"));
 		fragmentPartie.afficherDate(datePartie);
 		
 		fragmentPartie.memoriserIdPartie(idPartie);

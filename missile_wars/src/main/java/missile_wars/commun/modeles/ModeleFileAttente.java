@@ -8,7 +8,7 @@ import ca.ntro.app.models.Model;
 public class ModeleFileAttente implements Model {
 	private int idProchainJeu= 1;
 	
-	private List<ModelePartie> lesParties= new ArrayList<>();
+	private List<ModelePartie> lesParties = new ArrayList<>();
 	
 	
 }
