@@ -10,6 +10,7 @@ import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import missile_wars.commun.modeles.ModeleInscriptionJoueur;
 import missile_wars.frontal.vues.VueDidacticiel;
+import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueInscription;
 import missile_wars.frontal.vues.VueMenu;
 import missile_wars.frontal.vues.VueParametres;
@@ -33,6 +34,7 @@ public class Initialisation {
                     creerVuePartie(sousTaches);
                     creerVueParametres(sousTaches);
                     creerVueSInscrire(sousTaches);
+                    creerVueFileAttente(sousTaches);
 
                     afficherFenetre(sousTaches);
                 });
@@ -137,6 +139,19 @@ public class Initialisation {
     			return vuePartie;
     			
     		});
+    }
+    
+    private static void creerVueFileAttente(FrontendTasks subTasks) {
+    	subTasks.task(create(VueFileAttente.class))
+		.waitsFor(viewLoader(VueFileAttente.class))
+		.thenExecutesAndReturnsValue(inputs -> {
+			
+			ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
+			VueFileAttente vueFileAttente= viewLoader.createView();
+			return vueFileAttente;
+			
+		});
+    	
     }
 
 

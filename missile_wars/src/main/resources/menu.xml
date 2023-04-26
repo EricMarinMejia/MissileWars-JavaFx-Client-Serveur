@@ -32,6 +32,13 @@
             id="bouton-vers-didacticiel">
         </Button>
 
+        <Button
+            fx:id="boutonVersFileAttente"
+            text="%boutonVersFileAttente"
+            styleClass="gros-bouton"
+            id="bouton-vers-file-attente">
+        </Button>
+
         <Pane styleClass="petit-espace-vertical" />
     </VBox>
 </VBox>
