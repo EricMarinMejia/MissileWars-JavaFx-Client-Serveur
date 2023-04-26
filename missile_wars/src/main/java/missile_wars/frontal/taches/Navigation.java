@@ -5,10 +5,12 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import missile_wars.frontal.evenements.EvtAfficherAccueil;
+import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
 import missile_wars.frontal.evenements.EvtAfficherFileAttente;
 import missile_wars.frontal.evenements.EvtAfficherHistorique;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.vues.VueAccueil;
+import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueHistorique;
 import missile_wars.frontal.vues.VueRacine;
@@ -23,6 +25,7 @@ public class Navigation {
 			afficherVueAccueil(subTasks);
 			afficherVueFileAttente(subTasks);
 			afficherVuePartie(subTasks);
+			afficherVueDidacticiel(subTasks);
 		});
 		
 	}
@@ -30,7 +33,7 @@ public class Navigation {
 	private static void afficherVueAccueil(FrontendTasks subTasks) {
 		subTasks.task("afficherVueAccueil")
 		.waitsFor(create(VueAccueil.class))
-		.waitsFor(event(EvtAfficherAccueil.class))
+		.waitsFor(event(EvtAfficherMenu.class))
 		.thenExecutes(inputs -> {
 			VueRacine vueRacine = inputs.get(created(VueRacine.class));
 			VueAccueil vueAccueil = inputs.get(created(VueAccueil.class));
@@ -64,6 +67,15 @@ public class Navigation {
 	private static void afficherVuePartie(FrontendTasks subTasks) {
 		
 	}
-	
+
+    private static void afficherVueDidacticiel(FrontendTasks sousTaches) { 
+        sousTaches.task("afficherVueDidacticiel")
+        .waitsFor(event(EvtAfficherDidacticiel.class))
+        .thenExecutes(entrees -> { 
+            VueRacine vueRacine = entrees.get(created(VueRacine.class));
+            VueDidacticiel vueDidacticiel = entrees.get(created(VueDidacticiel.class));
+            vueRacine.afficherSousVue(vueDidacticiel);
+        });
+    }
 	
 }

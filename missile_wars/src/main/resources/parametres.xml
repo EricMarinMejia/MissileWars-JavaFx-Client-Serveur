@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+	fx:controller="missile_wars.frontal.vues.VueParametres">
+	<VBox styleClass="conteneur">
+		<Text styleClass="titre"
+			text="Ceci est la page des parametres !"></Text>
+		<!--		<ImageView>
+			<image>
+				<Image url="@WorkForce2023.png" />
+			</image>
+		</ImageView>-->
+		<!--		<Button
+			fx:id="boutonJoindreMenu"
+			text="%rejoindre"
+			styleClass="gros-bouton"
+			id="bouton-joindre-menu"></Button>-->
+		<!--		<Label text="%lesParametres" styleClass="moyen-texte" />-->
+		<!--		<Label
+			fx:id="labelParametres"
+			styleClass="petit-texte"
+			id="label-message"
+			text="[labelParametres]"></Label>-->
+		<VBox styleClass="conteneur"
+			id="vue-parametres">
+			<Pane styleClass="petit-espace-vertical" />
+			<Button
+				fx:id="boutonAddColor"
+				text="%add"
+				styleClass="gros-bouton"
+				id="bouton-s-inscrire"></Button>
+			<!-- ajouter -->
+			<Pane styleClass="grand-espace-vertical" />
+			<!-- ajouter -->
+			<HBox styleClass="conteneur,conteneur-parent">
+				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs" id="conteneur-Couleurs">
+				</VBox>
+				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+			</HBox>
+			<!-- ajouter -->
+			<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
+		</VBox>
+		<Button
+			fx:id="boutonAddColor"
+			text="%add"
+			styleClass="gros-bouton"
+			id="bouton-s-inscrire"></Button>
+	</VBox>
+	<VBox styleClass="colorpicker">
+		<ColorPicker styleClass="colorpicker"></ColorPicker>
+	</VBox>
+</VBox>

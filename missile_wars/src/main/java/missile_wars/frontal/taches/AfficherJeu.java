@@ -40,7 +40,7 @@ public class AfficherJeu {
 			DonneesVueJeu donneesVueJeu = inputs.get(created(DonneesVueJeu.class));
 			EvtActionJoueur evtActionJoueur = inputs.get(event(EvtActionJoueur.class));
 			
-			evtActionJoueur.appliquerA(donneesVueJeu);
+//			evtActionJoueur.appliquerA(donneesVueJeu);
 		});
 	}
 	

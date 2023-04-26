@@ -1,133 +1,33 @@
-#vue-historique {
-    -fx-alignment:center;
-    -fx-background-color:black;
-}
-
-#vue-menu {
-    -fx-alignment:center;
-    -fx-background-color:black;
-}
-
-.bouton {
-    -fx-font-size:1.2em;
-    -fx-background-color:black;
-    -fx-border-color:white;
-    -fx-text-fill: white;
-}
-
-.bouton:pressed {
-    -fx-font-size:1em;
-}
-
-.bouton:hover {
-    -fx-cursor:hand;
-    -fx-font-size:2em;
-}
-
-.titre {
-    -fx-fill:white;
-    -fx-font-size:3em;
-}
-
-.styleParties {
-    -fx-text-fill:white;
-    -fx-font-size:1em;
-}
-
-
-.label-historique {
-    -fx-text-fill:white;
-}
-
-.petit-espace-vertical {
-    -fx-min-height:10;
-    -fx-max-height:50;
-}
-
-.grand-espace-vertical {
-    -fx-min-height:50;
-    -fx-max-height:200;
-}
-
-.petit-espace-horizontal {
-    -fx-min-width:10;
-    -fx-max-width:50;
-}
-
-.grand-espace-horizontal {
-    -fx-min-width:50;
-    -fx-max-width:200;
-}
-
-#conteneur-parties{
-    -fx-alignment:top-center;
-    -fx-border-color:white;
-}
-
-.label-historique {
-    -fx-font-size:1.2em;
-}
-
-.partie-hbox {
-    -fx-background-color:#161616;
-}
-
-
-
-.scroll-bar {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
- }
- 
- .scroll-bar .track {
+.conteneur { 
     -fx-background-color: black;
-    -fx-border-color: transparent;
-    -fx-background-radius: 8;
-    -fx-border-color: white;
- }
- 
- .scroll-bar .thumb {
-     -fx-padding: 8 15 15 15;
-     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
-     -fx-background-color: white;
-     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
- }
- 
- .scroll-bar .increment-button,
- .scroll-bar .decrement-button,
- .scroll-bar .increment-arrow,
- .scroll-bar .decrement-arrow,
- .scroll-bar .corner {
-     -fx-shape : " ";    
-     -fx-background-color: transparent;
-     -fx-visibility: hidden;
- }
- 
- .scroll-pane .viewport {
-     -fx-background-color:transparent;
-     -fx-background:transparent;
- }
- 
- .scroll-pane {
-     -fx-background-color:transparent;
-     -fx-background:transparent;
-     -fx-hbar-policy:never;
- }
+    -fx-alignment: center;
+}
 
- .hbox-quitter {
-    -fx-alignment: center-right;
- }
+/* Le bouton  */
+.gros-bouton{ 
+    -fx-border-color:white;
+    -fx-border-width: 0.1em;
+    -fx-background-color:black; 
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+    -fx-text-fill:white;}
 
- #idJeu {
-    -fx-border-color: black;
-    -fx-background-color: grey;
- }
+.gros-bouton:pressed {
+    -fx-font-size: 1em;
+    -fx-scale:90%;
+}
 
- #jeu-conteneur {
-    -fx-background-color: black;
- }
+.gros-bouton:hover {
+    -fx-cursor: hand;
+    -fx-scale:150%;
+}
 
- .label-nom-joueur {
+.texte-large { 
     -fx-text-fill:white;
-    -fx-font-size: 2em;
- }
+    -fx-font-size:1.4em;
+}
+
+.texte-generique { 
+    -fx-font-size:1.0em;
+    -fx-text-fill:white;
+}

@@ -6,17 +6,13 @@ import ca.ntro.app.frontend.FrontendRegistrarFx;
 import ca.ntro.app.messages.MessageRegistrar;
 import ca.ntro.app.models.ModelRegistrar;
 import missile_wars.commun.Declarations;
-import missile_wars.commun.maquettes.MaquetteRegion;
-import missile_wars.commun.maquettes.MaquetteSession;
 import missile_wars.dorsal.DorsalMissileWarsDistant;
 import missile_wars.frontal.FrontalMissileWars;
 
 public class ClientMissileWars implements NtroClientFx {
-	
-	public static void main(String[] args) {
-		MaquetteSession.initialiser(args);
-		NtroClientFx.launch(args);
 
+	public static void main(String[] args) {
+		NtroClientFx.launch(args);
 	}
 
 	@Override
@@ -34,6 +30,7 @@ public class ClientMissileWars implements NtroClientFx {
 	@Override
 	public void registerMessages(MessageRegistrar registrar) {
 		Declarations.declarerMessages(registrar);
+		
 	}
 
 	@Override

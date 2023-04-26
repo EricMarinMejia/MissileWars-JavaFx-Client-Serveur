@@ -5,66 +5,82 @@ import ca.ntro.app.frontend.FrontendFx;
 import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import missile_wars.frontal.donnees.DonneesVueJeu;
 import missile_wars.frontal.evenements.EvtActionJoueur;
-import missile_wars.frontal.evenements.EvtAfficherAccueil;
-import missile_wars.frontal.evenements.EvtAfficherFileAttente;
-import missile_wars.frontal.evenements.EvtAfficherHistorique;
+import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
+import missile_wars.frontal.evenements.EvtAfficherInscription;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
+import missile_wars.frontal.evenements.EvtAfficherPages;
+import missile_wars.frontal.evenements.EvtAfficherParametres;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
-import missile_wars.frontal.taches.AfficherHistorique;
-import missile_wars.frontal.taches.AfficherJeu;
+import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
+import missile_wars.frontal.evenements.EvtRemettreTouchesParDefaut;
+import missile_wars.frontal.taches.AfficherDidacticiel;
+import missile_wars.frontal.taches.AfficherParametres;
+import missile_wars.frontal.taches.AfficherPartie;
+import missile_wars.frontal.taches.AfficherSInscrire;
 import missile_wars.frontal.taches.Initialisation;
 import missile_wars.frontal.taches.Navigation;
-import missile_wars.frontal.vues.VueAccueil;
+import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
-import missile_wars.frontal.vues.VueHistorique;
+import missile_wars.frontal.vues.VueInscription;
+import missile_wars.frontal.vues.VueMenu;
+import missile_wars.frontal.vues.VueParametres;
 import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.VueRacine;
-import missile_wars.frontal.vues.fragments.FragmentPartie;
+import missile_wars.frontal.vues.fragments.FragmentActionTouche;
+import missile_wars.frontal.vues.fragments.FragmentCouleur;
 
 public class FrontalMissileWars implements FrontendFx{
 
-	@Override
-	public void createTasks(FrontendTasks tasks) {
-		Initialisation.creerTaches(tasks);
-		AfficherHistorique.creerTaches(tasks);
-		Navigation.creerTaches(tasks);
-		AfficherJeu.creerTaches(tasks);
-	}
+    @Override
+    public void createTasks(FrontendTasks tasks) {
+        Initialisation.creerTaches(tasks);
+        AfficherDidacticiel.creerTaches(tasks);
+//        AfficherPages.creerTaches(tasks);
+        AfficherParametres.creerTaches(tasks);
+        AfficherPartie.creerTaches(tasks);
+        AfficherSInscrire.creerTaches(tasks);
+        
+        Navigation.creerTaches(tasks);
+    }
 
-	@Override
-	public void execute() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void execute() {
+        // rien a faire ... 
+    }
 
-	@Override
-	public void registerEvents(EventRegistrar registrar) {
-		registrar.registerEvent(EvtAfficherHistorique.class);
-		registrar.registerEvent(EvtAfficherAccueil.class);
-		registrar.registerEvent(EvtActionJoueur.class);
-		registrar.registerEvent(EvtAfficherFileAttente.class);
-		registrar.registerEvent(EvtAfficherPartie.class);
-	}
+    @Override
+    public void registerEvents(EventRegistrar registrar) {
+        registrar.registerEvent(EvtAfficherDidacticiel.class);
+        registrar.registerEvent(EvtAfficherPages.class);
+        registrar.registerEvent(EvtActionJoueur.class);
+        registrar.registerEvent(EvtAfficherInscription.class);
+        registrar.registerEvent(EvtAfficherMenu.class);
+        registrar.registerEvent(EvtAfficherParametres.class);
+        registrar.registerEvent(EvtAfficherPartie.class);
+        registrar.registerEvent(EvtRemettreInfosActuelles.class);
+        registrar.registerEvent(EvtRemettreTouchesParDefaut.class);
+    }
 
-	@Override
-	public void registerViews(ViewRegistrarFx registrar) {
-		registrar.registerView(VueRacine.class, "/racine.xml");
-		registrar.registerView(VueAccueil.class, "/accueil.xml");
-		registrar.registerView(VueHistorique.class, "/historique.xml");
-		registrar.registerView(VueFileAttente.class, "/file_attente.xml");
-		registrar.registerView(VuePartie.class, "/partie.xml");
-		registrar.registerFragment(FragmentPartie.class, "/fragments/fragmentPartie.xml");
-		
-		registrar.registerStylesheet("/prod.css");
-		
-		registrar.registerDefaultResources("/chaines_fr.properties");
-		registrar.registerResources(NtroApp.locale("en"), "/chaines_en.properties");
-		registrar.registerResources(NtroApp.locale("es"), "/chaines_es.properties");
-		
-		
-		registrar.registerViewData(DonneesVueJeu.class);
-		
-	}
+    @Override
+    public void registerViews(ViewRegistrarFx registrar) {
+        registrar.registerView(VueRacine.class, "/racine.xml");
+        registrar.registerView(VueMenu.class, "/menu.xml");
+        registrar.registerView(VueDidacticiel.class, "/didacticiel.xml");
+        registrar.registerView(VueFileAttente.class, "/file-attente.xml");
+        registrar.registerView(VueParametres.class, "/parametres.xml");
+        registrar.registerView(VueInscription.class, "/inscription.xml");
+        registrar.registerView(VuePartie.class, "/partie.xml");
+        
+        registrar.registerFragment(FragmentActionTouche.class, "/fragments/action_touche.xml");
+        registrar.registerFragment(FragmentCouleur.class, "/fragments/couleur.xml");
 
+        registrar.registerStylesheet("/dev.css");
+        registrar.registerStylesheet("/prod.css");
+
+        registrar.registerDefaultResources("/chaines_fr.properties");
+        registrar.registerResources(NtroApp.locale("en"),"/chaines_en.properties");
+        registrar.registerResources(NtroApp.locale("qc"), "/chaines_qc.properties");
+        registrar.registerResources(NtroApp.locale("ch"), "/chaines_ch.properties");
+    }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+	fx:controller="missile_wars.frontal.vues.fragments.FragmentActionTouche"
+	styleClass="asdfasdfasdf">
+	<children>
+		<Label
+			fx:id="lblNom"
+		/>
+		<Button
+			fx:id="btnChanger"
+		/>
+	</children>
+</HBox>

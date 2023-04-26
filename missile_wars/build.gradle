@@ -45,17 +45,6 @@ def localConfig = {
    jvmArgs('-Dsun.java2d.opengl=true')
 }
 
-def clientConfig = {
-    configure commonConfig
-    mainClass = "missile_wars.ClientMissileWars"
-    jvmArgs('-Dsun.java2d.opengl=true')
-}
-
-def serverConfig = {
-    configure commonConfig
-    mainClass = "missile_wars.ServeurMissileWars"
-}
-
 task(local, dependsOn: 'classes', type: JavaExec) {
    configure localConfig
 }
@@ -68,32 +57,4 @@ task(localFr, dependsOn: 'classes', type: JavaExec) {
 task(localEn, dependsOn: 'classes', type: JavaExec) {
    configure localConfig
    jvmArgs('-Duser.language=en')
-}
-
-task(localEs, dependsOn: 'classes', type: JavaExec) {
-   configure localConfig
-   jvmArgs('-Duser.language=es')
-}
-
-task(alice, dependsOn: 'classes', type: JavaExec) {
-    configure clientConfig
-    args("NA")
-}
-
-task(bob, dependsOn: 'classes', type: JavaExec) {
-    configure clientConfig
-    args("EU")
-}
-
-task(charlie, dependsOn: 'classes', type: JavaExec) {
-    configure clientConfig
-    args("AS")
-}
-
-task(client, dependsOn: 'classes', type: JavaExec) {
-    configure clientConfig
-}
-
-task(serveur, dependsOn: 'classes', type: JavaExec) {
-    configure serverConfig
 }

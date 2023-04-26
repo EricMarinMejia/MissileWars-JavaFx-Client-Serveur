@@ -6,12 +6,8 @@ import ca.ntro.core.initialization.Ntro;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
-import missile_wars.commun.enums.Action;
-import missile_wars.commun.enums.Cadran;
-import missile_wars.commun.modeles.valeurs.ActionJoueur;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.controles.CanvasPartie;
 import missile_wars.frontal.evenements.EvtActionJoueur;
@@ -75,73 +71,73 @@ public class VuePartie extends ViewFx {
 
         vboxPartie.addEventFilter(KeyEvent.KEY_PRESSED, evtFx -> {
 
-            if(evtFx.getCode().equals(KeyCode.W)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.HAUT));
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.S)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.BAS));
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.D)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.DROITE));
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.A)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.GAUCHE));
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.E)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.TIRER));
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.UP)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.HAUT));
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.DOWN)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.BAS));
-                evtNtro.trigger();
-            }else if(evtFx.getCode().equals(KeyCode.RIGHT)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.DROITE));
-                evtNtro.trigger();
-            }else if(evtFx.getCode().equals(KeyCode.LEFT)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.GAUCHE));
-                evtNtro.trigger();
-            }else if(evtFx.getCode().equals(KeyCode.L)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.TIRER));
-                evtNtro.trigger();
-            }
+//            if(evtFx.getCode().equals(KeyCode.W)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.HAUT));
+//                evtNtro.trigger();
+//
+//            }else if(evtFx.getCode().equals(KeyCode.S)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.BAS));
+//                evtNtro.trigger();
+//
+//            }else if(evtFx.getCode().equals(KeyCode.D)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.DROITE));
+//                evtNtro.trigger();
+//
+//            }else if(evtFx.getCode().equals(KeyCode.A)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.GAUCHE));
+//                evtNtro.trigger();
+//
+//            }else if(evtFx.getCode().equals(KeyCode.E)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.TIRER));
+//                evtNtro.trigger();
+//
+//            }else if(evtFx.getCode().equals(KeyCode.UP)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.HAUT));
+//                evtNtro.trigger();
+//
+//            }else if(evtFx.getCode().equals(KeyCode.DOWN)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.BAS));
+//                evtNtro.trigger();
+//            }else if(evtFx.getCode().equals(KeyCode.RIGHT)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.DROITE));
+//                evtNtro.trigger();
+//            }else if(evtFx.getCode().equals(KeyCode.LEFT)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.GAUCHE));
+//                evtNtro.trigger();
+//            }else if(evtFx.getCode().equals(KeyCode.L)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.TIRER));
+//                evtNtro.trigger();
+//            }
         });
 
         vboxPartie.addEventFilter(KeyEvent.KEY_RELEASED, evtFx -> {
 
-            if(evtFx.getCode().equals(KeyCode.W)
-                    || evtFx.getCode().equals(KeyCode.S)
-                    || evtFx.getCode().equals(KeyCode.A)
-                    || evtFx.getCode().equals(KeyCode.D)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.ARRET));
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.UP)
-                    || evtFx.getCode().equals(KeyCode.DOWN)
-                    || evtFx.getCode().equals(KeyCode.LEFT)
-                    || evtFx.getCode().equals(KeyCode.RIGHT)) {
-
-                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.ARRET));
-                evtNtro.trigger();
-            }
+//            if(evtFx.getCode().equals(KeyCode.W)
+//                    || evtFx.getCode().equals(KeyCode.S)
+//                    || evtFx.getCode().equals(KeyCode.A)
+//                    || evtFx.getCode().equals(KeyCode.D)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.ARRET));
+//                evtNtro.trigger();
+//
+//            }else if(evtFx.getCode().equals(KeyCode.UP)
+//                    || evtFx.getCode().equals(KeyCode.DOWN)
+//                    || evtFx.getCode().equals(KeyCode.LEFT)
+//                    || evtFx.getCode().equals(KeyCode.RIGHT)) {
+//
+//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.ARRET));
+//                evtNtro.trigger();
+//            }
         });
     }
 
@@ -175,3 +171,64 @@ public class VuePartie extends ViewFx {
 	}
 
 }
+//=======
+//import missile_wars.commun.monde2d.MondeMissileWars2d;
+//import missile_wars.frontal.controles.CanvasPartie;
+//import missile_wars.frontal.evenements.EvtAfficherMenu;
+//
+//public class VuePartie extends ViewFx {
+//	
+//	
+//	
+//	@FXML
+//	private Button boutonQuitterPartie;
+//	
+//	@FXML
+//	private CanvasPartie canvasPartie;
+//
+//	@Override
+//	public void initialiser() {
+//		Ntro.assertNotNull(this.boutonQuitterPartie);
+//		
+//		this.installerBoutonQuitterPartie();
+//	}
+//    
+//    
+//    public void viderCanvas() {
+//        canvasPartie.clearCanvas();
+//    }
+//
+//    public void afficherImagesParSeconde(String fps) {
+//        canvasPartie.afficherFps(fps);
+//    }
+//
+//    public void afficherMissileWars2d(MondeMissileWars2d mondeMissileWars2d) {
+//    	mondeMissileWars2d.drawOn(canvasPartie);
+//    }
+//
+//    
+//    
+//    private void installerBoutonQuitterPartie() {
+//    	EvtAfficherMenu evtAfficherAccueil = NtroApp.newEvent(EvtAfficherMenu.class);
+//		
+//		this.boutonQuitterPartie.setOnAction(evtFx -> {
+//			evtAfficherAccueil.trigger();
+//		});
+//    	
+//    }
+//    
+//    
+//    
+//}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//>>>>>>> antonii

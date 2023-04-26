@@ -2,7 +2,6 @@ package missile_wars.commun.modeles;
 
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.Model;
-import missile_wars.commun.enums.Cadran;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.donnees.DonneesVueJeu;
 import missile_wars.frontal.vues.VuePartie;
@@ -144,18 +143,18 @@ public class ModelePartie implements Model {
 		this.mondeMS2d.copyDataFrom(mondeMS2d);
 	}
 	
-	public void ajouterPointPour(Cadran cadran) {
-		
-		switch(cadran) {
-        case GAUCHE:
-        default:
-        	scoreJoueur1+=6;
-            break;
-
-        case DROITE:
-        	scoreJoueur2+=6;
-            break;
-        }
+	public void ajouterPointPour(Object cadran) {
+//		
+//		switch(cadran) {
+//        case GAUCHE:
+//        default:
+//        	scoreJoueur1+=6;
+//            break;
+//
+//        case DROITE:
+//        	scoreJoueur2+=6;
+//            break;
+//        }
 	}
 
 	public FragmentPartie creerFragment(ViewLoader<FragmentPartie> viewLoaderParties) {

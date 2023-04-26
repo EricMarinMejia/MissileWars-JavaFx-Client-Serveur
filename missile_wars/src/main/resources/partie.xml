@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
@@ -78,3 +79,102 @@
     
 
 </VBox>
+=======
+<<<<<<<< HEAD:missile_wars/src/main/resources/accueil.xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import missile_wars.frontal.controles.CanvasPartie?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="missile_wars.frontal.vues.VueAccueil"
+    fx:id="vboxPartie"
+    styleClass="conteneur"
+    id="vue-menu">
+
+    <HBox styleClass="conteneur">
+
+        <Button
+            fx:id="boutonAfficherHistorique"
+            text="%buttonHistorique"
+            styleClass="bouton"
+            id="boutonHistorique">
+        </Button>
+        <Button
+            fx:id="boutonAfficherFileAttente"
+            text="%boutonFileAttente"
+            styleClass="bouton"
+            id="boutonFileAttente">
+        </Button>
+
+    </HBox>
+    
+
+</VBox>
+========
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import missile_wars.frontal.controles.CanvasPartie?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="missile_wars.frontal.vues.VuePartie"
+    styleClass="conteneur"
+    id="vue-partie">
+
+    <HBox styleClass="conteneur">
+        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
+        <Label
+            styleClass="label-nom-joueur">
+        </Label>
+        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
+        <Label
+            styleClass="label-nom-joueur">
+        </Label>
+        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
+        <Button
+            fx:id="boutonQuitterPartie"
+            text="%boutonVersMenu"
+            styleClass="gros-bouton">
+        </Button>
+        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
+        <Label
+            styleClass="label-nom-joueur">
+        </Label>
+        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
+        <Label
+            styleClass="label-nom-joueur">
+        </Label>
+        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
+    </HBox>
+
+    <Pane styleClass="petit-espace-vertical" />
+    <HBox VBox.vgrow="ALWAYS" styleClass="conteneur">
+        <Pane styleClass="petit-espace-horizontal" />
+        <CanvasPartie
+            HBox.hgrow="ALWAYS"
+            fx:id="canvasPartie"
+            id="canvas-partie">
+        </CanvasPartie>
+        <Pane styleClass="petit-espace-horizontal" />
+    </HBox>
+    <Pane styleClass="petit-espace-vertical" />
+    <!--
+    <Button
+        text="%boutonVersMenu"
+        styleClass="gros-bouton"
+        fx:id="boutonVersPages">
+    </Button>
+    -->
+</VBox>
+>>>>>>>> antonii:missile_wars/src/main/resources/partie.xml
+>>>>>>> antonii

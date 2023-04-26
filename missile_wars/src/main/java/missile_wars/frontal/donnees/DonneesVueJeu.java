@@ -3,7 +3,7 @@ package missile_wars.frontal.donnees;
 import ca.ntro.app.frontend.ViewData;
 import ca.ntro.core.initialization.Ntro;
 import missile_wars.commun.enums.Action;
-import missile_wars.commun.enums.Cadran;
+//import missile_wars.commun.enums.Cadran;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.vues.VuePartie;
 
@@ -52,9 +52,9 @@ public class DonneesVueJeu implements ViewData {
 			mondeMS2d.copyDataFrom(mondeMS2d);
 		}
 
-		public void appliquerActionJoueur(Cadran cadran, Action action) {
-			mondeMS2d.appliquerActionJoueur(cadran, action);
-			
-		}
+//		public void appliquerActionJoueur(Cadran cadran, Action action) {
+//			mondeMS2d.appliquerActionJoueur(cadran, action);
+//			
+//		}
 	
 }

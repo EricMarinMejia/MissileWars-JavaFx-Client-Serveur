@@ -1,0 +1,20 @@
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import ca.ntro.app.fx.controls.ResizableAvatar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="missile_wars.frontal.vues.fragments.FragmentPage"
+    styleClass="conteneur">
+    <HBox>
+        <VBox styleClass="conteneur" fx:id="horizontalOuVertical">
+            <!-- <ResizableAvatar fx:id="logo" VBox.vgrow="always" styleClass="logo" /> -->
+            <Pane minHeight="20" minWidth="20" />
+            <Label fx:id="labelPage" />
+            <Pane minHeight="20" minWidth="20" />
+        </VBox>
+    </HBox>
+    <Pane styleClass="petit-espace-vertical" />
+</VBox>   
