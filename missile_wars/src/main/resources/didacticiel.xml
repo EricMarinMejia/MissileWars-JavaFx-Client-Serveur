@@ -18,7 +18,7 @@
     <Button
         text="%boutonVersMenu"
         styleClass="gros-bouton"
-        fx:id="boutonVersPages">
+        fx:id="boutonVersMenu">
     </Button>
 
 </VBox>

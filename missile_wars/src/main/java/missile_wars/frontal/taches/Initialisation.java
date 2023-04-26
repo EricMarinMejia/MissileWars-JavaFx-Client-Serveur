@@ -9,9 +9,11 @@ import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import missile_wars.commun.modeles.ModeleInscriptionJoueur;
+import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueInscription;
 import missile_wars.frontal.vues.VueMenu;
 import missile_wars.frontal.vues.VueParametres;
+import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.VueRacine;
 import missile_wars.frontal.vues.fragments.FragmentActionTouche;
 import missile_wars.frontal.vues.fragments.FragmentCouleur;
@@ -22,12 +24,13 @@ public class Initialisation {
                 .contains(sousTaches -> {
                     creerVueRacine(sousTaches);
                     creerVueMenu(sousTaches);
-                    // creerVueDidacticiel(sousTaches);
-                    // creerVueDidacticiel(sousTaches);
+                    
+                    creerVueDidacticiel(sousTaches);
 
                     installerVueRacine(sousTaches);
                     installerVueMenu(sousTaches);
                     
+                    creerVuePartie(sousTaches);
                     creerVueParametres(sousTaches);
                     creerVueSInscrire(sousTaches);
 
@@ -111,7 +114,32 @@ public class Initialisation {
 					return VueParametres;
 				});
 	}
+    
+    
+    private static void creerVueDidacticiel(FrontendTasks tasks) {
+    	tasks.task(create(VueDidacticiel.class))
+    	.waitsFor(viewLoader(VueDidacticiel.class))
+    	.thenExecutesAndReturnsValue(inputs -> {
+			ViewLoader<VueDidacticiel> viewLoader = inputs.get(viewLoader(VueDidacticiel.class));
+			
+			VueDidacticiel vueDidacticiel = viewLoader.createView();
+			return vueDidacticiel;
+    	});
+    }
 
+    private static void creerVuePartie(FrontendTasks subTasks) {
+    	subTasks.task(create(VuePartie.class))
+    		.waitsFor(viewLoader(VuePartie.class))
+    		.thenExecutesAndReturnsValue(inputs -> {
+    			
+    			ViewLoader<VuePartie> viewLoader = inputs.get(viewLoader(VuePartie.class));
+    			VuePartie vuePartie = viewLoader.createView();
+    			return vuePartie;
+    			
+    		});
+    }
+
+    
 //	private static void creerVueHistorique(FrontendTasks tasks) {
 //		tasks.task(create(VueHistorique.class))
 //				.waitsFor(viewLoader(VueHistorique.class))

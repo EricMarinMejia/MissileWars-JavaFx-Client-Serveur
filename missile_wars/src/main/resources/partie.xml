@@ -24,7 +24,7 @@
         </Label>
         <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
         <Button
-            fx:id="boutonVersMenu"
+            fx:id="boutonQuitterPartie"
             text="%boutonVersMenu"
             styleClass="gros-bouton">
         </Button>
@@ -50,9 +50,11 @@
         <Pane styleClass="petit-espace-horizontal" />
     </HBox>
     <Pane styleClass="petit-espace-vertical" />
+    <!--
     <Button
         text="%boutonVersMenu"
         styleClass="gros-bouton"
         fx:id="boutonVersPages">
     </Button>
+    -->
 </VBox>

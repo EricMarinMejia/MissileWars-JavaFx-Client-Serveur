@@ -5,6 +5,7 @@ import ca.ntro.app.backend.BackendRegistrar;
 import ca.ntro.app.frontend.FrontendRegistrarFx;
 import ca.ntro.app.messages.MessageRegistrar;
 import ca.ntro.app.models.ModelRegistrar;
+import missile_wars.commun.Declarations;
 import missile_wars.commun.modele.ModelePages;
 import missile_wars.commun.valeurs.Page;
 import missile_wars.dorsal.DorsalMissileWars;
@@ -27,12 +28,11 @@ public class MissileWarsLocal implements NtroClientFx {
 
     @Override
     public void registerMessages(MessageRegistrar registrar) {
-        
+		Declarations.declarerMessages(registrar);
     }
 
     @Override
     public void registerModels(ModelRegistrar registrar) {
-        registrar.registerModel(ModelePages.class);
-        registrar.registerValue(Page.class);
+    	Declarations.declarerModeles(registrar);
     }
 }
