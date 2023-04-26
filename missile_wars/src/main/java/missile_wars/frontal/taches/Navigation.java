@@ -7,9 +7,11 @@ import ca.ntro.app.tasks.frontend.FrontendTasks;
 import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
 import missile_wars.frontal.evenements.EvtAfficherFileAttente;
 import missile_wars.frontal.evenements.EvtAfficherHistorique;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueHistorique;
+import missile_wars.frontal.vues.VueMenu;
 import missile_wars.frontal.vues.VueRacine;
 
 public class Navigation {
@@ -23,6 +25,7 @@ public class Navigation {
 			afficherVueFileAttente(subTasks);
 			afficherVuePartie(subTasks);
 			afficherVueDidacticiel(subTasks);
+			afficherVueMenu(subTasks);
 		});
 		
 	}
@@ -58,6 +61,17 @@ public class Navigation {
 			VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
 			
 			vueRacine.afficherSousVue(vueFileAttente);
+		});
+	}
+	
+	private static void afficherVueMenu(FrontendTasks subTasks) {
+		subTasks.task("afficherVueMenu")
+		.waitsFor(event(EvtAfficherMenu.class))
+		.thenExecutes(inputs -> {
+			VueRacine vueRacine = inputs.get(created(VueRacine.class));
+			VueMenu vueMenu = inputs.get(created(VueMenu.class));
+			
+			vueRacine.afficherSousVue(vueMenu);
 		});
 	}
 

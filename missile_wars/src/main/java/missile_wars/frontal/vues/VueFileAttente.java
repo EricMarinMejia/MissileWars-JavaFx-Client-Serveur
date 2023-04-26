@@ -40,12 +40,9 @@ import javafx.scene.control.Button;
 //}
 //=======
 import javafx.scene.layout.VBox;
-import missile_wars.commun.messages.MsgAjouterUnePage;
-import missile_wars.commun.messages.MsgRetirerPages;
 import missile_wars.commun.valeurs.Page;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.vues.fragments.FragmentPage;
-import missile_wars.maquettes.MaquettePages;
 
 public class VueFileAttente extends ViewFx {
     @FXML
@@ -86,19 +83,19 @@ public class VueFileAttente extends ViewFx {
     }
 
     public void installerMsgAjouterPage() {
-        MsgAjouterUnePage msgAjouterUnePage = NtroApp.newMessage(MsgAjouterUnePage.class);
-        boutonAjouterPage.setOnAction(evenementsFx -> {
-            msgAjouterUnePage.setPageCourante(MaquettePages.pageCourante());
-            msgAjouterUnePage.send();
-            MaquettePages.prochainePage();
-        });
+//        MsgAjouterUnePage msgAjouterUnePage = NtroApp.newMessage(MsgAjouterUnePage.class);
+//        boutonAjouterPage.setOnAction(evenementsFx -> {
+//            msgAjouterUnePage.setPageCourante(MaquettePages.pageCourante());
+//            msgAjouterUnePage.send();
+//            MaquettePages.prochainePage();
+//        });
     }
 
     public void installerMsgRetirerPages() { 
-        MsgRetirerPages msgRetirerPages = NtroApp.newMessage(MsgRetirerPages.class);
-        boutonRetirerLesPages.setOnAction(evevenementFx -> { 
-            msgRetirerPages.send();
-        });
+//        MsgRetirerPages msgRetirerPages = NtroApp.newMessage(MsgRetirerPages.class);
+//        boutonRetirerLesPages.setOnAction(evevenementFx -> { 
+//            msgRetirerPages.send();
+//        });
     }
 
     public void ajouterPage(Page unePage) {
