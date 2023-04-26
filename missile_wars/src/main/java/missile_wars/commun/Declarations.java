@@ -30,7 +30,7 @@ public class Declarations {
 	public static void declarerModeles(ModelRegistrar registrar) {
 		registrar.registerModel(ModeleHistorique.class);
 //		registrar.registerValue(Partie.class);
-		registrar.registerModel(ModelePartie.class);
+		registrar.registerValue(ModelePartie.class);
 		registrar.registerValue(MondeMissileWars2d.class);
 		registrar.registerValue(Missile2d.class);
 		registrar.registerModel(ModeleInscriptionJoueur.class);

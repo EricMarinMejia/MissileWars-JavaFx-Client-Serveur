@@ -1,6 +1,7 @@
 package missile_wars.dorsal.taches;
 
-import static ca.ntro.app.tasks.backend.BackendTasks.*;
+import static ca.ntro.app.tasks.backend.BackendTasks.message;
+import static ca.ntro.app.tasks.backend.BackendTasks.model;
 
 import ca.ntro.app.tasks.backend.BackendTasks;
 import missile_wars.commun.messages.MsgAjouterPoint;

@@ -8,6 +8,7 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import ca.ntro.core.initialization.Ntro;
 import missile_wars.commun.modeles.ModeleInscriptionJoueur;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;

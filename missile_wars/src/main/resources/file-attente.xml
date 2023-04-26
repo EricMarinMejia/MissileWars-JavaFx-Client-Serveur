@@ -16,9 +16,9 @@
     <Label text="%titre" styleClass="texte-large" />
 
     <Button
-        text="%ajouterPage"
+        text="%ajouterNouvellePartie"
         styleClass="gros-bouton"
-        fx:id="boutonAjouterPage">
+        fx:id="boutonAjouterPartie">
     </Button>
 
     <FlexBoxDonnees HBox.hgrow="ALWAYS" styleClass="conteneur,rendez-vous">
@@ -29,12 +29,6 @@
             </content>
         </ScrollPane>
     </FlexBoxDonnees> 
-
-    <Button
-        text="%retirerLesPages"
-        styleClass="gros-bouton"
-        fx:id="boutonRetirerLesPages">
-    </Button>
 
     <Button
         text="%boutonVersMenu"

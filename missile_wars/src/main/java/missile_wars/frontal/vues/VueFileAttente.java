@@ -40,15 +40,16 @@ import javafx.scene.control.Button;
 //}
 //=======
 import javafx.scene.layout.VBox;
+import missile_wars.commun.messages.MsgNouvellePartie;
 import missile_wars.commun.valeurs.Page;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.vues.fragments.FragmentPage;
 
 public class VueFileAttente extends ViewFx {
     @FXML
-    private Button boutonAjouterPage;
-    @FXML
-    private Button boutonRetirerLesPages;
+    private Button boutonAjouterPartie;
+//    @FXML
+//    private Button boutonRetirerLesPages;
     @FXML
     private Button boutonVersMenu;
     
@@ -66,12 +67,12 @@ public class VueFileAttente extends ViewFx {
 
     @Override
     public void initialiser() {
-        Ntro.assertNotNull("boutonAjouterPage", boutonAjouterPage);
-        Ntro.assertNotNull("boutonRetirerLesPages", boutonRetirerLesPages);
+        Ntro.assertNotNull("boutonAjouterPartie", boutonAjouterPartie);
+//        Ntro.assertNotNull("boutonRetirerLesPages", boutonRetirerLesPages);
         Ntro.assertNotNull("boutonVersMenu", boutonVersMenu);
         Ntro.assertNotNull("conteneurPages", conteneurPages);
         installerEvtAfficherMenu();
-        installerMsgAjouterPage();
+        installerMsgAjouterPartie();
         installerMsgRetirerPages();
     }
 
@@ -82,13 +83,12 @@ public class VueFileAttente extends ViewFx {
         });
     }
 
-    public void installerMsgAjouterPage() {
-//        MsgAjouterUnePage msgAjouterUnePage = NtroApp.newMessage(MsgAjouterUnePage.class);
-//        boutonAjouterPage.setOnAction(evenementsFx -> {
-//            msgAjouterUnePage.setPageCourante(MaquettePages.pageCourante());
-//            msgAjouterUnePage.send();
-//            MaquettePages.prochainePage();
-//        });
+    public void installerMsgAjouterPartie() {
+    	MsgNouvellePartie msgNouvellePartie = new MsgNouvellePartie();
+    	boutonAjouterPartie.setOnAction(evtFx -> {
+    		msgNouvellePartie.setQuantiteJoueursCible(2);
+    		msgNouvellePartie.send();
+    	});
     }
 
     public void installerMsgRetirerPages() { 
@@ -108,4 +108,3 @@ public class VueFileAttente extends ViewFx {
         conteneurPages.getChildren().clear();
     }
 }
-//>>>>>>> antonii
