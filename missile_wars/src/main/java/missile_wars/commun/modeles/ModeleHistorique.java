@@ -101,31 +101,31 @@ public class ModeleHistorique implements Model, WriteObjectGraph{
 		return builder.toString();
 	}
 	
-	public void retirerPartie(int idPartie) {
-		int indicePartie = -1;
-
-		for (int i = 0; i < lesPartiesJouees.size(); i++) {
-			if (lesPartiesJouees.get(i).getIdPartie() == idPartie) {
-				indicePartie = i;
-				break;
-			}
-		}
-
-		if (indicePartie >= 0) {
-			lesPartiesJouees.remove(indicePartie);
-
-			int nouveauProchainId = 0;
-
-			if (lesPartiesJouees.size() != 0) {
-				for (int i = 1; i <= lesPartiesJouees.size(); i++) {
-					lesPartiesJouees.get(i - 1).setIdPartie(i);
-					nouveauProchainId++;
-				}
-			}
-
-			nouveauProchainId++;
-			setProchainIdPartie(nouveauProchainId);
-		}
+	public void retirerPartie(String idPartie) {
+//		int indicePartie = -1;
+//
+//		for (int i = 0; i < lesPartiesJouees.size(); i++) {
+//			if (lesPartiesJouees.get(i).getIdPartie().equals(idPartie)) {
+//				indicePartie = i;
+//				break;
+//			}
+//		}
+//
+//		if (indicePartie >= 0) {
+//			lesPartiesJouees.remove(indicePartie);
+//
+//			int nouveauProchainId = 0;
+//
+//			if (lesPartiesJouees.size() != 0) {
+//				for (int i = 1; i <= lesPartiesJouees.size(); i++) {
+//					lesPartiesJouees.get(i - 1).setIdPartie(i);
+//					nouveauProchainId++;
+//				}
+//			}
+//
+//			nouveauProchainId++;
+//			setProchainIdPartie(nouveauProchainId);
+//		}
 	}
 }
 

@@ -7,7 +7,7 @@ import ca.ntro.app.tasks.backend.BackendTasks;
 import missile_wars.commun.messages.MsgAjouterPoint;
 import missile_wars.commun.modeles.ModelePartie;
 
-public class ModifierJeu {
+public class ModifierPartie {
 	
 	public static void creerTaches(BackendTasks tasks, String idPartie) {
 		tasks.taskGroup("ModifierJeu" + "/" + idPartie)

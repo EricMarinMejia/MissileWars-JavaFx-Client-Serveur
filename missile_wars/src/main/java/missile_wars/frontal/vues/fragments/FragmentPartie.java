@@ -38,7 +38,7 @@ public class FragmentPartie extends ViewFragmentFx {
 	@FXML
 	private Button boutonRetirerPartie;
 	
-	private int idPartie;
+	private String idPartie;
 	
 	@Override
 	public void initialiser() {
@@ -96,12 +96,12 @@ public class FragmentPartie extends ViewFragmentFx {
 		labelDate.setText(date);
 	}
 	
-	public void memoriserIdPartie(int idPartie) {
+	public void memoriserIdPartie(String idPartie) {
 		this.idPartie = idPartie;
 		installerMsgRetirerPartie(idPartie);
 	}
 	
-	protected void installerMsgRetirerPartie(int idRendezVous) {
+	protected void installerMsgRetirerPartie(String idRendezVous) {
 		MsgRetirerPartie msgRetirerPartie = NtroApp.newMessage(MsgRetirerPartie.class);
 		msgRetirerPartie.setIdPartie(idRendezVous);
 		

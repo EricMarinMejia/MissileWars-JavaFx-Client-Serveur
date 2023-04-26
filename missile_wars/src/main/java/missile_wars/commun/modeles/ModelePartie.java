@@ -23,7 +23,7 @@ public class ModelePartie implements Model {
 
 	private String datePartie;
 	
-	private int idPartie;
+	private String idPartie;
 	
 	private int quantiteJoueursCible = 2; //un nombre pair.
 	
@@ -59,12 +59,12 @@ public class ModelePartie implements Model {
 	}
 
 
-	public int getIdPartie() {
+	public String getIdPartie() {
 		return idPartie;
 	}
 
 
-	public void setIdPartie(int idPartie) {
+	public void setIdPartie(String idPartie) {
 		this.idPartie = idPartie;
 	}
 

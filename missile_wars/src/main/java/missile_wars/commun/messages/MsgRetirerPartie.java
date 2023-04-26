@@ -5,17 +5,17 @@ import missile_wars.commun.modeles.ModeleHistorique;
 
 public class MsgRetirerPartie extends MessageNtro {
 
-	private int idPartie;
+	private String idPartie;
 	
 	public MsgRetirerPartie() {
 		
 	}
 
-	public int getIdPartie() {
+	public String getIdPartie() {
 		return idPartie;
 	}
 
-	public void setIdPartie(int idPartie) {
+	public void setIdPartie(String idPartie) {
 		this.idPartie = idPartie;
 	}
 	
