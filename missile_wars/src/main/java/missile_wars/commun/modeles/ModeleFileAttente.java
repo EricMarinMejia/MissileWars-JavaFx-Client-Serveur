@@ -7,8 +7,10 @@ import ca.ntro.app.models.Model;
 import ca.ntro.app.models.WatchJson;
 import missile_wars.commun.valeurs.ReferencePartie;
 import missile_wars.frontal.vues.VueFileAttente;
+import ca.ntro.app.models.WriteObjectGraph;
 
-public class ModeleFileAttente implements Model {
+
+public class ModeleFileAttente implements Model, WatchJson, WriteObjectGraph {
 	private int idProchainePartie = 1;
 	
 	public String incrementeEtRetourneNouveauIdPartie() {
@@ -17,6 +19,13 @@ public class ModeleFileAttente implements Model {
 	}
 	
 	private List<ReferencePartie> lesReferencesParties = new ArrayList<>();
+
+	public List<ReferencePartie> getLesReferencesParties() {
+		return this.lesReferencesParties;
+	}
+	public void setLesReferencesParties(List<ReferencePartie> lesReferencesParties) {
+		this.lesReferencesParties = lesReferencesParties;
+	}
 	
 	
 	public void ajouterReferencePartie(String partieId) {

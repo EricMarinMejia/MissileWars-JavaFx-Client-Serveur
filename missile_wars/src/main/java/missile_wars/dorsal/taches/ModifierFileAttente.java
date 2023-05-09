@@ -31,10 +31,10 @@ public class ModifierFileAttente {
 			modeleFileAttente.ajouterReferencePartie(prochainId);
 			
 			//envoyer un 2e message qui modifie le nombre de joueur de la partie nouvellement créée
-			MsgAjusterQuantiteJoueursCible msgAjusterQuantiteJoueursCible = NtroApp.newMessage(MsgAjusterQuantiteJoueursCible.class);
-			msgAjusterQuantiteJoueursCible.setIdPartie(prochainId);
-			msgAjusterQuantiteJoueursCible.setQuantiteJoueursCible(msgNouvellePartie.getQuantiteJoueursCible());
-			msgAjusterQuantiteJoueursCible.send();
+			//MsgAjusterQuantiteJoueursCible msgAjusterQuantiteJoueursCible = NtroApp.newMessage(MsgAjusterQuantiteJoueursCible.class);
+			//msgAjusterQuantiteJoueursCible.setIdPartie(prochainId);
+			//msgAjusterQuantiteJoueursCible.setQuantiteJoueursCible(msgNouvellePartie.getQuantiteJoueursCible());
+			//msgAjusterQuantiteJoueursCible.send();
 			
 		});
 	}
