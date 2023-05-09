@@ -16,7 +16,7 @@ public class DorsalMissileWars extends LocalBackendNtro {
 		ModifierCouleur.creerTaches(tasks);
 		ModifierInscriptionJoueur.creerTaches(tasks);
 		
-//        ModifierListePages.creerTaches(tasks);
+//      ModifierListePages.creerTaches(tasks);
 //		ModifierJeu.creerTaches(tasks);
 	}
 

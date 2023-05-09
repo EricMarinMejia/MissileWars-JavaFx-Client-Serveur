@@ -17,6 +17,7 @@ import missile_wars.frontal.evenements.EvtAfficherPartie;
 import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
 import missile_wars.frontal.evenements.EvtRemettreTouchesParDefaut;
 import missile_wars.frontal.taches.AfficherDidacticiel;
+import missile_wars.frontal.taches.AfficherFileAttente;
 import missile_wars.frontal.taches.AfficherHistorique;
 import missile_wars.frontal.taches.AfficherParametres;
 import missile_wars.frontal.taches.AfficherSInscrire;
@@ -33,6 +34,7 @@ import missile_wars.frontal.vues.VueRacine;
 import missile_wars.frontal.vues.fragments.FragmentActionTouche;
 import missile_wars.frontal.vues.fragments.FragmentCouleur;
 import missile_wars.frontal.vues.fragments.FragmentPartie;
+import missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre;
 
 public class FrontalMissileWars implements FrontendFx {
 
@@ -44,6 +46,7 @@ public class FrontalMissileWars implements FrontendFx {
         AfficherHistorique.creerTaches(tasks);
 //        AfficherPartie.creerTaches(tasks);
         AfficherSInscrire.creerTaches(tasks);
+        AfficherFileAttente.creerTaches(tasks);
         
         Navigation.creerTaches(tasks);
     }
@@ -82,6 +85,7 @@ public class FrontalMissileWars implements FrontendFx {
         registrar.registerFragment(FragmentActionTouche.class, "/fragments/action_touche.xml");
         registrar.registerFragment(FragmentCouleur.class, "/fragments/couleur.xml");
         registrar.registerFragment(FragmentPartie.class, "/fragments/fragment_partie.xml");
+        registrar.registerFragment(FragmentReferencePartieRejoindre.class, "/fragments/FragmentReferencePartieRejoindre.xml");
 
         registrar.registerStylesheet("/dev.css");
         registrar.registerStylesheet("/prod.css");

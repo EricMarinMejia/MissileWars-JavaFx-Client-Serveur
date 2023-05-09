@@ -2,7 +2,7 @@ package missile_wars.commun.valeurs;
 
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.ModelValue;
-import missile_wars.frontal.vues.fragments.FragmentPage;
+import missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre;
 
 public class Page implements ModelValue {
     
@@ -44,11 +44,11 @@ public class Page implements ModelValue {
         this.touche = touche;
     } 
 
-    public FragmentPage creerFragment(ViewLoader<FragmentPage> viewLoader) { 
+    public FragmentReferencePartieRejoindre creerFragment(ViewLoader<FragmentReferencePartieRejoindre> viewLoader) { 
         return viewLoader.createView();
     }
 
-    public void afficherSur(FragmentPage fragment) { 
+    public void afficherSur(FragmentReferencePartieRejoindre fragment) { 
         fragment.afficherNomPage(nomVue);
     }
 

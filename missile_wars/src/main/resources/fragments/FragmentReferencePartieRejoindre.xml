@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="missile_wars.frontal.vues.fragments.FragmentPage"
+    fx:controller="missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre"
     styleClass="conteneur">
     <HBox>
         <VBox styleClass="conteneur" fx:id="horizontalOuVertical">

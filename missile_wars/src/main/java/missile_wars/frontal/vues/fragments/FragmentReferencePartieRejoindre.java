@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
-public class FragmentPage extends ViewFx{
+public class FragmentReferencePartieRejoindre extends ViewFx{
 
     @FXML
     private ResizableAvatar logo;
@@ -16,9 +16,9 @@ public class FragmentPage extends ViewFx{
 
     @Override
     public void initialiser() {
-        Ntro.assertNotNull("logo", logo);
+//        Ntro.assertNotNull("logo", logo);
         Ntro.assertNotNull("labelPage", labelPage);
-        logo.setImage(new Image("/content/feuille.png"));    
+//        logo.setImage(new Image("/content/feuille.png"));
     }
 
     public void afficherNomPage(String nomPage) { 

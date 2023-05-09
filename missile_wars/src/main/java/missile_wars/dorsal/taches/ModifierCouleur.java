@@ -1,11 +1,12 @@
 package missile_wars.dorsal.taches;
 
-import static ca.ntro.app.tasks.backend.BackendTasks.*;
+import static ca.ntro.app.tasks.backend.BackendTasks.message;
+import static ca.ntro.app.tasks.backend.BackendTasks.model;
 
 import ca.ntro.app.tasks.backend.BackendTasks;
 import missile_wars.commun.messages.MsgAjouterCouleur;
+import missile_wars.commun.messages.MsgRetirerPartie;
 import missile_wars.commun.modeles.ModeleParametres;
-import static ca.ntro.app.tasks.backend.BackendTasks.*;
 
 public class ModifierCouleur {
 
@@ -26,6 +27,9 @@ public class ModifierCouleur {
 					ModeleParametres couleur = inputs.get(model(ModeleParametres.class));
 					msgAjouterCouleur.ajouterCouleur(couleur);
 					// Prêt à ajouter un rendez-vous!
+					
+					
+					
 
 				});
 	}
