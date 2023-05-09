@@ -13,6 +13,13 @@ import ca.ntro.app.models.WriteObjectGraph;
 public class ModeleFileAttente implements Model, WatchJson, WriteObjectGraph {
 	private int idProchainePartie = 1;
 	
+	public int getIdProchainePartie() {
+		return this.idProchainePartie;
+	}
+	public void setIdProchainePartie(int value) {
+		this.idProchainePartie = value;
+	}
+	
 	public String incrementeEtRetourneNouveauIdPartie() {
 		this.idProchainePartie++;
 		return String.valueOf(this.idProchainePartie - 1);

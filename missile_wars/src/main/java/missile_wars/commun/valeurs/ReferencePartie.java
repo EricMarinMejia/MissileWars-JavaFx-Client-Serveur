@@ -19,6 +19,6 @@ public class ReferencePartie implements ModelValue {
 	
 	
 	public void afficherSur(FragmentReferencePartieRejoindre fragment) {
-		
+		fragment.memoriserIdPartie(this.idPartie);
 	}
 }

@@ -49,7 +49,7 @@ public class Page implements ModelValue {
     }
 
     public void afficherSur(FragmentReferencePartieRejoindre fragment) { 
-        fragment.afficherNomPage(nomVue);
+//        fragment.afficherNomPage(nomVue);
     }
 
     @Override

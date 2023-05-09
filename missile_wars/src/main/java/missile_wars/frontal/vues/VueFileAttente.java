@@ -40,7 +40,6 @@ public class VueFileAttente extends ViewFx {
         Ntro.assertNotNull("conteneurPages", conteneurPages);
         installerEvtAfficherMenu();
         installerMsgNouvellePartie();
-        installerMsgRetirerPages();
     }
 
     private void installerEvtAfficherMenu() { 
@@ -55,15 +54,12 @@ public class VueFileAttente extends ViewFx {
     	boutonAjouterPartie.setOnAction(evtFx -> {
     		msgNouvellePartie.setQuantiteJoueursCible(2);
     		msgNouvellePartie.send();
+    		
+    		//installer l'écoute d'un message avertissant les clients qu'une nouvelle partie a été créé, afin de rejoindre cette partie.
+    		
     	});
     }
 
-    public void installerMsgRetirerPages() { 
-//        MsgRetirerPages msgRetirerPages = NtroApp.newMessage(MsgRetirerPages.class);
-//        boutonRetirerLesPages.setOnAction(evevenementFx -> { 
-//            msgRetirerPages.send();
-//        });
-    }
 
     public void ajouterReferencePartie(ReferencePartie uneReferencePartie) {
         FragmentReferencePartieRejoindre fragment = viewLoaderFragmentReferencePartieRejoindre.createView();

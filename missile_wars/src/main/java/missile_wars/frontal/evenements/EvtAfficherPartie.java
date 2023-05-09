@@ -4,13 +4,13 @@ import ca.ntro.app.frontend.events.EventNtro;
 
 public class EvtAfficherPartie extends EventNtro {
 	
-	private int idPartie;
+	private String idPartie;
 
-	public int getIdPartie() {
+	public String getIdPartie() {
 		return idPartie;
 	}
 
-	public void setIdPartie(int idPartie) {
+	public void setIdPartie(String idPartie) {
 		this.idPartie = idPartie;
 	}
 	
