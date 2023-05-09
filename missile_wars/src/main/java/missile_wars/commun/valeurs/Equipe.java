@@ -7,7 +7,7 @@ import ca.ntro.app.models.ModelValue;
 
 public class Equipe implements ModelValue {
 	
-	private List<Joueur> lesJoueurs = new ArrayList<>();
+	private List<ReferenceJoueur> lesJoueurs = new ArrayList<>();
 	
 	
 }

@@ -2,14 +2,19 @@ package missile_wars.commun.valeurs;
 
 import ca.ntro.app.models.ModelValue;
 
-public class Joueur implements ModelValue {
+public class ReferenceJoueur implements ModelValue {
 	
-	private String nom = "";
-	public String getNom() {
-		return nom;
+	
+	
+	private int idJoueur = -1;
+	
+	
+	
+	public int getIdJoueur() {
+		return idJoueur;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setIdJoueur(int idJoueur) {
+		this.idJoueur = idJoueur;
 	}
 	public int getNombreMissiles() {
 		return nombreMissiles;

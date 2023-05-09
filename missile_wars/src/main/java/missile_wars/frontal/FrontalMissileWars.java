@@ -23,6 +23,7 @@ import missile_wars.frontal.taches.AfficherParametres;
 import missile_wars.frontal.taches.AfficherSInscrire;
 import missile_wars.frontal.taches.Initialisation;
 import missile_wars.frontal.taches.Navigation;
+import missile_wars.frontal.taches.Session;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueHistorique;
@@ -41,12 +42,14 @@ public class FrontalMissileWars implements FrontendFx {
     @Override
     public void createTasks(FrontendTasks tasks) {
         Initialisation.creerTaches(tasks);
-        AfficherDidacticiel.creerTaches(tasks);
+        Session.creerTaches(tasks);
+//        AfficherDidacticiel.creerTaches(tasks);
         AfficherParametres.creerTaches(tasks);
         AfficherHistorique.creerTaches(tasks);
 //        AfficherPartie.creerTaches(tasks);
         AfficherSInscrire.creerTaches(tasks);
         AfficherFileAttente.creerTaches(tasks);
+        
         
         Navigation.creerTaches(tasks);
     }

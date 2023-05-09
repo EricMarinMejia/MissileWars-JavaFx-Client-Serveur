@@ -6,6 +6,7 @@ import missile_wars.dorsal.taches.ModifierCouleur;
 import missile_wars.dorsal.taches.ModifierFileAttente;
 import missile_wars.dorsal.taches.ModifierHistorique;
 import missile_wars.dorsal.taches.ModifierInscriptionJoueur;
+import missile_wars.dorsal.taches.ModifierListeJoueurs;
 
 public class DorsalMissileWars extends LocalBackendNtro {
 
@@ -15,6 +16,7 @@ public class DorsalMissileWars extends LocalBackendNtro {
 		ModifierFileAttente.creerTaches(tasks);
 		ModifierCouleur.creerTaches(tasks);
 		ModifierInscriptionJoueur.creerTaches(tasks);
+		ModifierListeJoueurs.creerTaches(tasks);
 		
 //      ModifierListePages.creerTaches(tasks);
 //		ModifierJeu.creerTaches(tasks);
