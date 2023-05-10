@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 import missile_wars.commun.messages.MsgNouvellePartie;
 import missile_wars.commun.valeurs.ReferencePartie;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
+import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
 import missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre;
 
 public class VueFileAttente extends ViewFx {
@@ -51,11 +52,13 @@ public class VueFileAttente extends ViewFx {
 
     public void installerMsgNouvellePartie() {
     	MsgNouvellePartie msgNouvellePartie = NtroApp.newMessage(MsgNouvellePartie.class);
+    	EvtUtilisateurACreeNouvellePartie evtUtilisateurACreeNouvellePartie = NtroApp.newEvent(EvtUtilisateurACreeNouvellePartie.class);
     	boutonAjouterPartie.setOnAction(evtFx -> {
+    		
+    		evtUtilisateurACreeNouvellePartie.trigger();
+    		
     		msgNouvellePartie.setQuantiteJoueursCible(2);
     		msgNouvellePartie.send();
-    		
-    		//installer l'écoute d'un message avertissant les clients qu'une nouvelle partie a été créé, afin de rejoindre cette partie.
     		
     	});
     }

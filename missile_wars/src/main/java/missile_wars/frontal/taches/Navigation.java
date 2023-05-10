@@ -90,7 +90,7 @@ public class Navigation {
             VuePartie vuePartie = entrees.get(created(VuePartie.class));
             vueRacine.afficherSousVue(vuePartie);
             
-            AfficherPartie.creerTaches(tasks);
+            AfficherPartie.creerTachesDynamiques(tasks);
         });
 	}
 

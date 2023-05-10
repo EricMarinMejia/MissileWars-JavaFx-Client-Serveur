@@ -11,6 +11,7 @@ import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.controles.CanvasPartie;
 import missile_wars.frontal.evenements.EvtActionJoueur;
 import missile_wars.frontal.evenements.EvtAfficherHistorique;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
 
 public class VuePartie extends ViewFx {
 
@@ -39,6 +40,7 @@ public class VuePartie extends ViewFx {
 
 	@Override
 	public void initialiser() {
+		
 		Ntro.assertNotNull("labelNomJoueur1", labelNomJoueur1);
 		Ntro.assertNotNull("labelNomJoueur2", labelNomJoueur2);
 		Ntro.assertNotNull("labelScoreJoueur1", labelScoreJoueur1);
@@ -56,7 +58,7 @@ public class VuePartie extends ViewFx {
 	}
 
 	private void installerEvtAfficherAccueil() {
-		EvtAfficherHistorique evtNtro = NtroApp.newEvent(EvtAfficherHistorique.class);
+		EvtAfficherMenu evtNtro = NtroApp.newEvent(EvtAfficherMenu.class);
 
 		boutonQuitter.setOnAction(evtFx -> {
 			System.out.println("[VuePartie] clic: " + evtFx.getEventType());

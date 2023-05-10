@@ -5,9 +5,9 @@ import static ca.ntro.app.tasks.backend.BackendTasks.model;
 
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.tasks.backend.BackendTasks;
+import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
 import missile_wars.commun.messages.MsgNouvellePartie;
 import missile_wars.commun.modeles.ModeleFileAttente;
-import missile_wars.dorsal.messages.MsgAjusterQuantiteJoueursCible;
 
 public class ModifierFileAttente {
 	public static void creerTaches(BackendTasks tasks) {
@@ -35,6 +35,10 @@ public class ModifierFileAttente {
 			//msgAjusterQuantiteJoueursCible.setIdPartie(prochainId);
 			//msgAjusterQuantiteJoueursCible.setQuantiteJoueursCible(msgNouvellePartie.getQuantiteJoueursCible());
 			//msgAjusterQuantiteJoueursCible.send();
+			
+			MsgNouveauIdPartieBroadcast msgNouveauIdPartieBroadcast = NtroApp.newMessage(MsgNouveauIdPartieBroadcast.class);
+			msgNouveauIdPartieBroadcast.setIdPartie(prochainId);
+			msgNouveauIdPartieBroadcast.broadcast();
 			
 		});
 	}

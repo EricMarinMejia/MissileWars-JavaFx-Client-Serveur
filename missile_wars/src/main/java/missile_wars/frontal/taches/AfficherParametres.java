@@ -26,6 +26,7 @@ public class AfficherParametres {
 		.waitsFor(modified(ModeleParametres.class))
 
 				.executes(inputs -> {
+					
 
 					VueParametres vueParametres = inputs.get(created(VueParametres.class));
 					Modified<ModeleParametres> Parametres = inputs.get(modified(ModeleParametres.class));
