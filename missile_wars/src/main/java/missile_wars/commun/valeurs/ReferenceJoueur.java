@@ -6,6 +6,11 @@ public class ReferenceJoueur implements ModelValue {
 	
 	
 	
+	// TODO : ajouter ICI les informations sur la position du joueur, son inventaire s'il en a un, etc...
+	
+	
+	
+	
 	private int idJoueur = -1;
 	
 	// TODO: ajouter le nom du joueur. laissez charles s'occuper de celui là ;)

@@ -31,6 +31,18 @@ public class DonneesVuePartie implements ViewData {
 	private int quantiteJoueursCible = 2; //un nombre pair.
 	private int etatPartie = EtatPartie.NULLE.ordinal();
 	
+	
+	private ReferenceJoueur obtenirReferenceJoueurThis() {
+		for (Equipe equipe : this.lesEquipes) {
+			for (ReferenceJoueur referenceJoueur : equipe.getLesJoueurs()) {
+				if (referenceJoueur.getIdJoueur() == this.idJoueur) {
+					return referenceJoueur;
+				}
+			}
+		}
+		return null;
+	}
+	
 
 	private MondeMissileWars2d mondeMissileWars2d = new MondeMissileWars2d();
 	private String fpsCourant = "0";

@@ -49,6 +49,12 @@ public class ModelePartie implements Model {
 
 	private String partieGagnee;
 	
+	
+	
+	// TODO: ajouter ici une liste de Plancher (2 Plancher dans la liste, parce qu'il y a 2 équipes)
+	
+	
+	
 
 	private String datePartie;
 	
