@@ -27,6 +27,7 @@ public class AfficherPartie {
 				.waitsFor("Initialisation")
 				.andContains(subTasks -> {
 					utilisateurACreeNouvellePartie(subTasks);
+					creerEcouterMsgNouveauIdPartieBroadcast(subTasks);
 				});
 	}
 
@@ -37,35 +38,34 @@ public class AfficherPartie {
 				.waitsFor(event(EvtUtilisateurACreeNouvellePartie.class))
 				.thenExecutes(inputs -> {
 
-					creerEcouterMsgNouveauIdPartieBroadcast(subTasks);
+//					creerEcouterMsgNouveauIdPartieBroadcast(subTasks);
+					ecouterNextMsgNouveauIdPartieBroadcastTask = true;
 
 				});
 	}
 
-	private static Task ecouterMsgNouveauIdPartieBroadcastTask = null;
+	private static boolean ecouterNextMsgNouveauIdPartieBroadcastTask = false; // TODO: demander au prof comment en faire une tâche qui est créé et supprimé dynamiquement (sans le crash que j'avais)
 
 	private static void creerEcouterMsgNouveauIdPartieBroadcast(FrontendTasks subTasks) {
-		ecouterMsgNouveauIdPartieBroadcastTask = subTasks.task("ecouterMsgNouveauIdPartieBroadcast")
+		subTasks.task("ecouterMsgNouveauIdPartieBroadcast")
 				.waitsFor(message(MsgNouveauIdPartieBroadcast.class))
 				.thenExecutes(inputs -> {
-					System.out.println("ENFIN ASDFASDFASDFASDFASDF");
+					
+					if (ecouterNextMsgNouveauIdPartieBroadcastTask) {
+						MsgNouveauIdPartieBroadcast msgNouveauIdPartieBroadcast = inputs.get(message(MsgNouveauIdPartieBroadcast.class));
 
-					MsgNouveauIdPartieBroadcast msgNouveauIdPartieBroadcast = inputs.get(message(MsgNouveauIdPartieBroadcast.class));
+						String idPartie = msgNouveauIdPartieBroadcast.getIdPartie();
 
-					System.out.println("ENFIN 2 ASDFASDFASDFASDFASDF");
-					String idPartie = msgNouveauIdPartieBroadcast.getIdPartie();
+						EvtAfficherPartie evtNtro = NtroApp.newEvent(EvtAfficherPartie.class);
+						evtNtro.setIdPartie(idPartie);
+						evtNtro.trigger();
 
-					EvtAfficherPartie evtNtro = NtroApp.newEvent(EvtAfficherPartie.class);
-					evtNtro.setIdPartie(idPartie);
-					evtNtro.trigger();
-
+					}
+					
 //					ecouterMsgNouveauIdPartieBroadcastTask.removeFromGraph();
 //					ecouterMsgNouveauIdPartieBroadcastTask = null;
 					
-
-					System.out.println("ENFIN FIN ASDFASDFASDFASDFASDF");
-
-				}).getTask();
+				});
 	}
 
 	private static List<Task> tachesDynamiques = new ArrayList<>();
