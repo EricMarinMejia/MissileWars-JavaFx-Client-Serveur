@@ -1,8 +1,8 @@
 package missile_wars.commun.monde2d;
 
-import ca.ntro.app.fx.controls.ResizableWorld2dCanvasFx;
 import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.core.initialization.Ntro;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
@@ -30,9 +30,8 @@ public class Balle2d extends ObjetPong2d {
     }
 
     @Override
-    public void drawOn(ResizableWorld2dCanvasFx canvas) {
+    public void drawOnWorld(GraphicsContext gc) {
 
-        canvas.drawOnWorld(gc -> {
             gc.setFill(Color.LIMEGREEN);
             gc.fillArc(getTopLeftX(),
                     getTopLeftY(),
@@ -41,7 +40,6 @@ public class Balle2d extends ObjetPong2d {
                     0,
                     360,
                     ArcType.CHORD);
-        });
     }
 
     @Override
