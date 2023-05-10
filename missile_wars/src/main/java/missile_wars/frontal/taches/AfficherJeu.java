@@ -84,7 +84,7 @@ public class AfficherJeu {
 			ModelePartie modeleJeu = modifiedJeu.currentValue();
 			
 			modeleJeu.afficherInfoPartieSur(vueJeu);
-			modeleJeu.copierDonneesDans(donneesVueJeu);
+//			modeleJeu.copierDonneesDans(donneesVueJeu);
 			
 		});
 	}

@@ -7,7 +7,7 @@ import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.Model;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.commun.valeurs.Equipe;
-import missile_wars.frontal.donnees.DonneesVueJeu;
+import missile_wars.frontal.donnees.DonneesVuePartie;
 import missile_wars.frontal.vues.VuePartie;
 import missile_wars.frontal.vues.fragments.FragmentPartie;
 
@@ -89,8 +89,8 @@ public class ModelePartie implements Model {
 	}
 	
 	
-	public void copierDonneesDans(DonneesVueJeu donneesVueJeu)  {
-		donneesVueJeu.copierDonneesDe(mondeMS2d);
+	public void copierDonneesDans(DonneesVuePartie donneesVuePartie)  {
+		donneesVuePartie.copierDonneesDe(this);
 	}
 
 	public void copierDonneesDe(MondeMissileWars2d mondeMS2d) {

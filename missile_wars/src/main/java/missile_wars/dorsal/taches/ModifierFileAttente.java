@@ -21,6 +21,7 @@ public class ModifierFileAttente {
 	
 	private static void ajouterPartie(BackendTasks tasks, BackendTasks subTasks) {
 		subTasks.task("ajouterPartie")
+		.waitsFor(model(ModeleFileAttente.class))
 		.waitsFor(message(MsgNouvellePartie.class))
 		.thenExecutes(inputs -> {
 			MsgNouvellePartie msgNouvellePartie = inputs.get(message(MsgNouvellePartie.class));
@@ -29,6 +30,8 @@ public class ModifierFileAttente {
 			String prochainId = modeleFileAttente.incrementeEtRetourneNouveauIdPartie();
 			
 			modeleFileAttente.ajouterReferencePartie(prochainId);
+			
+			ModifierPartie.creerTaches(subTasks, prochainId);
 			
 			//envoyer un 2e message qui modifie le nombre de joueur de la partie nouvellement créée
 			//MsgAjusterQuantiteJoueursCible msgAjusterQuantiteJoueursCible = NtroApp.newMessage(MsgAjusterQuantiteJoueursCible.class);

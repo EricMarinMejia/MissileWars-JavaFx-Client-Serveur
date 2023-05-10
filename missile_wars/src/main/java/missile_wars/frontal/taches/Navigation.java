@@ -90,7 +90,10 @@ public class Navigation {
             VuePartie vuePartie = entrees.get(created(VuePartie.class));
             vueRacine.afficherSousVue(vuePartie);
             
-            AfficherPartie.creerTachesDynamiques(tasks);
+            EvtAfficherPartie evtAfficherPartie = entrees.get(event(EvtAfficherPartie.class));
+            String idPartie = evtAfficherPartie.getIdPartie();
+            
+            AfficherPartie.creerTachesDynamiques(tasks, idPartie);
         });
 	}
 

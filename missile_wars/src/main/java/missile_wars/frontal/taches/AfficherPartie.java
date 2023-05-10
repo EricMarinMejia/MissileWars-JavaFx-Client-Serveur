@@ -5,6 +5,7 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.create;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.message;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.modified;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +13,10 @@ import java.util.List;
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.clock.Tick;
-import ca.ntro.core.initialization.Ntro;
+import ca.ntro.core.reflection.observer.Modified;
 import ca.ntro.core.task_graphs.task_graph.Task;
 import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
+import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.donnees.DonneesVuePartie;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
 import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
@@ -71,26 +73,29 @@ public class AfficherPartie {
 	private static List<Task> tachesDynamiques = new ArrayList<>();
 
 	public static void supprimerTachesDynamiques() {
+		
 		for (Task tache : tachesDynamiques) {
 			tache.removeFromGraph();
 		}
 		tachesDynamiques.clear();
 	}
 
-	public static void creerTachesDynamiques(FrontendTasks tasks) {
+	public static void creerTachesDynamiques(FrontendTasks tasks, String idPartie) {
 
-		tachesDynamiques.add(creerDonneesVuePartie(tasks));
+		tachesDynamiques.add(creerDonneesVuePartie(tasks, idPartie));
 
 		tasks.taskGroup("AfficherPartieDynamique")
+		.waitsFor(created(VuePartie.class))
 				.waitsFor(created(DonneesVuePartie.class))
 				.andContains(subTasks -> {
 
+					observerModelPartie(subTasks, idPartie);
 					prochaineImagePartie(subTasks);
 
 				});
 	}
 
-	private static Task creerDonneesVuePartie(FrontendTasks tasks) {
+	private static Task creerDonneesVuePartie(FrontendTasks tasks, String idPartie) {
 
 		return tasks.task(create(DonneesVuePartie.class))
 
@@ -98,6 +103,22 @@ public class AfficherPartie {
 
 					return new DonneesVuePartie();
 				}).getTask();
+	}
+	
+	private static void observerModelPartie(FrontendTasks subTasks, String idPartie) {
+		subTasks.task("observerModelePartie")
+		.waitsFor(modified(ModelePartie.class, idPartie))
+		.thenExecutes(inputs -> {
+			VuePartie vuePartie = inputs.get(created(VuePartie.class));
+			DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
+			
+			Modified<ModelePartie> modifiedModelePartie = inputs.get(modified(ModelePartie.class, idPartie));
+			ModelePartie current = modifiedModelePartie.currentValue();
+			
+			current.copierDonneesDans(donneesVuePartie);
+			
+			
+		});
 	}
 
 	// ajouter la méthode

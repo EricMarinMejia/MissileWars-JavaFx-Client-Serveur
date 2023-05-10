@@ -1,9 +1,13 @@
 package missile_wars.frontal.donnees;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ca.ntro.app.frontend.ViewData;
 import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.core.initialization.Ntro;
+import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.vues.VuePartie;
 
@@ -23,7 +27,15 @@ public class DonneesVuePartie implements ViewData {
         calculerFpsSiNecessaire();
 
         vuePartie.viderCanvas();
+//        vuePartie.afficherImagesParSecondes(fpsCourant);
 //        vuePartie.afficherImagesParSeconde("FPS " + fpsCourant);
+        
+        List<String> testList = new ArrayList<>();
+        testList.add("asdf");
+        testList.add("qwer ffgf");
+        vuePartie.afficherLignesDeTexte(testList);
+        
+        
         vuePartie.afficherMissileWars2d(mondeMissileWars2d);
 
         imagesAfficheesDepuisDernierCalculFps++;
@@ -52,8 +64,11 @@ public class DonneesVuePartie implements ViewData {
     	mondeMissileWars2d.onTimePasses(elapsedTime);
     }
 
-    public void copierDonnesDe(MondeMissileWars2d mondePong2d) {
-    	mondeMissileWars2d.copyDataFrom(mondePong2d);
+    public void copierDonneesDe(ModelePartie modelePartie) {
+    	mondeMissileWars2d.copyDataFrom(modelePartie.getMondeMS2d());
+    	
+    	
+    	
     }
 
     
