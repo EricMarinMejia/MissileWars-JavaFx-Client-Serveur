@@ -24,10 +24,17 @@ public class ModelePartie implements Model {
 		int totalJoueurs = 0;
 		for (Equipe equipe : this.lesEquipes) {
 			totalJoueurs += equipe.getLesJoueurs().size();
+			for (ReferenceJoueur referenceJoueur : equipe.getLesJoueurs()) {
+				//si le joueur est déjà dans la partie, on ne l'ajoute pas une 2e fois
+				if (referenceJoueur.getIdJoueur() == idJoueur) {
+					return;
+				}
+			}
 		}
 		
 		if (totalJoueurs < this.getQuantiteJoueursCible()) {
 			ReferenceJoueur referenceJoueur = new ReferenceJoueur();
+			referenceJoueur.setIdJoueur(idJoueur);
 			int indexEquipe = 0;
 			if (this.lesEquipes.get(0).getLesJoueurs().size() <= this.lesEquipes.get(1).getLesJoueurs().size()) {
 				indexEquipe = 0;
@@ -35,6 +42,7 @@ public class ModelePartie implements Model {
 			else {
 				indexEquipe = 1;
 			}
+			System.out.println("ajouté " + String.valueOf(idJoueur) + " à la partie " + this.idPartie + " à l'équipe d'index " + String.valueOf(indexEquipe) + "");
 			this.lesEquipes.get(indexEquipe).getLesJoueurs().add(referenceJoueur);
 		}
 	}

@@ -55,6 +55,7 @@ public class AfficherPartie {
 				.thenExecutes(inputs -> {
 					
 					if (ecouterNextMsgNouveauIdPartieBroadcastTask) {
+						System.out.println("AfficherPartie.java reçu nouveau broadcast partie à ce conencter");
 						MsgNouveauIdPartieBroadcast msgNouveauIdPartieBroadcast = inputs.get(message(MsgNouveauIdPartieBroadcast.class));
 
 						String idPartie = msgNouveauIdPartieBroadcast.getIdPartie();
@@ -67,6 +68,7 @@ public class AfficherPartie {
 						MsgAjouterReferenceJoueurAPartie msgAjouterReferenceJoueurAPartie = NtroApp.newMessage(MsgAjouterReferenceJoueurAPartie.class);
 						msgAjouterReferenceJoueurAPartie.setIdJoueur(Session.idJoueur);
 						msgAjouterReferenceJoueurAPartie.setIdPartie(idPartie);
+						msgAjouterReferenceJoueurAPartie.setChannelId(idPartie);
 						msgAjouterReferenceJoueurAPartie.send();
 
 					}
@@ -113,7 +115,7 @@ public class AfficherPartie {
 	}
 	
 	private static void observerModelPartie(FrontendTasks subTasks, String idPartie) {
-		subTasks.task("observerModelePartie")
+		subTasks.task("observerModelePartie/" + idPartie)
 		.waitsFor(modified(ModelePartie.class, idPartie))
 		.thenExecutes(inputs -> {
 			VuePartie vuePartie = inputs.get(created(VuePartie.class));
@@ -144,7 +146,7 @@ public class AfficherPartie {
 
 					DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
 					VuePartie vuePartie = inputs.get(created(VuePartie.class));
-
+					
 					donneesVuePartie.reagirTempsQuiPasse(tick.elapsedTime());
 
 					donneesVuePartie.afficherSur(vuePartie);

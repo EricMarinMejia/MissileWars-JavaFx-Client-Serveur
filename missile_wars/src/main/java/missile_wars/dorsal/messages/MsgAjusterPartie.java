@@ -2,7 +2,7 @@ package missile_wars.dorsal.messages;
 
 import ca.ntro.app.messages.MessageNtro;
 
-public class MsgAjusterQuantiteJoueursCible extends MessageNtro {
+public class MsgAjusterPartie extends MessageNtro {
 	
 	private String idPartie = "";
 	

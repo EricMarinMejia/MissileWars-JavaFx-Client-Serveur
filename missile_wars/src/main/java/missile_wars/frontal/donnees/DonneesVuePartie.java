@@ -11,6 +11,7 @@ import missile_wars.commun.enums.EtatPartie;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.commun.valeurs.Equipe;
+import missile_wars.commun.valeurs.ReferenceJoueur;
 import missile_wars.frontal.vues.VuePartie;
 
 public class DonneesVuePartie implements ViewData {
@@ -50,9 +51,13 @@ public class DonneesVuePartie implements ViewData {
         
         List<String> testList = new ArrayList<>();
         testList.add(EtatPartie.aPartirDeInt(this.etatPartie).name());
-        testList.add("asdf");
-        testList.add("qwer ffgf");
-        testList.add(String.valueOf(this.lesEquipes.get(0).getLesJoueurs().size()));
+        for (int indexEquipe = 0; indexEquipe < this.lesEquipes.size(); indexEquipe++) {
+        	Equipe equipe = this.lesEquipes.get(indexEquipe);
+        	testList.add("Equipe #" + String.valueOf(indexEquipe));
+        	for (ReferenceJoueur referenceJoueur : equipe.getLesJoueurs()) {
+        		testList.add("    Joueur id=" + String.valueOf(referenceJoueur.getIdJoueur()));
+        	}
+        }
         vuePartie.afficherLignesDeTexte(testList);
         
         

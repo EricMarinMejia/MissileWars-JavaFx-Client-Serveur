@@ -14,6 +14,9 @@ import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
 import missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre;
 
 public class VueFileAttente extends ViewFx {
+	
+	private int idJoueur = -1;
+	
     @FXML
     private Button boutonAjouterPartie;
 //    @FXML
@@ -62,11 +65,16 @@ public class VueFileAttente extends ViewFx {
     		
     	});
     }
+    
+    public void memoriserIdJoueur(int idJoueur) {
+    	this.idJoueur = idJoueur;
+    }
 
 
     public void ajouterReferencePartie(ReferencePartie uneReferencePartie) {
         FragmentReferencePartieRejoindre fragment = viewLoaderFragmentReferencePartieRejoindre.createView();
         uneReferencePartie.afficherSur(fragment);
+        fragment.memoriserIdJoueur(this.idJoueur);
         conteneurPages.getChildren().add(fragment.rootNode());
     }
 

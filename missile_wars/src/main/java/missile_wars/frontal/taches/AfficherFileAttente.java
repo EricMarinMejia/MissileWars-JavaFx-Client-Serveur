@@ -29,6 +29,7 @@ public class AfficherFileAttente {
 			ModeleFileAttente valeurActuelle = fileAttente.currentValue();
 			
 			valeurActuelle.afficherSur(vueFileAttente);
+			vueFileAttente.memoriserIdJoueur(Session.idJoueur);
 			
 		});
 		

@@ -34,7 +34,7 @@ public class CanvasPartie extends ResizableWorld2dCanvasFx {
 	
 	public void afficherLignesDeTexte(List<String> lignes) {
 		drawOnCanvas(gc -> {
-			int height = 30;
+			int height = 20;
 			int currentY = height;
 			
 			gc.setFont(Font.font((float)height));

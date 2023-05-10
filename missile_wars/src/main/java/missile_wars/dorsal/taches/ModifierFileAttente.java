@@ -8,6 +8,7 @@ import ca.ntro.app.tasks.backend.BackendTasks;
 import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
 import missile_wars.commun.messages.MsgNouvellePartie;
 import missile_wars.commun.modeles.ModeleFileAttente;
+import missile_wars.dorsal.messages.MsgAjusterPartie;
 
 public class ModifierFileAttente {
 	public static void creerTaches(BackendTasks tasks) {
@@ -34,10 +35,11 @@ public class ModifierFileAttente {
 			ModifierPartie.creerTaches(subTasks, prochainId);
 			
 			//envoyer un 2e message qui modifie le nombre de joueur de la partie nouvellement créée
-			//MsgAjusterQuantiteJoueursCible msgAjusterQuantiteJoueursCible = NtroApp.newMessage(MsgAjusterQuantiteJoueursCible.class);
-			//msgAjusterQuantiteJoueursCible.setIdPartie(prochainId);
-			//msgAjusterQuantiteJoueursCible.setQuantiteJoueursCible(msgNouvellePartie.getQuantiteJoueursCible());
-			//msgAjusterQuantiteJoueursCible.send();
+			MsgAjusterPartie msgAjusterPartie= NtroApp.newMessage(MsgAjusterPartie.class);
+			msgAjusterPartie.setIdPartie(prochainId);
+			msgAjusterPartie.setQuantiteJoueursCible(msgNouvellePartie.getQuantiteJoueursCible());
+			msgAjusterPartie.setChannelId(prochainId);
+			msgAjusterPartie.send();
 			
 			MsgNouveauIdPartieBroadcast msgNouveauIdPartieBroadcast = NtroApp.newMessage(MsgNouveauIdPartieBroadcast.class);
 			msgNouveauIdPartieBroadcast.setIdPartie(prochainId);

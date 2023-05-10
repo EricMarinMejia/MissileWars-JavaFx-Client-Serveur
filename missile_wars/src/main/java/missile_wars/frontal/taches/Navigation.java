@@ -65,6 +65,8 @@ public class Navigation {
 			VueRacine vueRacine = inputs.get(created(VueRacine.class));
 			VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
 			
+			vueFileAttente.memoriserIdJoueur(Session.idJoueur);
+			
 			vueRacine.afficherSousVue(vueFileAttente);
 		});
 	}

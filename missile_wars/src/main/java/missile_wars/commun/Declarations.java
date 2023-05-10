@@ -28,6 +28,7 @@ import missile_wars.commun.valeurs.Couleur;
 import missile_wars.commun.valeurs.Equipe;
 import missile_wars.commun.valeurs.Joueur;
 import missile_wars.commun.valeurs.KeyStringRepresentation;
+import missile_wars.commun.valeurs.ReferenceJoueur;
 import missile_wars.commun.valeurs.ReferencePartie;
 
 public class Declarations {
@@ -59,6 +60,7 @@ public class Declarations {
 		registrar.registerModel(ModeleListeJoueurs.class);
 		registrar.registerValue(Joueur.class);
 		registrar.registerValue(Equipe.class);
+		registrar.registerValue(ReferenceJoueur.class);
 		
 		registrar.registerModel(ModeleFileAttente.class);
 		registrar.registerValue(ReferencePartie.class);
@@ -69,7 +71,7 @@ public class Declarations {
 
 	public static void declarerServeur(ServerRegistrar registrar) {
 		registrar.registerName("localhost");
-		registrar.registerPort(8002);
+		registrar.registerPort(8005); // 8002
 	}
 
 }
