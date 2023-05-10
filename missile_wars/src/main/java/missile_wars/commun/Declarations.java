@@ -8,6 +8,7 @@ import missile_wars.commun.messages.MsgActualiserInscriptionJoueurNom;
 import missile_wars.commun.messages.MsgActualiserInscriptionJoueurTouche;
 import missile_wars.commun.messages.MsgAjouterCouleur;
 import missile_wars.commun.messages.MsgAjouterPoint;
+import missile_wars.commun.messages.MsgAjouterReferenceJoueurAPartie;
 import missile_wars.commun.messages.MsgDemandeNouveauJoueur;
 import missile_wars.commun.messages.MsgJoueurExiste;
 import missile_wars.commun.messages.MsgModifierNomJoueur;
@@ -44,6 +45,7 @@ public class Declarations {
 		registrar.registerMessage(MsgNouveauIdPartieBroadcast.class);
 		registrar.registerMessage(MsgJoueurExiste.class);
 		registrar.registerMessage(MsgModifierNomJoueur.class);
+		registrar.registerMessage(MsgAjouterReferenceJoueurAPartie.class);
 	}
 
 	public static void declarerModeles(ModelRegistrar registrar) {

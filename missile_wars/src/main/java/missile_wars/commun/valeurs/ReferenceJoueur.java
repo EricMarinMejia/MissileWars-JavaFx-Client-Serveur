@@ -8,7 +8,7 @@ public class ReferenceJoueur implements ModelValue {
 	
 	private int idJoueur = -1;
 	
-	
+	// TODO: ajouter le nom du joueur. laissez charles s'occuper de celui là ;)
 	
 	public int getIdJoueur() {
 		return idJoueur;

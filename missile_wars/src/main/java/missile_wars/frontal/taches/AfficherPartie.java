@@ -15,6 +15,7 @@ import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.clock.Tick;
 import ca.ntro.core.reflection.observer.Modified;
 import ca.ntro.core.task_graphs.task_graph.Task;
+import missile_wars.commun.messages.MsgAjouterReferenceJoueurAPartie;
 import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.donnees.DonneesVuePartie;
@@ -58,9 +59,15 @@ public class AfficherPartie {
 
 						String idPartie = msgNouveauIdPartieBroadcast.getIdPartie();
 
-						EvtAfficherPartie evtNtro = NtroApp.newEvent(EvtAfficherPartie.class);
-						evtNtro.setIdPartie(idPartie);
-						evtNtro.trigger();
+						EvtAfficherPartie evtAfficherPartie = NtroApp.newEvent(EvtAfficherPartie.class);
+						evtAfficherPartie.setIdPartie(idPartie);
+						evtAfficherPartie.trigger();
+						
+						
+						MsgAjouterReferenceJoueurAPartie msgAjouterReferenceJoueurAPartie = NtroApp.newMessage(MsgAjouterReferenceJoueurAPartie.class);
+						msgAjouterReferenceJoueurAPartie.setIdJoueur(Session.idJoueur);
+						msgAjouterReferenceJoueurAPartie.setIdPartie(idPartie);
+						msgAjouterReferenceJoueurAPartie.send();
 
 					}
 					
@@ -115,6 +122,8 @@ public class AfficherPartie {
 			Modified<ModelePartie> modifiedModelePartie = inputs.get(modified(ModelePartie.class, idPartie));
 			ModelePartie current = modifiedModelePartie.currentValue();
 			
+			donneesVuePartie.memoriserIdJoueur(Session.idJoueur); //TODO: demander au prof comment stoquer/communiquer correctement l'id du joueur.
+			donneesVuePartie.memoriserIdPartie(idPartie);
 			current.copierDonneesDans(donneesVuePartie);
 			
 			
