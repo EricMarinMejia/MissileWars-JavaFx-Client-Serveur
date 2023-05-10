@@ -14,11 +14,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import missile_wars.commun.messages.MsgActualiserInscriptionJoueur;
+import missile_wars.commun.messages.MsgModifierNomJoueur;
 import missile_wars.commun.valeurs.KeyStringRepresentation;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
 import missile_wars.frontal.evenements.EvtRemettreTouchesParDefaut;
+import missile_wars.frontal.taches.Session;
 import missile_wars.frontal.vues.fragments.FragmentActionTouche;
 
 public class VueInscription extends ViewFx {
@@ -51,17 +52,11 @@ public class VueInscription extends ViewFx {
 	}
 	
 	
-	
-	
-	
-	
 	private void putTouches(Map<String, KeyStringRepresentation> source, Map<String, KeyStringRepresentation> dest) {
 		for (Entry<String, KeyStringRepresentation> entry : source.entrySet()) {
 			dest.put(entry.getKey(), entry.getValue().clone());
 		}
 	}
-	
-	
 	
 	
 	//données actuelles du backend
@@ -124,18 +119,21 @@ public class VueInscription extends ViewFx {
 
 	private void installerBoutonValider() {
 		EvtAfficherMenu evtAfficherMenu= NtroApp.newEvent(EvtAfficherMenu.class);
-		MsgActualiserInscriptionJoueur msgActualiser = NtroApp.newMessage(MsgActualiserInscriptionJoueur.class);
+//		MsgActualiserInscriptionJoueur msgActualiser = NtroApp.newMessage(MsgActualiserInscriptionJoueur.class);
+		MsgModifierNomJoueur msgModifierNomJoueur = NtroApp.newMessage(MsgModifierNomJoueur.class);
 		this.buttonValider.setOnAction(evtFx -> {
 			
-			msgActualiser.setNomJoueur(this.tfNomJoueur.getText());
+			msgModifierNomJoueur.setIdJoueur(Session.idJoueur);
+			msgModifierNomJoueur.setNom(this.tfNomJoueur.getText());
+//			msgActualiser.setNomJoueur(this.tfNomJoueur.getText());
+//			
+//			Map<String, KeyStringRepresentation> touches = new HashMap<>();
+//			for (FragmentActionTouche fragment : this.fragments) {
+//				touches.put(fragment.getAction(), fragment.getTouche());
+//			}
+//			msgActualiser.setTouches(touches);
 			
-			Map<String, KeyStringRepresentation> touches = new HashMap<>();
-			for (FragmentActionTouche fragment : this.fragments) {
-				touches.put(fragment.getAction(), fragment.getTouche());
-			}
-			msgActualiser.setTouches(touches);
-			
-			msgActualiser.send();
+			msgModifierNomJoueur.send();
 			evtAfficherMenu.trigger();
 		});
 	}
