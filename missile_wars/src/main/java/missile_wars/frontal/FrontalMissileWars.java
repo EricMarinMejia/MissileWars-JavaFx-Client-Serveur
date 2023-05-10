@@ -48,7 +48,7 @@ public class FrontalMissileWars implements FrontendFx {
 //        AfficherDidacticiel.creerTaches(tasks);
         AfficherParametres.creerTaches(tasks);
         AfficherHistorique.creerTaches(tasks);
-        AfficherPartie.creerTaches(tasks);
+        AfficherPartie.creerTachesStatiques(tasks);
         AfficherSInscrire.creerTaches(tasks);
         AfficherFileAttente.creerTaches(tasks);
 

@@ -22,7 +22,7 @@ import missile_wars.frontal.vues.VuePartie;
 
 public class AfficherPartie {
 
-	public static void creerTaches(FrontendTasks tasks) {
+	public static void creerTachesStatiques(FrontendTasks tasks) {
 		tasks.taskGroup("AfficherPartie")
 				.waitsFor("Initialisation")
 				.andContains(subTasks -> {
@@ -37,28 +37,30 @@ public class AfficherPartie {
 				.waitsFor(event(EvtUtilisateurACreeNouvellePartie.class))
 				.thenExecutes(inputs -> {
 
-					ecouterMsgNouveauIdPartieBroadcast(subTasks);
+					creerEcouterMsgNouveauIdPartieBroadcast(subTasks);
 
 				});
 	}
 
 	private static Task ecouterMsgNouveauIdPartieBroadcastTask = null;
 
-	private static void ecouterMsgNouveauIdPartieBroadcast(FrontendTasks subTasks) {
+	private static void creerEcouterMsgNouveauIdPartieBroadcast(FrontendTasks subTasks) {
 		ecouterMsgNouveauIdPartieBroadcastTask = subTasks.task("ecouterMsgNouveauIdPartieBroadcast")
 				.waitsFor(message(MsgNouveauIdPartieBroadcast.class))
 				.thenExecutes(inputs -> {
 					System.out.println("ENFIN ASDFASDFASDFASDFASDF");
 
-					MsgNouveauIdPartieBroadcast msgNouveauIdPartieBroadcast = inputs
-							.get(message(MsgNouveauIdPartieBroadcast.class));
+					MsgNouveauIdPartieBroadcast msgNouveauIdPartieBroadcast = inputs.get(message(MsgNouveauIdPartieBroadcast.class));
+
+					System.out.println("ENFIN 2 ASDFASDFASDFASDFASDF");
 					String idPartie = msgNouveauIdPartieBroadcast.getIdPartie();
 
 					EvtAfficherPartie evtNtro = NtroApp.newEvent(EvtAfficherPartie.class);
 					evtNtro.setIdPartie(idPartie);
 					evtNtro.trigger();
 
-					ecouterMsgNouveauIdPartieBroadcastTask.removeFromGraph();
+//					ecouterMsgNouveauIdPartieBroadcastTask.removeFromGraph();
+//					ecouterMsgNouveauIdPartieBroadcastTask = null;
 					
 
 					System.out.println("ENFIN FIN ASDFASDFASDFASDFASDF");
