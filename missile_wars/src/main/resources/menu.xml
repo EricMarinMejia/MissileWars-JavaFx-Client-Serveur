@@ -10,9 +10,9 @@
     fx:controller="missile_wars.frontal.vues.VueMenu"
     styleClass="conteneur"
     id="vue-menu">
-    <VBox styleClass="conteneur" id="vue-partie"> 
-    <!-- spacing="10" padding="10"> -->
-        <Label text="Missile Wars" styleClass="titre"/>
+    <VBox styleClass="conteneur" id="vue-partie">
+        <!-- spacing="10" padding="10"> -->
+        <Label text="Missile Wars" styleClass="titre" />
         <VBox prefWidth="80" alignment="CENTER" spacing="8">
             <Button
                 fx:id="boutonVersInscription"
@@ -21,7 +21,7 @@
                 styleClass="gros-bouton"
                 id="bouton-vers-file-attente">
             </Button>
-            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
             <Button
                 maxWidth="Infinity"
                 fx:id="boutonVersParametres"
@@ -29,7 +29,7 @@
                 styleClass="gros-bouton"
                 id="bouton-vers-parametres">
             </Button>
-            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
             <Button
                 maxWidth="Infinity"
                 fx:id="boutonVersDidacticiel"
@@ -37,7 +37,7 @@
                 styleClass="gros-bouton"
                 id="bouton-vers-didacticiel">
             </Button>
-            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
             <Button
                 maxWidth="Infinity"
                 fx:id="boutonVersHistorique"
@@ -45,7 +45,7 @@
                 styleClass="gros-bouton"
                 id="bouton-vers-historique">
             </Button>
-            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
             <Button
                 maxWidth="Infinity"
                 fx:id="boutonVersFileAttente"

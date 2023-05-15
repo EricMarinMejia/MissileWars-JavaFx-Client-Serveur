@@ -18,18 +18,18 @@
 				<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
 			</children>
 		</HBox>
-		<HBox VBox.vgrow="ALWAYS">
+		<HBox VBox.vgrow="ALWAYS" styleClass="test4">
 			<children>
-				<ScrollPane HBox.hgrow="ALWAYS" styleClass="testscrollpane">
-					<content>
+				<VBox prefWidth="300" alignment="CENTER" spacing="8" styleClass="test1">
+					<!-- <content> -->
 						<VBox
 							fx:id="vbAssociationContainer"
-							styleClass="test">
+							styleClass="test2">
 						</VBox>
-					</content>
-				</ScrollPane>
+					<!-- </content> -->
+				</VBox>
 				<VBox
-					fx:id="exit_container">
+					fx:id="exit_container" styleClass="test3">
 					<children>
 						<Button fx:id="buttonAnnuler" styleClass="BtnOptions" text="%annuler" />
 						<Button fx:id="buttonReset" styleClass="BtnOptions" text="%reset" />

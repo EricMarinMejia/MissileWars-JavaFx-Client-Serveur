@@ -1,4 +1,164 @@
-.test{
+.test {
+    -fx-background-color: pink;
+}
+
+.testscrollpane {
+    -fx-background: #000;
+}
+
+.titre {
+    -fx-font-family: "Arial Black", sans-serif;
+    -fx-font-size: 48px;
+    -fx-text-fill: #e6e6e6;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 5);
+    -fx-padding: 10px;
+    -fx-text-fill: lime;
+}
+
+.conteneur {
+    -fx-background-color: black;
+    -fx-alignment: center;
+}
+
+.gros-bouton {
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: lime;
+    -fx-min-width: 280px;
+    -fx-max-width: 280px;
+    -fx-transition-duration: 0.3s;
+}
+
+.gros-bouton:pressed {
+    -fx-font-size: 1em;
+    -fx-scale: 90%;
+}
+
+.gros-bouton:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 10%;
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.7s;
+}
+
+.gros-bouton:hover:after {
+    opacity: 1;
+}
+
+.gros-bouton:hover {
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
+    -fx-cursor: hand;
+    -fx-scale: 150%;
+    -fx-font-size: 1.7em;
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.gros-bouton:active {
+    transform: scale(0.95);
+    transition: transform 0.3s;
+}
+
+.texte-large {
+    -fx-text-fill: white;
+    -fx-font-size: 1.4em;
+}
+
+.texte-generique {
+    -fx-font-size: 1.2em;
+    -fx-text-fill: white;
+}
+
+.AssociationTouches {
+    -fx-text-fill: lime;
+}
+
+.BtnTouches {
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 27px;
+    -fx-max-width: 27px;
+}
+
+.BtnOptions {
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 40px;
+    -fx-max-width: 90px;
+}
+
+.children {
+    -fx-background-color: red;
+}
+
+/* Ajout d'animations */
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Ajout d'un hover sur le titre */
+.titre:hover {
+    -fx-cursor: pointer;
+    animation: scaleAnimation 0.5s infinite alternate;
+}
+
+/* Ajout d'un after sur les gros boutons */
+.gros-bouton:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+   
+}
+.test1{
+    background-color: pink;
+}
+.test2{
+    background-color: blueviolet;
+}
+.test3{
+    background-color: orange;
+}
+.test4{
+    background-color: gold;
+}
+
+/* .test{
     -fx-background-color:pink;    
 }
 .testscrollpane{
@@ -74,4 +234,4 @@
 }
 .children{
     -fx-background-color:red;
-}
+} */
