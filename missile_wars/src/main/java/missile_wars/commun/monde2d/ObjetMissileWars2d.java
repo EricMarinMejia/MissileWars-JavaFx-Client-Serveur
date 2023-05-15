@@ -5,9 +5,7 @@ import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.app.fx.world2d.Object2dFx;
 import javafx.scene.canvas.GraphicsContext;
 
-public class ObjetMissileWars2d extends Object2dFx<MondeMissileWars2d>{
-//    @Override
-//    public void drawOn(ResizableWorld2dCanvasFx canvas) {}
+public abstract class ObjetMissileWars2d extends Object2dFx<MondeMissileWars2d>{
 
     @Override
     public String id() {

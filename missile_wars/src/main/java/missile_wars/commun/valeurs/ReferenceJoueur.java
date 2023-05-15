@@ -1,8 +1,9 @@
 package missile_wars.commun.valeurs;
 
 import ca.ntro.app.models.ModelValue;
+import missile_wars.commun.monde2d.ObjetMissileWars2d;
 
-public class ReferenceJoueur implements ModelValue {
+public class ReferenceJoueur extends ObjetMissileWars2d implements ModelValue{
 	
 	
 	
