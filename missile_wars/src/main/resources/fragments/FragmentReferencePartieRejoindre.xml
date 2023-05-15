@@ -6,14 +6,15 @@
 <?import javafx.scene.layout.Pane?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="missile_wars.frontal.vues.fragments.FragmentPage"
+    fx:controller="missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre"
     styleClass="conteneur">
     <HBox>
         <VBox styleClass="conteneur" fx:id="horizontalOuVertical">
             <!-- <ResizableAvatar fx:id="logo" VBox.vgrow="always" styleClass="logo" /> -->
             <Pane minHeight="20" minWidth="20" />
-            <Label fx:id="labelPage" />
+            <Label fx:id="labelIdPartie" />
             <Pane minHeight="20" minWidth="20" />
+            <Button fx:id="boutonRejoindrePartie" />
         </VBox>
     </HBox>
     <Pane styleClass="petit-espace-vertical" />

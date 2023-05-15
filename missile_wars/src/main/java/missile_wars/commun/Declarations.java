@@ -8,15 +8,28 @@ import missile_wars.commun.messages.MsgActualiserInscriptionJoueurNom;
 import missile_wars.commun.messages.MsgActualiserInscriptionJoueurTouche;
 import missile_wars.commun.messages.MsgAjouterCouleur;
 import missile_wars.commun.messages.MsgAjouterPoint;
+import missile_wars.commun.messages.MsgAjouterReferenceJoueurAPartie;
+import missile_wars.commun.messages.MsgDemandeNouveauJoueur;
+import missile_wars.commun.messages.MsgJoueurExiste;
+import missile_wars.commun.messages.MsgModifierNomJoueur;
+import missile_wars.commun.messages.MsgNouveauIdJoueurBroadcast;
+import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
+import missile_wars.commun.messages.MsgNouvellePartie;
 import missile_wars.commun.messages.MsgRetirerPartie;
+import missile_wars.commun.modeles.ModeleFileAttente;
 import missile_wars.commun.modeles.ModeleHistorique;
 import missile_wars.commun.modeles.ModeleInscriptionJoueur;
+import missile_wars.commun.modeles.ModeleListeJoueurs;
 import missile_wars.commun.modeles.ModeleParametres;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.commun.monde2d.Missile2d;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.commun.valeurs.Couleur;
+import missile_wars.commun.valeurs.Equipe;
+import missile_wars.commun.valeurs.Joueur;
 import missile_wars.commun.valeurs.KeyStringRepresentation;
+import missile_wars.commun.valeurs.ReferenceJoueur;
+import missile_wars.commun.valeurs.ReferencePartie;
 
 public class Declarations {
 
@@ -27,6 +40,13 @@ public class Declarations {
 		registrar.registerMessage(MsgActualiserInscriptionJoueur.class);
 		registrar.registerMessage(MsgActualiserInscriptionJoueurTouche.class);
 		registrar.registerMessage(MsgActualiserInscriptionJoueurNom.class);
+		registrar.registerMessage(MsgNouvellePartie.class);
+		registrar.registerMessage(MsgDemandeNouveauJoueur.class);
+		registrar.registerMessage(MsgNouveauIdJoueurBroadcast.class);
+		registrar.registerMessage(MsgNouveauIdPartieBroadcast.class);
+		registrar.registerMessage(MsgJoueurExiste.class);
+		registrar.registerMessage(MsgModifierNomJoueur.class);
+		registrar.registerMessage(MsgAjouterReferenceJoueurAPartie.class);
 	}
 
 	public static void declarerModeles(ModelRegistrar registrar) {
@@ -37,6 +57,13 @@ public class Declarations {
 		registrar.registerValue(Missile2d.class);
 		registrar.registerModel(ModeleInscriptionJoueur.class);
 		registrar.registerModel(ModeleParametres.class);
+		registrar.registerModel(ModeleListeJoueurs.class);
+		registrar.registerValue(Joueur.class);
+		registrar.registerValue(Equipe.class);
+		registrar.registerValue(ReferenceJoueur.class);
+		
+		registrar.registerModel(ModeleFileAttente.class);
+		registrar.registerValue(ReferencePartie.class);
 		
 		registrar.registerValue(KeyStringRepresentation.class);
 		registrar.registerValue(Couleur.class);
@@ -44,7 +71,7 @@ public class Declarations {
 
 	public static void declarerServeur(ServerRegistrar registrar) {
 		registrar.registerName("localhost");
-		registrar.registerPort(8002);
+		registrar.registerPort(8005); // 8002
 	}
 
 }

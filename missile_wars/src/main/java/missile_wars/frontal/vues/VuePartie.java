@@ -1,5 +1,7 @@
 package missile_wars.frontal.vues;
 
+import java.util.List;
+
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFx;
 import ca.ntro.core.initialization.Ntro;
@@ -10,7 +12,7 @@ import javafx.scene.layout.VBox;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.controles.CanvasPartie;
 import missile_wars.frontal.evenements.EvtActionJoueur;
-import missile_wars.frontal.evenements.EvtAfficherHistorique;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
 
 public class VuePartie extends ViewFx {
 
@@ -39,6 +41,7 @@ public class VuePartie extends ViewFx {
 
 	@Override
 	public void initialiser() {
+		
 		Ntro.assertNotNull("labelNomJoueur1", labelNomJoueur1);
 		Ntro.assertNotNull("labelNomJoueur2", labelNomJoueur2);
 		Ntro.assertNotNull("labelScoreJoueur1", labelScoreJoueur1);
@@ -56,7 +59,7 @@ public class VuePartie extends ViewFx {
 	}
 
 	private void installerEvtAfficherAccueil() {
-		EvtAfficherHistorique evtNtro = NtroApp.newEvent(EvtAfficherHistorique.class);
+		EvtAfficherMenu evtNtro = NtroApp.newEvent(EvtAfficherMenu.class);
 
 		boutonQuitter.setOnAction(evtFx -> {
 			System.out.println("[VuePartie] clic: " + evtFx.getEventType());
@@ -151,6 +154,10 @@ public class VuePartie extends ViewFx {
 	
 	public void afficherImagesParSecondes(String fps) {
 		canvasPartie.afficherFps(fps);
+	}
+	
+	public void afficherLignesDeTexte(List<String> lignes) {
+		this.canvasPartie.afficherLignesDeTexte(lignes);
 	}
 	
 	public void afficherNomPremierJoueur(String nomPremierJoueur) {

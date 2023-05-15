@@ -20,6 +20,7 @@ import missile_wars.frontal.vues.VueRacine;
 import missile_wars.frontal.vues.fragments.FragmentActionTouche;
 import missile_wars.frontal.vues.fragments.FragmentCouleur;
 import missile_wars.frontal.vues.fragments.FragmentPartie;
+import missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre;
 
 public class Initialisation {
     public static void creerTaches(FrontendTasks taches) {
@@ -162,10 +163,13 @@ public class Initialisation {
     private static void creerVueFileAttente(FrontendTasks subTasks) {
     	subTasks.task(create(VueFileAttente.class))
 		.waitsFor(viewLoader(VueFileAttente.class))
+		.waitsFor(viewLoader(FragmentReferencePartieRejoindre.class))
 		.thenExecutesAndReturnsValue(inputs -> {
 			
 			ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
-			VueFileAttente vueFileAttente= viewLoader.createView();
+			ViewLoader<FragmentReferencePartieRejoindre> viewLoaderFragmentReferencePartieRejoindre = inputs.get(viewLoader(FragmentReferencePartieRejoindre.class));
+			VueFileAttente vueFileAttente = viewLoader.createView();
+			vueFileAttente.setViewLoaderFragmentReferencePartieRejoindre(viewLoaderFragmentReferencePartieRejoindre);
 			return vueFileAttente;
 			
 		});

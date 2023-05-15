@@ -7,7 +7,8 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.modified;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.reflection.observer.Modified;
-import missile_wars.commun.modeles.ModeleInscriptionJoueur;
+import missile_wars.commun.modeles.ModeleListeJoueurs;
+import missile_wars.commun.valeurs.Joueur;
 import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
 import missile_wars.frontal.evenements.EvtRemettreTouchesParDefaut;
 import missile_wars.frontal.vues.VueInscription;
@@ -39,27 +40,32 @@ public class AfficherSInscrire {
 		
 		tasks.task("afficherSInscrire")
 		.waitsFor(created(VueInscription.class))
-		.waitsFor(modified(ModeleInscriptionJoueur.class))
+//		.waitsFor(modified(ModeleInscriptionJoueur.class))
+		.waitsFor(modified(ModeleListeJoueurs.class))
 		
 		.executes(inputs -> {
 					
 			VueInscription vueSInscrire = inputs.get(created(VueInscription.class));
-			Modified<ModeleInscriptionJoueur> inscriptionJoueur = inputs.get(modified(ModeleInscriptionJoueur.class));
+//			Modified<ModeleInscriptionJoueur> inscriptionJoueur = inputs.get(modified(ModeleInscriptionJoueur.class));
+			Modified<ModeleListeJoueurs> listeJoueurs = inputs.get(modified(ModeleListeJoueurs.class));
 			
-			ModeleInscriptionJoueur previous = inscriptionJoueur.previousValue();
-			ModeleInscriptionJoueur current = inscriptionJoueur.currentValue();
+			ModeleListeJoueurs previous = listeJoueurs.previousValue();
+			ModeleListeJoueurs current = listeJoueurs.currentValue();
 			
-			vueSInscrire.memoriserNomJoueur(current.getNomJoueur());
-			vueSInscrire.memoriserTouches(current.getTouches());
-			
-			vueSInscrire.viderTouches();
-			vueSInscrire.afficherNom(current.getNomJoueur());
-			for (String key : current.getTouches().keySet()) {
-				vueSInscrire.afficherTouche(key, current.getTouches().get(key));
+			Joueur joueur = current.obtenirJoueurParId(Session.idJoueur);
+			if (joueur != null) {
+				vueSInscrire.memoriserNomJoueur(joueur.getNom());
+//				vueSInscrire.memoriserTouches(current.getTouches());
+				
+				vueSInscrire.viderTouches();
+				vueSInscrire.afficherNom(joueur.getNom());
+//				for (String key : current.getTouches().keySet()) {
+//					vueSInscrire.afficherTouche(key, current.getTouches().get(key));
+//				}
+//				
+//				current.afficherSur(vueSInscrire);
+				
 			}
-			
-//			current.afficherSur(vueSInscrire);
-			
 			
 		});
 		

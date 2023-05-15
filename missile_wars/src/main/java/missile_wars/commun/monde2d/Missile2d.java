@@ -1,8 +1,8 @@
 package missile_wars.commun.monde2d;
 
-import ca.ntro.app.fx.controls.ResizableWorld2dCanvasFx;
 import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.core.initialization.Ntro;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Missile2d extends ObjetMissileWars2d {
@@ -27,11 +27,11 @@ public class Missile2d extends ObjetMissileWars2d {
     }
 
     @Override
-    public void drawOn(ResizableWorld2dCanvasFx canvas) {
+    public void drawOnWorld(GraphicsContext gc) {
         Image image = new Image("/grass.png");
-        canvas.drawOnWorld(gc -> {
-            gc.drawImage(image,getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
-        });
+//        canvas.drawOnWorld(gc -> {
+        gc.drawImage(image,getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
+//        });
     }
 
     @Override

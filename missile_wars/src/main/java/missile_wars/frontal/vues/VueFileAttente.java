@@ -8,11 +8,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import missile_wars.commun.messages.MsgNouvellePartie;
-import missile_wars.commun.valeurs.Page;
+import missile_wars.commun.valeurs.ReferencePartie;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
-import missile_wars.frontal.vues.fragments.FragmentPage;
+import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
+import missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre;
 
 public class VueFileAttente extends ViewFx {
+	
+	private int idJoueur = -1;
+	
     @FXML
     private Button boutonAjouterPartie;
 //    @FXML
@@ -23,13 +27,13 @@ public class VueFileAttente extends ViewFx {
     @FXML
     private VBox conteneurPages;
 
-    private ViewLoader<FragmentPage> fragmentPage;
+    private ViewLoader<FragmentReferencePartieRejoindre> viewLoaderFragmentReferencePartieRejoindre;
     
-    public ViewLoader<FragmentPage> getFragmentPage() {
-        return fragmentPage;
+    public ViewLoader<FragmentReferencePartieRejoindre> getViewLoaderFragmentReferencePartieRejoindre() {
+        return viewLoaderFragmentReferencePartieRejoindre;
     }
-    public void setFragmentPage(ViewLoader<FragmentPage> fragmentPage) {
-        this.fragmentPage = fragmentPage;
+    public void setViewLoaderFragmentReferencePartieRejoindre(ViewLoader<FragmentReferencePartieRejoindre> fragmentReferencePartieRejoindre) {
+        this.viewLoaderFragmentReferencePartieRejoindre = fragmentReferencePartieRejoindre;
     }
 
     @Override
@@ -39,8 +43,7 @@ public class VueFileAttente extends ViewFx {
         Ntro.assertNotNull("boutonVersMenu", boutonVersMenu);
         Ntro.assertNotNull("conteneurPages", conteneurPages);
         installerEvtAfficherMenu();
-        installerMsgAjouterPartie();
-        installerMsgRetirerPages();
+        installerMsgNouvellePartie();
     }
 
     private void installerEvtAfficherMenu() { 
@@ -50,28 +53,32 @@ public class VueFileAttente extends ViewFx {
         });
     }
 
-    public void installerMsgAjouterPartie() {
-    	MsgNouvellePartie msgNouvellePartie = new MsgNouvellePartie();
+    public void installerMsgNouvellePartie() {
+    	MsgNouvellePartie msgNouvellePartie = NtroApp.newMessage(MsgNouvellePartie.class);
+    	EvtUtilisateurACreeNouvellePartie evtUtilisateurACreeNouvellePartie = NtroApp.newEvent(EvtUtilisateurACreeNouvellePartie.class);
     	boutonAjouterPartie.setOnAction(evtFx -> {
+    		
+    		evtUtilisateurACreeNouvellePartie.trigger();
+    		
     		msgNouvellePartie.setQuantiteJoueursCible(2);
     		msgNouvellePartie.send();
+    		
     	});
     }
-
-    public void installerMsgRetirerPages() { 
-//        MsgRetirerPages msgRetirerPages = NtroApp.newMessage(MsgRetirerPages.class);
-//        boutonRetirerLesPages.setOnAction(evevenementFx -> { 
-//            msgRetirerPages.send();
-//        });
+    
+    public void memoriserIdJoueur(int idJoueur) {
+    	this.idJoueur = idJoueur;
     }
 
-    public void ajouterPage(Page unePage) {
-        FragmentPage fragment = unePage.creerFragment(fragmentPage);
-        unePage.afficherSur(fragment);
+
+    public void ajouterReferencePartie(ReferencePartie uneReferencePartie) {
+        FragmentReferencePartieRejoindre fragment = viewLoaderFragmentReferencePartieRejoindre.createView();
+        uneReferencePartie.afficherSur(fragment);
+        fragment.memoriserIdJoueur(this.idJoueur);
         conteneurPages.getChildren().add(fragment.rootNode());
     }
 
-    public void viderListePages() { 
+    public void viderListeFragmentReferencePartieRejoindre() { 
         conteneurPages.getChildren().clear();
     }
 }

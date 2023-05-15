@@ -4,6 +4,7 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import missile_wars.frontal.donnees.DonneesSession;
 import missile_wars.frontal.evenements.EvtAfficherDidacticiel;
 import missile_wars.frontal.evenements.EvtAfficherFileAttente;
 import missile_wars.frontal.evenements.EvtAfficherHistorique;
@@ -64,6 +65,8 @@ public class Navigation {
 			VueRacine vueRacine = inputs.get(created(VueRacine.class));
 			VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
 			
+			vueFileAttente.memoriserIdJoueur(Session.idJoueur);
+			
 			vueRacine.afficherSousVue(vueFileAttente);
 		});
 	}
@@ -89,7 +92,10 @@ public class Navigation {
             VuePartie vuePartie = entrees.get(created(VuePartie.class));
             vueRacine.afficherSousVue(vuePartie);
             
-            AfficherPartie.creerTaches(tasks);
+            EvtAfficherPartie evtAfficherPartie = entrees.get(event(EvtAfficherPartie.class));
+            String idPartie = evtAfficherPartie.getIdPartie();
+            
+            AfficherPartie.creerTachesDynamiques(tasks, idPartie);
         });
 	}
 
