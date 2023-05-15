@@ -69,7 +69,7 @@ public class Session {
 	}
 	
 	
-	public static int idJoueur = -1;
+	public static int idJoueur = -1; //le prof a dis que c'était satisfesant
 	
 	
 	private static Task recevoirTask = null;
