@@ -1,16 +1,31 @@
+.test{
+    -fx-background-color:pink;    
+}
+.testscrollpane{
+    -fx-background: #000;
+}
+.titre {
+    -fx-font-family: "Arial Black", sans-serif;
+    -fx-font-size: 48px;
+    -fx-text-fill: #e6e6e6;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 5);
+    -fx-padding: 10px;
+    -fx-text-fill: lime;
+}
 .conteneur { 
     -fx-background-color: black;
     -fx-alignment: center;
 }
-
-/* Le bouton  */
 .gros-bouton{ 
-    -fx-border-color:white;
+    -fx-border-color:lime;
     -fx-border-width: 0.1em;
     -fx-background-color:black; 
     -fx-font-weight: bold;
     -fx-font-size: 1.2em;
-    -fx-text-fill:white;}
+    -fx-text-fill:lime;
+    -fx-min-width: 280px;
+    -fx-max-width: 280px;
+}
 
 .gros-bouton:pressed {
     -fx-font-size: 1em;
@@ -18,8 +33,11 @@
 }
 
 .gros-bouton:hover {
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
     -fx-cursor: hand;
     -fx-scale:150%;
+    -fx-font-size: 1.7em;
 }
 
 .texte-large { 
@@ -30,4 +48,30 @@
 .texte-generique { 
     -fx-font-size:1.0em;
     -fx-text-fill:white;
+}
+.AssociationTouches{
+    -fx-text-fill:lime;
+}
+.BtnTouches{
+    -fx-border-color:lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color:black; 
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill:lime;
+    -fx-min-width: 27px;
+    -fx-max-width: 27px;
+}
+.BtnOptions{
+    -fx-border-color:lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color:black; 
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill:lime;
+    -fx-min-width: 40px;
+    -fx-max-width: 90px;
+}
+.children{
+    -fx-background-color:red;
 }

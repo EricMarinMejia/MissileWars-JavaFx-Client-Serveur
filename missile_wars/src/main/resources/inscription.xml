@@ -20,23 +20,20 @@
 		</HBox>
 		<HBox VBox.vgrow="ALWAYS">
 			<children>
-				
-				<ScrollPane HBox.hgrow="ALWAYS">
+				<ScrollPane HBox.hgrow="ALWAYS" styleClass="testscrollpane">
 					<content>
 						<VBox
-							fx:id="vbAssociationContainer">
-							<children>
-								
-							</children>
+							fx:id="vbAssociationContainer"
+							styleClass="test">
 						</VBox>
 					</content>
 				</ScrollPane>
 				<VBox
 					fx:id="exit_container">
 					<children>
-						<Button fx:id="buttonAnnuler" text="%annuler" />
-						<Button fx:id="buttonReset" text="%reset" />
-						<Button fx:id="buttonValider" text="%valider" />
+						<Button fx:id="buttonAnnuler" styleClass="BtnOptions" text="%annuler" />
+						<Button fx:id="buttonReset" styleClass="BtnOptions" text="%reset" />
+						<Button fx:id="buttonValider" styleClass="BtnOptions" text="%valider" />
 					</children>
 				</VBox>
 				

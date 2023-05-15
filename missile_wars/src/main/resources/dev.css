@@ -1,0 +1,39 @@
+.titre {
+    -fx-font-family: "Arial Black", sans-serif;
+    -fx-font-size: 48px;
+    -fx-text-fill: #e6e6e6;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 5);
+    -fx-padding: 10px;
+}
+.conteneur { 
+    -fx-background-color: black;
+    -fx-alignment: center;
+}
+/* Le bouton  */
+.gros-bouton{ 
+    -fx-border-color:white;
+    -fx-border-width: 0.1em;
+    -fx-background-color:black; 
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+    -fx-text-fill:white;}
+
+.gros-bouton:pressed {
+    -fx-font-size: 1em;
+    -fx-scale:90%;
+}
+
+.gros-bouton:hover {
+    -fx-cursor: hand;
+    -fx-scale:150%;
+}
+
+.texte-large { 
+    -fx-text-fill:white;
+    -fx-font-size:1.4em;
+}
+
+.texte-generique { 
+    -fx-font-size:1.0em;
+    -fx-text-fill:white;
+}
