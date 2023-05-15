@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.WatchJson;
 import missile_wars.commun.valeurs.ReferencePartie;
 import missile_wars.frontal.vues.VueFileAttente;
-import ca.ntro.app.models.WriteObjectGraph;
 
 
-public class ModeleFileAttente implements Model, WatchJson, WriteObjectGraph {
+public class ModeleFileAttente implements Model {
 	private int idProchainePartie = 1;
 	
 	public int getIdProchainePartie() {

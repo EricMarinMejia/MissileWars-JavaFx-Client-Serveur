@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.WriteObjectGraph;
 import missile_wars.frontal.vues.VueHistorique;
 
-public class ModeleHistorique implements Model, WriteObjectGraph{
+public class ModeleHistorique implements Model {
 	
 	private int nbPartiesTotales = 0;
 	private int nbPartiesGagnees = 0;
