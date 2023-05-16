@@ -24,6 +24,7 @@ import missile_wars.commun.modeles.ModeleParametres;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.commun.monde2d.Missile2d;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
+import missile_wars.commun.monde2d.Plancher2d;
 import missile_wars.commun.valeurs.Couleur;
 import missile_wars.commun.valeurs.Equipe;
 import missile_wars.commun.valeurs.Joueur;
@@ -55,6 +56,7 @@ public class Declarations {
 		registrar.registerValue(ModelePartie.class);
 		registrar.registerValue(MondeMissileWars2d.class);
 		registrar.registerValue(Missile2d.class);
+		registrar.registerValue(Plancher2d.class);
 		registrar.registerModel(ModeleInscriptionJoueur.class);
 		registrar.registerModel(ModeleParametres.class);
 		registrar.registerModel(ModeleListeJoueurs.class);

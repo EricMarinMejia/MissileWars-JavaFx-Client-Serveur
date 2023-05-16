@@ -17,6 +17,15 @@ public class ModelePartie implements Model {
 	
 	private MondeMissileWars2d mondeMS2d = new MondeMissileWars2d();
 	
+	private String partieGagnee;
+	
+	// TODO: ajouter ici une liste de Plancher (2 Plancher dans la liste, parce qu'il y a 2 équipes)
+	
+	public ModelePartie() {
+		this.lesEquipes.add(new Equipe());
+		this.lesEquipes.add(new Equipe());
+	}
+	
 	
 	private List<Equipe> lesEquipes = new ArrayList<>(); //il est censé y avoir seulement 2 équipes
 	
@@ -46,12 +55,6 @@ public class ModelePartie implements Model {
 			this.lesEquipes.get(indexEquipe).getLesJoueurs().add(referenceJoueur);
 		}
 	}
-
-	private String partieGagnee;
-	
-	
-	
-	// TODO: ajouter ici une liste de Plancher (2 Plancher dans la liste, parce qu'il y a 2 équipes)
 	
 	
 	
@@ -114,11 +117,6 @@ public class ModelePartie implements Model {
 		this.idPartie = idPartie;
 	}
 
-	
-	public ModelePartie() {
-		this.lesEquipes.add(new Equipe());
-		this.lesEquipes.add(new Equipe());
-	}
 
 	public void afficherInfoPartieSur(VuePartie vuePartie) {
 //		vueJeu.afficherNomPremierJoueur(nomJoueur1);

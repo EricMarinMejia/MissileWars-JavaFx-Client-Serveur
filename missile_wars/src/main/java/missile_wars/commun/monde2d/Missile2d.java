@@ -69,70 +69,8 @@ public class Missile2d extends ObjetMissileWars2d {
     @Override
     public void onTimePasses(double secondesPassees) {
         super.onTimePasses(secondesPassees);
-
-        if (balleFrappeMurGauche()) {
-
-            balleRebondiSurMurGauche();
-
-        } else if (balleFrappeMurDroit()) {
-
-            balleRebondiSurMurDroit();
-
-        } else if (balleFrappePlafond()) {
-
-            balleRebondiSurPlafond();
-
-        } else if (balleFrappePlancher()) {
-
-            balleRebondiSurPlancher();
-        }
     }
+    
+    
 
-    private boolean balleFrappePlancher() {
-        return collidesWith(0,
-                getWorld2d().getHeight(),
-                getWorld2d().getWidth(),
-                1);
-    }
-
-    private boolean balleFrappePlafond() {
-        return collidesWith(0,
-                0,
-                getWorld2d().getWidth(),
-                1);
-    }
-
-    private boolean balleFrappeMurDroit() {
-        return collidesWith(getWorld2d().getWidth(),
-                0,
-                1,
-                getWorld2d().getHeight());
-    }
-
-    private boolean balleFrappeMurGauche() {
-        return collidesWith(0,
-                0,
-                1,
-                getWorld2d().getHeight());
-    }
-
-    private void balleRebondiSurPlancher() {
-        setTopLeftY(getWorld2d().getHeight() - this.getHeight() - EPSILON);
-        setSpeedY(-getSpeedY());
-    }
-
-    private void balleRebondiSurPlafond() {
-        setTopLeftY(0 + EPSILON);
-        setSpeedY(-getSpeedY());
-    }
-
-    private void balleRebondiSurMurDroit() {
-        setTopLeftX(getWorld2d().getWidth() - this.getWidth() - EPSILON);
-        setSpeedX(-getSpeedX());
-    }
-
-    private void balleRebondiSurMurGauche() {
-        setTopLeftX(0 + EPSILON);
-        setSpeedX(-getSpeedX());
-    }
 }
