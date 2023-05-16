@@ -3,7 +3,7 @@ package missile_wars.commun.monde2d;
 import ca.ntro.app.fx.controls.ResizableWorld2dCanvasFx;
 import javafx.scene.canvas.GraphicsContext;
 
-public class Plancher extends ObjetMissileWars2d{
+public class Plancher extends ObjetMissileWars2d {
 
 	int positionY;
 	
