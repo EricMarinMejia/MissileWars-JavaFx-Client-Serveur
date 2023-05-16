@@ -1,15 +1,17 @@
 package missile_wars.commun.modeles;
 
-import java.util.*;
+import static missile_wars.commun.enums.ActionsJoueur.BAS;
+import static missile_wars.commun.enums.ActionsJoueur.HAUT;
+import static missile_wars.commun.enums.ActionsJoueur.LANCER_BOUCLIER;
+import static missile_wars.commun.enums.ActionsJoueur.TIRER;
 
-import ca.ntro.app.models.*;
-import ca.ntro.core.initialization.Ntro;
-import missile_wars.commun.valeurs.*;
-import missile_wars.frontal.vues.*;
+import java.util.HashMap;
+import java.util.Map;
 
-import static missile_wars.commun.enums.ActionsJoueur.*;
+import ca.ntro.app.models.Model;
+import missile_wars.commun.valeurs.KeyStringRepresentation;
 
-public class ModeleInscriptionJoueur implements Model, WatchJson, WriteObjectGraph {
+public class ModeleInscriptionJoueur implements Model {
 
 	private Map<String, KeyStringRepresentation> touches = null;
 	

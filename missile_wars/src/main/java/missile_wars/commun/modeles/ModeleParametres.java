@@ -3,16 +3,12 @@ package missile_wars.commun.modeles;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.ntro.app.messages.MessageNtro;
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.WatchJson;
-import ca.ntro.app.models.WriteObjectGraph;
 import missile_wars.commun.maquettes.MaquetteCouleurs;
-import missile_wars.commun.messages.MsgAjouterCouleur;
 import missile_wars.commun.valeurs.Couleur;
 import missile_wars.frontal.vues.VueParametres;
 
-public class ModeleParametres implements Model, WatchJson, WriteObjectGraph {
+public class ModeleParametres implements Model {
 	private int max = 100;
 	private int min = 0;
 	private int soundFx = 50;
