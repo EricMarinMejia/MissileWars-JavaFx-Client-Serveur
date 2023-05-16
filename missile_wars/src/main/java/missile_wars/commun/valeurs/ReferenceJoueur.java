@@ -5,16 +5,21 @@ import missile_wars.commun.monde2d.ObjetMissileWars2d;
 
 public class ReferenceJoueur extends ObjetMissileWars2d implements ModelValue{
 	
-	
-	
-	// TODO : ajouter ICI les informations sur la position du joueur, son inventaire s'il en a un, etc...
-	
-	
-	
+	private double coordX;	// entre 0.0 ‡ 1.0
 	
 	private int idJoueur = -1;
 	
+	
 	// TODO: ajouter le nom du joueur. laissez charles s'occuper de celui l√† ;)
+	
+	
+	
+	public double getCoordX() {
+		return coordX;
+	}
+	public void setCoordX(double coordX) {
+		this.coordX = coordX;
+	}
 	
 	public int getIdJoueur() {
 		return idJoueur;

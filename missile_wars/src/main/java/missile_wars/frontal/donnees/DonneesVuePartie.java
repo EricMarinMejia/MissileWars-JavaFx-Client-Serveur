@@ -9,8 +9,10 @@ import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.core.initialization.Ntro;
 import missile_wars.commun.enums.EtatPartie;
 import missile_wars.commun.modeles.ModelePartie;
+import missile_wars.commun.monde2d.Joueur2d;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.commun.valeurs.Equipe;
+import missile_wars.commun.valeurs.Plancher;
 import missile_wars.commun.valeurs.ReferenceJoueur;
 import missile_wars.frontal.vues.VuePartie;
 
@@ -28,6 +30,7 @@ public class DonneesVuePartie implements ViewData {
 	
 
 	private List<Equipe> lesEquipes = new ArrayList<>();
+	private List<Plancher> lesPlanchers = new ArrayList<>();
 	private int quantiteJoueursCible = 2; //un nombre pair.
 	private int etatPartie = EtatPartie.NULLE.ordinal();
 	
@@ -107,6 +110,34 @@ public class DonneesVuePartie implements ViewData {
     	this.lesEquipes = modelePartie.getLesEquipes();
     	this.quantiteJoueursCible = modelePartie.getQuantiteJoueursCible();
     	this.etatPartie = modelePartie.getEtatPartie();
+    	this.lesPlanchers = modelePartie.getLesPlancher();
+    	
+    	
+    	for (int i = 0; i < lesEquipes.size(); i++) {
+    		
+    		List<ReferenceJoueur> joueursEquipeModele = lesEquipes.get(i).getLesJoueurs();
+    		List<Joueur2d> joueursEquipeModele2d = this.mondeMissileWars2d.getListeEquipes().get(i).getListeJoueurs();
+    		
+    		
+    		while (joueursEquipeModele.size() > joueursEquipeModele2d.size()) {
+    			joueursEquipeModele2d.add(new Joueur2d());
+    		}
+    		//TODO RETIRER LES JOUEURS EN TROP
+    		
+    		for (int j = 0; j < joueursEquipeModele.size(); j++) {
+    			joueursEquipeModele2d.get(j).setCoordX(joueursEquipeModele.get(j).getCoordX());
+    		}
+    		
+    	}
+    	
+    	for (int i = 0; i < lesPlanchers.size(); i++) {
+    		this.mondeMissileWars2d.getListePlanchers().get(i).setTableauPlancher(lesPlanchers.get(i).getTableauPlancher());
+    
+    	}
+    	
+    	//TODO les missiles
+    	
+    	
     	
     }
 

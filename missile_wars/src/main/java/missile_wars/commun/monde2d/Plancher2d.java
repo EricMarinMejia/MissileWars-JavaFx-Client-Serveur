@@ -8,13 +8,11 @@ public class Plancher2d extends ObjetMissileWars2d{
 
 	int positionY;
 	
-	private static final float DEBUT_X = 0.0f;
+	private static final double DEBUT_X = 0.0;
 	
-	private static final float FIN_X = 1.0f;
+	private static final double FIN_X = 1.0;
 	
 	float[] tableauPlancher = new float[10];
-	
-	
 	
 	public Plancher2d() {
 		super();
@@ -31,6 +29,10 @@ public class Plancher2d extends ObjetMissileWars2d{
 		setHeight(10);
 		
 		setTopLeftX(getWorld2d().getWidth()/2 - getWidth()/2);
+		
+		for (int i = 0; i < tableauPlancher.length; i++) {
+			tableauPlancher[i] = 10;
+		}
 	}
 	
 	
@@ -59,6 +61,15 @@ public class Plancher2d extends ObjetMissileWars2d{
 		 * 
 		 */
 	}
+	
+	public float[] getTableauPlancher() {
+		return tableauPlancher;
+	}
+
+	public void setTableauPlancher(float[] tableauPlancher) {
+		this.tableauPlancher = tableauPlancher;
+	}
+		
 	
 	
 	
