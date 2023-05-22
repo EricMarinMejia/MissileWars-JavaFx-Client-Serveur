@@ -13,7 +13,7 @@ Travail effectué:
     Ajout de nouvelles traductions en plusieurs langues (certaines plus utiles que d'autres)
         -Chinois
         -Anglais
-        -Espagnol (Eric)
+        -Espagnol (Complètement fait par Eric)
         -Québecois
         -Et quelques ajustements sur la langue Francaise
     
