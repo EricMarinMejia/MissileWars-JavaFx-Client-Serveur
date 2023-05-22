@@ -61,7 +61,6 @@ public class VueParametres extends ViewFx {
     private void installerMsgAjouterCouleurs() {
     	MsgAjouterCouleur msgAjouterCouleur = NtroApp.newMessage(MsgAjouterCouleur.class);
     	boutonAddColor.setOnAction(evtFx -> {
-    		System.out.println("DSFGGDFGSRBSETHSRHRHTHSRHRTHSRTH");
             // On a un clic
         	// l'usager courant s'inscrit
         	msgAjouterCouleur.setCouleur(MaquetteCouleurs.couleurCourante());

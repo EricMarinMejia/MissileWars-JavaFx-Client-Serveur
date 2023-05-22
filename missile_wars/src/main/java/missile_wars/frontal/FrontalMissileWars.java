@@ -46,19 +46,16 @@ import missile_wars.frontal.vues.fragments.FragmentPartie;
 import missile_wars.frontal.vues.fragments.FragmentReferencePartieRejoindre;
 
 public class FrontalMissileWars implements FrontendFx {
-
     @Override
     public void createTasks(FrontendTasks tasks) {
         Session.creerTaches(tasks);
         Initialisation.creerTaches(tasks);
-//        AfficherDidacticiel.creerTaches(tasks);
         AfficherParametres.creerTaches(tasks);
         AfficherHistorique.creerTaches(tasks);
         AfficherPartie.creerTachesStatiques(tasks);
         AfficherSInscrire.creerTaches(tasks);
         AfficherFileAttente.creerTaches(tasks);
         Interval.creerTaches(tasks);
-        
         Navigation.creerTaches(tasks);
     }
 
@@ -88,6 +85,7 @@ public class FrontalMissileWars implements FrontendFx {
         registrar.registerEvent(EvtToucheReleased.class);
     }
 
+
     @Override
     public void registerViews(ViewRegistrarFx registrar) {
         registrar.registerView(VueRacine.class, "/racine.xml");
@@ -98,20 +96,17 @@ public class FrontalMissileWars implements FrontendFx {
         registrar.registerView(VueInscription.class, "/inscription.xml");
         registrar.registerView(VueHistorique.class, "/historique.xml");
         registrar.registerView(VuePartie.class, "/partie.xml");
-        
         registrar.registerFragment(FragmentActionTouche.class, "/fragments/action_touche.xml");
         registrar.registerFragment(FragmentCouleur.class, "/fragments/couleur.xml");
         registrar.registerFragment(FragmentPartie.class, "/fragments/fragment_partie.xml");
         registrar.registerFragment(FragmentReferencePartieRejoindre.class, "/fragments/FragmentReferencePartieRejoindre.xml");
-        
         registrar.registerViewData(DonneesSession.class);
-        
         registrar.registerStylesheet("/dev.css");
         registrar.registerStylesheet("/prod.css");
-
         registrar.registerDefaultResources("/chaines_fr.properties");
         registrar.registerResources(NtroApp.locale("en"),"/chaines_en.properties");
         registrar.registerResources(NtroApp.locale("qc"), "/chaines_qc.properties");
         registrar.registerResources(NtroApp.locale("ch"), "/chaines_ch.properties");
+        registrar.registerResources(NtroApp.locale("es"), "/chaines_es.properties");
     }
 }

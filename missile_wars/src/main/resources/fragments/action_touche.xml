@@ -12,7 +12,6 @@
 		</Label>
 		<Button
 			styleClass="BtnTouches"
-			fx:id="btnChanger"
-		/>
+			fx:id="btnChanger"/>
 	</children>
 </HBox>

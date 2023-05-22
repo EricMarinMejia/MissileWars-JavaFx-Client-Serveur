@@ -12,15 +12,13 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml"
     fx:controller="missile_wars.frontal.vues.VueFileAttente" styleClass="conteneur">
-
-    <Label text="%titre" styleClass="texte-large" />
-
+    <Label text="%titre" styleClass="titre"/>
+    <!-- Bouton pour ajouter une nouvelle partie -->
     <Button
         text="%ajouterNouvellePartie"
         styleClass="gros-bouton"
         fx:id="boutonAjouterPartie">
     </Button>
-
     <FlexBoxDonnees HBox.hgrow="ALWAYS" styleClass="conteneur,rendez-vous">
         <Pane styleClass="grand-espace-horizontal"/>
         <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true">

@@ -6,10 +6,8 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.message;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.modified;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.clock.Tick;
@@ -27,7 +25,6 @@ import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
 import missile_wars.frontal.vues.VuePartie;
 
 public class AfficherPartie {
-
 	public static void creerTachesStatiques(FrontendTasks tasks) {
 		tasks.taskGroup("AfficherPartie")
 				.waitsFor("Initialisation")

@@ -1,39 +1,241 @@
+.test {
+    -fx-background-color: pink;
+}
+
+.testscrollpane {
+    -fx-background: #000;
+}
+
 .titre {
     -fx-font-family: "Arial Black", sans-serif;
     -fx-font-size: 48px;
     -fx-text-fill: #e6e6e6;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 5);
     -fx-padding: 10px;
+    -fx-text-fill: lime;
 }
-.conteneur { 
+
+.conteneur {
     -fx-background-color: black;
     -fx-alignment: center;
 }
-/* Le bouton  */
-.gros-bouton{ 
-    -fx-border-color:white;
+
+.gros-bouton {
+    -fx-border-color: lime;
     -fx-border-width: 0.1em;
-    -fx-background-color:black; 
+    -fx-background-color: black;
     -fx-font-weight: bold;
     -fx-font-size: 1.2em;
-    -fx-text-fill:white;}
+    -fx-text-fill: lime;
+    -fx-min-width: 280px;
+    -fx-max-width: 280px;
+    -fx-transition-duration: 0.3s;
+}
+.gros-boutonNoHover {
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: lime;
+    -fx-min-width: 280px;
+    -fx-max-width: 280px;
+    -fx-transition-duration: 0.3s;
+}
 
 .gros-bouton:pressed {
     -fx-font-size: 1em;
-    -fx-scale:90%;
+    -fx-scale: 90%;
+}
+
+.gros-bouton:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 10%;
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.7s;
+}
+
+.gros-bouton:hover:after {
+    opacity: 1;
 }
 
 .gros-bouton:hover {
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
     -fx-cursor: hand;
-    -fx-scale:150%;
+    -fx-scale: 150%;
+    -fx-font-size: 1.7em;
+    transform: scale(1.05);
+    transition: transform 0.3s;
 }
 
-.texte-large { 
-    -fx-text-fill:white;
-    -fx-font-size:1.4em;
+.gros-bouton:active {
+    transform: scale(0.95);
+    transition: transform 0.3s;
 }
 
-.texte-generique { 
-    -fx-font-size:1.0em;
-    -fx-text-fill:white;
+.texte-large {
+    -fx-text-fill: white;
+    -fx-font-size: 1.4em;
 }
+
+.texte-generique {
+    -fx-font-size: 1.2em;
+    -fx-text-fill: white;
+}
+
+.AssociationTouches {
+    -fx-text-fill: lime;
+}
+
+.BtnTouches {
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 27px;
+    -fx-max-width: 27px;
+}
+.BtnTouchesX{
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 20px;
+    -fx-max-width: 20px;
+}
+
+.BtnOptions {
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 40px;
+    -fx-max-width: 90px;
+}
+.button-options{
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 40px;
+    -fx-max-width: 90px; 
+}
+.button-options:hover{
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 50px;
+    -fx-max-width: 100px; 
+}
+
+.children {
+    -fx-background-color: red;
+}
+
+/* Ajout d'animations */
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.titre:hover {
+    -fx-cursor: pointer;
+    animation: scaleAnimation 0.5s infinite alternate;
+}
+.LabelNomUtilisateur{
+    -fx-font-size: 18px;
+    -fx-background-color: black;
+    -fx-text-fill: lime;
+}
+
+.interface-container {
+    -fx-alignment: center;
+    -fx-spacing: 8;
+  }
+  
+  .name-entry-container {
+    -fx-alignment: center;
+    -fx-spacing: 8;
+  }
+  
+  .name-entry-container > .label {
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+  }
+  
+  .content-container {
+    -fx-pref-width: 300;
+    -fx-alignment: center;
+    -fx-spacing: 8;
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+  }
+  
+  .association-container {
+    -fx-background-color: red;
+    -fx-padding: 100;
+  }
+  
+  .exit-container {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+  }
+  
+  .button-options {
+    -fx-font-size: 14px;
+    -fx-min-width: 80px;
+    -fx-padding: 5px 10px;
+  }
+  
+  .test-container {
+    -fx-vbox-grow: always;
+    -fx-alignment: center;
+  }
+  .TFNomJoueur{
+    -fx-font-size: 18px;
+    -fx-pref-width: 150px;
+    -fx-min-width: 150px;
+    -fx-max-width: 150px;
+    -fx-alignment: center;
+    -fx-spacing: 8;
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -ms-flex-item-align: left;
+  }
+  

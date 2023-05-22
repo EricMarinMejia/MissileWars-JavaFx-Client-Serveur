@@ -10,7 +10,6 @@
     styleClass="conteneur">
     <HBox>
         <VBox styleClass="conteneur" fx:id="horizontalOuVertical">
-            <!-- <ResizableAvatar fx:id="logo" VBox.vgrow="always" styleClass="logo" /> -->
             <Pane minHeight="20" minWidth="20" />
             <Label fx:id="labelIdPartie" />
             <Pane minHeight="20" minWidth="20" />
