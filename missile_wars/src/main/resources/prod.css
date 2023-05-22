@@ -177,9 +177,6 @@
 .test4{
     -fx-background-color: lightgray;
 }
-.name-entry-container{
-    -fx-alignment: center;
-}
 
 /* CSS pour centrer l'ensemble de l'interface */
 .interface-container {
@@ -193,7 +190,7 @@
     -fx-spacing: 8;
   }
   
-/* CSS pour placer le texte au-dessus du champ de texte */
+/* CSS pour placer le texte autest4-dessus du champ de texte */
   .name-entry-container > .label {
     -fx-alignment: center;
     -fx-font-weight: bold;
@@ -204,7 +201,9 @@
     -fx-pref-width: 300;
     -fx-alignment: center;
     -fx-spacing: 8;
-    -fx-background-color: lightgray;
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
   }
   
   .association-container {
