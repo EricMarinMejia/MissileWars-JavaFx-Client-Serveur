@@ -41,24 +41,16 @@
 			<Image url="@logo.png" />
 		</image>
 	</ImageView>
-
 	<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
-
 	<HBox styleClass="conteneur, conteneur-parent">
-
 		<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-
 		<ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true">
 			<content>
 				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurParties" id="conteneur-parties">
 				</VBox>
 			</content>
 		</ScrollPane>
-		
 		<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-
 	</HBox>
-
 	<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
-
 </VBox>
