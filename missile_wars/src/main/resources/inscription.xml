@@ -12,31 +12,23 @@
 	fx:controller="missile_wars.frontal.vues.VueInscription"
 	stylesheets="./prod.css">
 	<children>
-		<!-- <HBox styleClass="name-entry-container">
-			<children>
-				<Label text="%votreNomUtilisateur" />
-				<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
-			</children>
-		</HBox> -->
 		<HBox VBox.vgrow="ALWAYS" styleClass="test-container">
 			<children>
-				<VBox prefWidth="500" alignment="CENTER" spacing="8" styleClass="content-container">
-					<!-- <content> -->
-					<VBox
+				<VBox prefWidth="600" alignment="CENTER" spacing="8" styleClass="content-container">
+					<Vbox
 						fx:id="vbAssociationContainer"
-						styleClass="test4">
+						styleClass="association-container">
 						<Label styleClass="test4" text="%votreNomUtilisateur" />
 						<TextField  fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
-					</VBox>
-					<!-- </content> -->
-					<VBox
+					</Vbox>
+					<Vbox
 						fx:id="exit_container" styleClass="exit-container">
 						<children>
 							<Button fx:id="buttonAnnuler" styleClass="button-options" text="%annuler" />
 							<Button fx:id="buttonReset" styleClass="button-options" text="%reset" />
 							<Button fx:id="buttonValider" styleClass="button-options" text="%valider" />
 						</children>
-					</VBox>
+					</Vbox>
 				</VBox>
 			</children>
 		</HBox>

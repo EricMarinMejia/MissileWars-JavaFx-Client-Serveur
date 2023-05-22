@@ -209,8 +209,8 @@
   }
   
   .association-container {
-    -fx-background-color: lightgray;
-    -fx-padding: 10;
+    -fx-background-color: red;
+    -fx-padding: 100;
   }
   
   .exit-container {
