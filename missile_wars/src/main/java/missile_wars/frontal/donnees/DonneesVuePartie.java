@@ -4,16 +4,20 @@ package missile_wars.frontal.donnees;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.ntro.app.NtroApp;
 import ca.ntro.app.frontend.ViewData;
 import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.core.initialization.Ntro;
 import missile_wars.commun.enums.EtatPartie;
+import missile_wars.commun.messages.MsgModifierPositionJoueur;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.commun.monde2d.Joueur2d;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.commun.valeurs.Equipe;
 import missile_wars.commun.valeurs.Plancher;
 import missile_wars.commun.valeurs.ReferenceJoueur;
+import missile_wars.frontal.evenements.EvtTouchePressed;
+import missile_wars.frontal.evenements.EvtToucheReleased;
 import missile_wars.frontal.vues.VuePartie;
 
 public class DonneesVuePartie implements ViewData {
@@ -140,7 +144,33 @@ public class DonneesVuePartie implements ViewData {
     	
     	
     }
-
+    
+    MsgModifierPositionJoueur msgModifierPositionJoueur = NtroApp.newMessage(MsgModifierPositionJoueur.class);
+    
+    public void appliquerTouchePressed(EvtTouchePressed evt) {
+    	
+    	ReferenceJoueur joueur = obtenirReferenceJoueurThis();
+    	double positionActuelle = joueur.getPosition();
+    	
+    	if (evt.getTouche() == "D") {
+    		joueur.setPosition(positionActuelle + 0.2);
+    	} else if (evt.getTouche() == "A") {
+    		joueur.setPosition(positionActuelle - 0.2);
+    	}
+    	
+    	positionActuelle = joueur.getPosition();
+    	this.msgModifierPositionJoueur.setIdJoueur(idJoueur);
+    	this.msgModifierPositionJoueur.setIdPartie(idPartie);
+    	this.msgModifierPositionJoueur.setPosition(positionActuelle);
+    	this.msgModifierPositionJoueur.setChannelId(idPartie);
+    	
+    	msgModifierPositionJoueur.send();
+    }
+    
+    public void appliquerToucheReleased(EvtToucheReleased evt) {
+    	
+    }
+    
     
 	public void reagirClicSouris(World2dMouseEventFx evt) {
 		mondeMissileWars2d.dispatchMouseEvent(evt);

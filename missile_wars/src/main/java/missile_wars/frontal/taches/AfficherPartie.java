@@ -21,6 +21,8 @@ import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.donnees.DonneesVuePartie;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
 import missile_wars.frontal.evenements.EvtProchaineImagePartie;
+import missile_wars.frontal.evenements.EvtTouchePressed;
+import missile_wars.frontal.evenements.EvtToucheReleased;
 import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
 import missile_wars.frontal.vues.VuePartie;
 
@@ -111,6 +113,8 @@ public class AfficherPartie {
 					
 					observerModelPartie(subTasks, idPartie);
 					prochaineImagePartie(subTasks);
+					appliquerToucheAppuyee(subTasks);
+					appliquerToucheRelachee(subTasks);
 					
 				});
 	}
@@ -145,7 +149,7 @@ public class AfficherPartie {
 
 	// ajouter la méthode
 	private static void prochaineImagePartie(FrontendTasks subTasks) {
-
+		
 		subTasks.task("prochaineImagePartie")
 				
 		.waitsFor(created(VuePartie.class))
@@ -163,6 +167,36 @@ public class AfficherPartie {
 
 					donneesVuePartie.afficherSur(vuePartie);
 				});
+	}
+	
+	private static void appliquerToucheAppuyee(FrontendTasks subTasks) {
+		subTasks.task("toucheAppuyee")
+		
+		.waitsFor(created(VuePartie.class))
+		.waitsFor(event(EvtTouchePressed.class))
+		
+		.thenExecutes(inputs -> {
+			EvtTouchePressed evt = inputs.get(event(EvtTouchePressed.class));
+			DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
+			VuePartie vuePartie = inputs.get(created(VuePartie.class));
+			
+			donneesVuePartie.appliquerTouchePressed(evt);
+		});
+	}
+	
+	private static void appliquerToucheRelachee(FrontendTasks subTasks) {
+		subTasks.task("toucheRelachee")
+		
+		.waitsFor(created(VuePartie.class))
+		.waitsFor(event(EvtToucheReleased.class))
+		
+		.thenExecutes(inputs -> {
+			EvtToucheReleased evt = inputs.get(event(EvtToucheReleased.class));
+			DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
+			VuePartie vuePartie = inputs.get(created(VuePartie.class));
+			
+			donneesVuePartie.appliquerToucheReleased(evt);
+		});
 	}
 
 }
