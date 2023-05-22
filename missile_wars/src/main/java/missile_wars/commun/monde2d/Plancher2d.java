@@ -40,28 +40,40 @@ public class Plancher2d extends ObjetMissileWars2d{
 		}
 	}
 	
-	
-	@Override
-	public void drawOnWorld(GraphicsContext gc) {
+
+	public void dessinerSurLeMonde(GraphicsContext gc) {
 		gc.save();
-		
+
 		gc.setFill(Color.WHITE);
 		
 		gc.fillRect(getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
 		
+		
 		gc.restore();
 	}
 	
+//	
+//	@Override
+//	public void drawOnWorld(GraphicsContext gc) {
+//		gc.save();
+//		
+//		gc.setFill(Color.WHITE);
+//		
+//		gc.fillRect(getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
+//		
+//		gc.restore();
+//	}
+	
 	/**
-	 * Méthode pour retirer de la vie à la case correspondante à cette coordonnée virtuelle X
+	 * Mï¿½thode pour retirer de la vie ï¿½ la case correspondante ï¿½ cette coordonnï¿½e virtuelle X
 	 * 
-	 * @param coordX coordonée X virtuelle touchée par un missile
+	 * @param coordX coordonï¿½e X virtuelle touchï¿½e par un missile
 	 */
 	private void damageAt(double coordX) {
 		
 		//TODO
 		/*
-		 * 1. Interpolation linéaire pour trouver case tableau correspondante (math sec 2) (y2 - y1) / (x2 - x1) 
+		 * 1. Interpolation linï¿½aire pour trouver case tableau correspondante (math sec 2) (y2 - y1) / (x2 - x1) 
 		 * 2. 
 		 * 
 		 */

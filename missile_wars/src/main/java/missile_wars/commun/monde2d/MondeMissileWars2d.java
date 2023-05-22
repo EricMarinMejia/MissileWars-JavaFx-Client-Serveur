@@ -18,26 +18,26 @@ public class MondeMissileWars2d extends World2dFx {
     List<Plancher2d> listePlanchers;
     
     List<Equipe2d>  listeEquipes;
-    
-    List<Joueur2d> listeJoueursEquipe1;
-    List<Joueur2d> listeJoueursEquipe2;
-    
-    Joueur2d joueur1;
-    Joueur2d joueur2;
+//    
+//    List<Joueur2d> listeJoueursEquipe1;
+//    List<Joueur2d> listeJoueursEquipe2;
+//    
+//    Joueur2d joueur1;
+//    Joueur2d joueur2;
     
     //LISTE DE MISSILES2D
     
 
     @Override
     protected void initialize() {
-    	listeJoueursEquipe1 = new ArrayList<Joueur2d>();
-    	listeJoueursEquipe2 = new ArrayList<Joueur2d>();
-    	
-    	joueur1 = new Joueur2d((int) HAUTEUR_MONDE - 25);
-    	joueur2 = new Joueur2d(25);
-    	
-    	listeJoueursEquipe1.add(joueur1);
-    	listeJoueursEquipe2.add(joueur2);
+//    	listeJoueursEquipe1 = new ArrayList<Joueur2d>();
+//    	listeJoueursEquipe2 = new ArrayList<Joueur2d>();
+//    	
+//    	joueur1 = new Joueur2d((int) HAUTEUR_MONDE - 25);
+//    	joueur2 = new Joueur2d(0);
+//    	
+//    	listeJoueursEquipe1.add(joueur1);
+//    	listeJoueursEquipe2.add(joueur2);
     	
     	this.listePlanchers = new ArrayList<>();
     	listePlanchers.add(new Plancher2d((int) HAUTEUR_MONDE - 25));
@@ -47,8 +47,8 @@ public class MondeMissileWars2d extends World2dFx {
     	listeEquipes.add(new Equipe2d());
     	listeEquipes.add(new Equipe2d());
     	
-    	listeEquipes.get(0).setListeJoueurs(listeJoueursEquipe1);
-    	listeEquipes.get(1).setListeJoueurs(listeJoueursEquipe2);
+//    	listeEquipes.get(0).setListeJoueurs(listeJoueursEquipe1);
+//    	listeEquipes.get(1).setListeJoueurs(listeJoueursEquipe2);
     	
     	
         setWidth(LARGEUR_MONDE);
@@ -59,8 +59,8 @@ public class MondeMissileWars2d extends World2dFx {
         	addObject2d(plancher2d);
         }
         
-        addObject2d(joueur1);
-        addObject2d(joueur2);
+//        addObject2d(joueur1);
+//        addObject2d(joueur2);
     }
     
     
@@ -107,7 +107,7 @@ public class MondeMissileWars2d extends World2dFx {
             dessinerTerrain(gc);
         });
 
-        super.drawOn(canvas);
+//        super.drawOn(canvas); // à retirer
     }
 
     private void dessinerTerrain(GraphicsContext gc) {
@@ -118,9 +118,29 @@ public class MondeMissileWars2d extends World2dFx {
         gc.strokeRect(0, 0, getWidth(), getHeight());
 
         gc.restore();
+        
+        
+        // faire le dessin récursif ici 
+        
+        //ne pas oublier qu'il y a la même quantité d'équipe que de plancher
+        for (int indexEquipe = 0; indexEquipe < this.listeEquipes.size(); indexEquipe++ ) {
+        	Equipe2d equipe2d = this.listeEquipes.get(indexEquipe);
+        	Plancher2d plancher2d = this.listePlanchers.get(indexEquipe);
+        	
+        	// on fait dessiner le plancher en premier
+        	plancher2d.dessinerSurLeMonde(gc);
+        	
+        	// on fait dessiner les équipes ensuite
+        	equipe2d.dessinerSurLeMonde(gc, plancher2d);
+        	
+        }
+        
+        
     }
 
     @Override
-    protected void onMouseEventNotConsumed(World2dMouseEventFx mouseEvent) {}
+    protected void onMouseEventNotConsumed(World2dMouseEventFx mouseEvent) {
+    	
+    }
     
 }

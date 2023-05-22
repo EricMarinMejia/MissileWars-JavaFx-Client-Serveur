@@ -23,16 +23,29 @@ public class Equipe2d extends ObjetMissileWars2d {
 	public void initialize() {
 	}
 	
-	@Override
-	public void drawOnWorld(GraphicsContext gc) {
+	
+	public void dessinerSurLeMonde(GraphicsContext gc, Plancher2d plancher2d) {
 		gc.save();
 		
-		gc.setFill(Color.RED);
-		
+		for (Joueur2d joueur2d : this.listeJoueurs) {
+			joueur2d.dessinerSurLeMonde(gc, plancher2d);
+			
+		}
 		
 		
 		gc.restore();
 	}
+	
+//	@Override
+//	public void drawOnWorld(GraphicsContext gc) {
+//		gc.save();
+//		
+//		gc.setFill(Color.RED);
+//		
+//		
+//		
+//		gc.restore();
+//	}
 	
 	
 }
