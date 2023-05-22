@@ -70,9 +70,11 @@ public class VueInscription extends ViewFx {
 	
 	private void installerButtonReset() {
 		EvtRemettreTouchesParDefaut evtRemettreTouchesParDefaut = NtroApp.newEvent(EvtRemettreTouchesParDefaut.class);
+		EvtRemettreInfosActuelles evtRemettreInfosActuelles = NtroApp.newEvent(EvtRemettreInfosActuelles.class);
 		
 		this.buttonReset.setOnAction(evtFx -> {
-			evtRemettreTouchesParDefaut.trigger();
+			evtRemettreInfosActuelles.trigger();
+			// evtRemettreTouchesParDefaut.trigger();
 		});
 		
 	}
