@@ -16,7 +16,7 @@
 			<children>
 				<VBox styleClass="content-container">  
 					<Label styleClass="LabelNomUtilisateur" text="%votreNomUtilisateur" />
-					<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
+					<TextField styleClass="TFNomJoueur" fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
 					<VBox fx:id="exit_container" styleClass="exit-container">
 						<children>
 							<Button fx:id="buttonAnnuler" styleClass="button-options" text="%annuler" />
