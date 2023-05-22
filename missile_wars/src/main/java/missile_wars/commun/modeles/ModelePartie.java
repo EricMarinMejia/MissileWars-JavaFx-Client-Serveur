@@ -8,6 +8,7 @@ import ca.ntro.app.models.Model;
 import missile_wars.commun.enums.EtatPartie;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.commun.valeurs.Equipe;
+import missile_wars.commun.valeurs.Missile;
 import missile_wars.commun.valeurs.Plancher;
 import missile_wars.commun.valeurs.ReferenceJoueur;
 import missile_wars.frontal.donnees.DonneesVuePartie;
@@ -28,8 +29,18 @@ public class ModelePartie implements Model {
 	
 	private List<Plancher> lesPlancher = new ArrayList<>();
 	
+	private List<Missile> lesMissiles = new ArrayList<>();
+	
 	//LISTE MISSILES
 	
+
+	public List<Missile> getLesMissiles() {
+		return lesMissiles;
+	}
+
+	public void setLesMissiles(List<Missile> lesMissiles) {
+		this.lesMissiles = lesMissiles;
+	}
 
 	public ModelePartie() {
 		this.lesEquipes.add(new Equipe());

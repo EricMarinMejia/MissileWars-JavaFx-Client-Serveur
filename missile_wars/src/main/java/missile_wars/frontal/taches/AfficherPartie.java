@@ -18,6 +18,7 @@ import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.donnees.DonneesVuePartie;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
+import missile_wars.frontal.evenements.EvtAjouterMissile;
 import missile_wars.frontal.evenements.EvtProchaineImagePartie;
 import missile_wars.frontal.evenements.EvtTouchePressed;
 import missile_wars.frontal.evenements.EvtToucheReleased;
@@ -112,7 +113,7 @@ public class AfficherPartie {
 					prochaineImagePartie(subTasks);
 					appliquerToucheAppuyee(subTasks);
 					appliquerToucheRelachee(subTasks);
-					
+					ajouterMissile(subTasks);
 				});
 	}
 
@@ -193,6 +194,21 @@ public class AfficherPartie {
 			VuePartie vuePartie = inputs.get(created(VuePartie.class));
 			
 			donneesVuePartie.appliquerToucheReleased(evt);
+		});
+	}
+	
+	private static void ajouterMissile(FrontendTasks subTasks) {
+		subTasks.task("ajouterMissile")
+		
+		.waitsFor(created(VuePartie.class))
+		.waitsFor(event(EvtAjouterMissile.class))
+		
+		.thenExecutes(inputs -> {
+			EvtAjouterMissile evt = inputs.get(event(EvtAjouterMissile.class));
+			DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
+			VuePartie vuePartie = inputs.get(created(VuePartie.class));
+			
+			donneesVuePartie.ajouterUnMissile(evt);
 		});
 	}
 

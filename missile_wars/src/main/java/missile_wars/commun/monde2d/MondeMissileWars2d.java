@@ -20,6 +20,8 @@ public class MondeMissileWars2d extends World2dFx {
     
     List<Equipe2d>  listeEquipes;
     
+    List<Missile2d> listeMissiles;
+    
 //    
 //    List<Joueur2d> listeJoueursEquipe1;
 //    List<Joueur2d> listeJoueursEquipe2;
@@ -30,7 +32,19 @@ public class MondeMissileWars2d extends World2dFx {
     //LISTE DE MISSILES2D
     
 
-    @Override
+    public List<Missile2d> getListeMissiles() {
+		return listeMissiles;
+	}
+
+
+
+	public void setListeMissiles(List<Missile2d> listeMissiles) {
+		this.listeMissiles = listeMissiles;
+	}
+
+
+
+	@Override
     protected void initialize() {
 //    	listeJoueursEquipe1 = new ArrayList<Joueur2d>();
 //    	listeJoueursEquipe2 = new ArrayList<Joueur2d>();

@@ -47,12 +47,9 @@ public class Joueur2d extends ObjetMissileWars2d {
 	}
 	
 	
-	
 	@Override
 	public void initialize() {
-//		setWidth(10);
-//		setHeight(10);
-//		setTopLeftX(getWorld2d().getWidth()/2 - getWidth()/2);
+
 	}
 	
 
@@ -62,37 +59,16 @@ public class Joueur2d extends ObjetMissileWars2d {
 		
 		gc.save();
 		
+		Point2D posGraphique = this.calculerPositionGraphiqueActuelle(plancher2d);	
 		
+		gc.setFill(Color.GREEN);
 		
-		
-		Point2D posGraphique = this.calculerPositionGraphiqueActuelle(plancher2d);
-		
-		
-		
-		gc.setFill(Color.RED);
-		
-//		gc.fillRect(getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
 		gc.fillRect(posGraphique.getX() - (getWidth() / 2d), plancher2d.getTopLeftY(), getWidth(), plancher2d.getHeight());
-//		gc.fillRect(0, 0, 10, 10);
-		
-		
+
 		gc.restore();
 	}
 	
-//	@Override
-//	public void drawOnWorld(GraphicsContext gc) {
-//		gc.save();
-//		
-//		gc.setFill(Color.RED);
-//		
-//		gc.fillRect(getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
-//		
-//		gc.restore();
-//	}
-	
-	/*
-	 * AJOUTER M�HODES POUR BOUGER
-	 */
+
 	
 	
 	
