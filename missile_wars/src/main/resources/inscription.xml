@@ -11,21 +11,25 @@
 	xmlns:fx="http://javafx.com/fxml/1"
 	fx:controller="missile_wars.frontal.vues.VueInscription"
 	stylesheets="./prod.css">
-<children>
-		<HBox styleClass="name-entry-container">
+	<children>
+		<!-- <HBox styleClass="name-entry-container">
 			<children>
 				<Label text="%votreNomUtilisateur" />
 				<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
 			</children>
-		</HBox>
-		<HBox VBox.vgrow="ALWAYS" styleClass="test-container">
-			<children>
-					<VBox prefWidth="300" alignment="CENTER" spacing="8" styleClass="content-container">
-						<VBox
-							fx:id="vbAssociationContainer"
-							styleClass="test4">
-						</VBox>
-					</VBox> 
+		</HBox> -->
+		<HBox VBox.vgrow="ALWAYS" styleClass="test-container test2">
+			<children styleClass="test2">
+				<VBox prefWidth="300" alignment="CENTER" spacing="8" styleClass="content-container">
+					<!-- <content> -->
+					<VBox
+						fx:id="vbAssociationContainer"
+						styleClass="test4">
+						<Label styleClass="test4" text="%votreNomUtilisateur" />
+						<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
+					</VBox>
+					<!-- </content> -->
+				</VBox>
 				<VBox
 					fx:id="exit_container" styleClass="exit-container">
 					<children>

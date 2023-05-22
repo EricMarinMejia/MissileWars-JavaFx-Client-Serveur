@@ -103,6 +103,26 @@
     -fx-min-width: 40px;
     -fx-max-width: 90px;
 }
+.button-options{
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 40px;
+    -fx-max-width: 90px; 
+}
+.button-options:hover{
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 50px;
+    -fx-max-width: 100px; 
+}
 
 .children {
     -fx-background-color: red;
@@ -149,16 +169,15 @@
     background-color: pink;
 }
 .test2{
-    background-color: blueviolet;
+    -fx-background-color: blueviolet;
 }
 .test3{
-    background-color: orange;
+    -fx-background-color: orange;
 }
 .test4{
-    background-color: gold;
+    -fx-background-color: lightgray;
 }
 .name-entry-container{
-    align-items: center;
     -fx-alignment: center;
 }
 
