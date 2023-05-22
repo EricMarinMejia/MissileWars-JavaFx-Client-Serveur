@@ -58,6 +58,14 @@ task(localEn, dependsOn: 'classes', type: JavaExec) {
    configure localConfig
    jvmArgs('-Duser.language=en')
 }
+task(localQc, dependsOn: 'classes', type: JavaExec) {
+   configure localConfig
+   jvmArgs('-Duser.language=qc')
+}
+task(localCh, dependsOn: 'classes', type: JavaExec) {
+   configure localConfig
+   jvmArgs('-Duser.language=ch')
+}
 
 
 
