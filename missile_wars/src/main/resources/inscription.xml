@@ -18,25 +18,25 @@
 				<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
 			</children>
 		</HBox> -->
-		<HBox VBox.vgrow="ALWAYS" styleClass="test-container test2">
-			<children styleClass="test2">
-				<VBox prefWidth="300" alignment="CENTER" spacing="8" styleClass="content-container">
+		<HBox VBox.vgrow="ALWAYS" styleClass="test-container">
+			<children>
+				<VBox prefWidth="500" alignment="CENTER" spacing="8" styleClass="content-container">
 					<!-- <content> -->
 					<VBox
 						fx:id="vbAssociationContainer"
 						styleClass="test4">
 						<Label styleClass="test4" text="%votreNomUtilisateur" />
-						<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
+						<TextField  fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
 					</VBox>
 					<!-- </content> -->
-				</VBox>
-				<VBox
-					fx:id="exit_container" styleClass="exit-container">
-					<children>
-						<Button fx:id="buttonAnnuler" styleClass="button-options" text="%annuler" />
-						<Button fx:id="buttonReset" styleClass="button-options" text="%reset" />
-						<Button fx:id="buttonValider" styleClass="button-options" text="%valider" />
-					</children>
+					<VBox
+						fx:id="exit_container" styleClass="exit-container">
+						<children>
+							<Button fx:id="buttonAnnuler" styleClass="button-options" text="%annuler" />
+							<Button fx:id="buttonReset" styleClass="button-options" text="%reset" />
+							<Button fx:id="buttonValider" styleClass="button-options" text="%valider" />
+						</children>
+					</VBox>
 				</VBox>
 			</children>
 		</HBox>
