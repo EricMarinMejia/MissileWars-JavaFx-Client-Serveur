@@ -102,5 +102,6 @@ public class FrontalMissileWars implements FrontendFx {
         registrar.registerResources(NtroApp.locale("en"),"/chaines_en.properties");
         registrar.registerResources(NtroApp.locale("qc"), "/chaines_qc.properties");
         registrar.registerResources(NtroApp.locale("ch"), "/chaines_ch.properties");
+        registrar.registerResources(NtroApp.locale("es"), "/chaines_es.properties");
     }
 }
