@@ -14,31 +14,25 @@ eclipse {
         file {
             whenMerged {
                 classpath ->
-
                     def toRemove = []
                     def toAdd = []
-
                     entries.each {
-
                         if(ntroDependencies.split(',').any{dependency -> it.path.equals("/ntro_"+dependency)}){
                             toRemove += it
                             toAdd += new org.gradle.plugins.ide.eclipse.model.Library(fileReference(file(it.publication.path)))
                         }
                     }
-
                     entries.removeAll toRemove
                     entries.addAll toAdd
             }
         }
     }
 }
-
 def commonConfig = {
    classpath = sourceSets.main.runtimeClasspath
    standardInput = System.in
    jvmArgs('-Dfile.encoding=UTF-8')
 }
-
 def localConfig = {
    configure commonConfig
    main = "missile_wars.MissileWarsLocal"
