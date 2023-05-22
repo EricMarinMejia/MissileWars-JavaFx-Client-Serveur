@@ -1,16 +1,21 @@
 package missile_wars.commun.valeurs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ca.ntro.app.models.ModelValue;
 
 public class Plancher implements ModelValue {
 	
 	int positionY;
 	
-	float[] tableauPlancher = new float[10];
+	List<Float> tableauPlancher = new ArrayList<Float>();
+	
+	private static final int NB_DIVISION_PLANCHER = 10;
 	
 	public Plancher() {
-		for (int i = 0; i < tableauPlancher.length; i++) {
-			tableauPlancher[i] = 10;
+		for (int i = 0; i < NB_DIVISION_PLANCHER; i++) {
+			tableauPlancher.add(10f);
 		}
 	}
 
@@ -22,11 +27,11 @@ public class Plancher implements ModelValue {
 		this.positionY = positionY;
 	}
 
-	public float[] getTableauPlancher() {
+	public List<Float> getTableauPlancher() {
 		return tableauPlancher;
 	}
 
-	public void setTableauPlancher(float[] tableauPlancher) {
+	public void setTableauPlancher(List<Float> tableauPlancher) {
 		this.tableauPlancher = tableauPlancher;
 	}
 }

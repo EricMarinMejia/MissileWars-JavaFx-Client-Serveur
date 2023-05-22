@@ -1,5 +1,8 @@
 package missile_wars.commun.monde2d;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ca.ntro.app.fx.controls.ResizableWorld2dCanvasFx;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -12,7 +15,9 @@ public class Plancher2d extends ObjetMissileWars2d{
 	
 	private static final double FIN_X = 1.0;
 	
-	float[] tableauPlancher = new float[10];
+	List<Float> tableauPlancher = new ArrayList<Float>();
+	
+	private static final int NB_DIVISION_PLANCHER = 10;
 	
 	public Plancher2d() {
 		super();
@@ -30,8 +35,8 @@ public class Plancher2d extends ObjetMissileWars2d{
 		
 		setTopLeftX(getWorld2d().getWidth()/2 - getWidth()/2);
 		
-		for (int i = 0; i < tableauPlancher.length; i++) {
-			tableauPlancher[i] = 10;
+		for (int i = 0; i < NB_DIVISION_PLANCHER; i++) {
+			tableauPlancher.add(10f);
 		}
 	}
 	
@@ -62,11 +67,11 @@ public class Plancher2d extends ObjetMissileWars2d{
 		 */
 	}
 	
-	public float[] getTableauPlancher() {
+	public List<Float> getTableauPlancher() {
 		return tableauPlancher;
 	}
 
-	public void setTableauPlancher(float[] tableauPlancher) {
+	public void setTableauPlancher(List<Float> tableauPlancher) {
 		this.tableauPlancher = tableauPlancher;
 	}
 		

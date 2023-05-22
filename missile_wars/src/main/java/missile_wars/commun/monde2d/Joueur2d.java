@@ -49,7 +49,7 @@ public class Joueur2d extends ObjetMissileWars2d {
 	public void drawOnWorld(GraphicsContext gc) {
 		gc.save();
 		
-		gc.setFill(Color.BLACK);
+		gc.setFill(Color.RED);
 		
 		gc.fillRect(getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
 		
@@ -59,7 +59,6 @@ public class Joueur2d extends ObjetMissileWars2d {
 	/*
 	 * AJOUTER MÉHODES POUR BOUGER
 	 */
-	
 	
 	
 	

@@ -19,11 +19,26 @@ public class MondeMissileWars2d extends World2dFx {
     
     List<Equipe2d>  listeEquipes;
     
+    List<Joueur2d> listeJoueursEquipe1;
+    List<Joueur2d> listeJoueursEquipe2;
+    
+    Joueur2d joueur1;
+    Joueur2d joueur2;
+    
     //LISTE DE MISSILES2D
     
 
     @Override
     protected void initialize() {
+    	listeJoueursEquipe1 = new ArrayList<Joueur2d>();
+    	listeJoueursEquipe2 = new ArrayList<Joueur2d>();
+    	
+    	joueur1 = new Joueur2d();
+    	joueur2 = new Joueur2d();
+    	
+    	listeJoueursEquipe1.add(joueur1);
+    	listeJoueursEquipe2.add(joueur2);
+    	
     	this.listePlanchers = new ArrayList<>();
     	listePlanchers.add(new Plancher2d((int) HAUTEUR_MONDE - 25));
     	listePlanchers.add(new Plancher2d(25));
@@ -32,21 +47,22 @@ public class MondeMissileWars2d extends World2dFx {
     	listeEquipes.add(new Equipe2d());
     	listeEquipes.add(new Equipe2d());
     	
+    	listeEquipes.get(0).setListeJoueurs(listeJoueursEquipe1);
+    	listeEquipes.get(1).setListeJoueurs(listeJoueursEquipe2);
+    	
     	
     	
     	
         setWidth(LARGEUR_MONDE);
         setHeight(HAUTEUR_MONDE);
 
-        //unMissile = new Missile2d();
-
-
-        //addObject2d(unMissile);
         
         for (Plancher2d plancher2d : listePlanchers) {
         	addObject2d(plancher2d);
         }
         
+        addObject2d(joueur1);
+        addObject2d(joueur2);
     }
     
     
