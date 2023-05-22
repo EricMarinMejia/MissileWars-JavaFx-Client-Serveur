@@ -2,7 +2,7 @@
     Branches:
         CSSMaster
         main
-    Commits noMerges: Ftoupet #37
+    Commits noMerges: Ftoupet #51
 
 Travail effectué:
     Refonte complète du Menu
@@ -28,3 +28,18 @@ Travail effectué:
         Ajouts des StyleClass css utilisées
     Général:
         -Mise en place des boutons pour toutes les pages pour avoir un style/thème général
+
+
+
+-Eric-
+
+
+
+-Charles-
+
+
+
+-Antonii-
+
+
+
