@@ -20,4 +20,9 @@ Travail effectué:
     Refonte complète de la page d'inscription
         -Incorporation du style/thème du jeu sur la page
         -Changements sur le Label joueur via le VueInscription.java
-        -Fix du bouton Reset pour seulement Reset le LabalPlayer qui était écrit, afin de permettre à l'utilisateur de simplement appuyer sur le bouton pour réécrire 
+        -Fix du bouton Reset pour seulement Reset le LabalPlayer qui était écrit, afin de permettre à l'utilisateur de simplement appuyer sur le bouton pour réécrire par la suite.
+        -Replacement des éléments dans un grand éléments
+        -Fix de la méthode de validation (Bouton valider) via le vueInscription.java
+        -Ajout du CSS (Oviously)
+    Général:
+        -Mise en place des boutons pour toutes les pages pour avoir un style/thème général
