@@ -9,34 +9,33 @@
 
 <VBox xmlns="http://javafx.com/javafx/19"
 	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="missile_wars.frontal.vues.VueInscription">
-	<children>
-		<HBox
-			styleClass="name_entry_container">
+	fx:controller="missile_wars.frontal.vues.VueInscription"
+	stylesheets="./prod.css">
+<children>
+		<HBox styleClass="name-entry-container">
 			<children>
 				<Label text="%votreNomUtilisateur" />
 				<TextField fx:id="tfNomJoueur" HBox.hgrow="ALWAYS" />
 			</children>
 		</HBox>
-		<HBox VBox.vgrow="ALWAYS" styleClass="test4">
+		<HBox VBox.vgrow="ALWAYS" styleClass="test-container">
 			<children>
-				<VBox prefWidth="300" alignment="CENTER" spacing="8" styleClass="test1">
-					<!-- <content> -->
+				
+					<VBox prefWidth="300" alignment="CENTER" spacing="8" styleClass="content-container">
 						<VBox
 							fx:id="vbAssociationContainer"
-							styleClass="test2">
+							styleClass="test4">
 						</VBox>
-					<!-- </content> -->
-				</VBox>
+					</VBox> 
+				
 				<VBox
-					fx:id="exit_container" styleClass="test3">
+					fx:id="exit_container" styleClass="exit-container">
 					<children>
-						<Button fx:id="buttonAnnuler" styleClass="BtnOptions" text="%annuler" />
-						<Button fx:id="buttonReset" styleClass="BtnOptions" text="%reset" />
-						<Button fx:id="buttonValider" styleClass="BtnOptions" text="%valider" />
+						<Button fx:id="buttonAnnuler" styleClass="button-options" text="%annuler" />
+						<Button fx:id="buttonReset" styleClass="button-options" text="%reset" />
+						<Button fx:id="buttonValider" styleClass="button-options" text="%valider" />
 					</children>
 				</VBox>
-				
 			</children>
 		</HBox>
 	</children>

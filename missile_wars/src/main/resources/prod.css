@@ -157,81 +157,55 @@
 .test4{
     background-color: gold;
 }
-
-/* .test{
-    -fx-background-color:pink;    
-}
-.testscrollpane{
-    -fx-background: #000;
-}
-.titre {
-    -fx-font-family: "Arial Black", sans-serif;
-    -fx-font-size: 48px;
-    -fx-text-fill: #e6e6e6;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 5);
-    -fx-padding: 10px;
-    -fx-text-fill: lime;
-}
-.conteneur { 
-    -fx-background-color: black;
+.name-entry-container{
+    align-items: center;
     -fx-alignment: center;
 }
-.gros-bouton{ 
-    -fx-border-color:lime;
-    -fx-border-width: 0.1em;
-    -fx-background-color:black; 
+
+
+/* CSS pour centrer l'ensemble de l'interface */
+.interface-container {
+    -fx-alignment: center;
+    -fx-spacing: 8;
+  }
+  
+  /* CSS pour centrer le texte et le champ de texte */
+  .name-entry-container {
+    -fx-alignment: center;
+    -fx-spacing: 8;
+  }
+  
+  /* CSS pour placer le texte au-dessus du champ de texte */
+  .name-entry-container > .label {
+    -fx-alignment: center;
     -fx-font-weight: bold;
-    -fx-font-size: 1.2em;
-    -fx-text-fill:lime;
-    -fx-min-width: 280px;
-    -fx-max-width: 280px;
-}
-
-.gros-bouton:pressed {
-    -fx-font-size: 1em;
-    -fx-scale:90%;
-}
-
-.gros-bouton:hover {
-    -fx-min-width: 300px;
-    -fx-max-width: 300px;
-    -fx-cursor: hand;
-    -fx-scale:150%;
-    -fx-font-size: 1.7em;
-}
-
-.texte-large { 
-    -fx-text-fill:white;
-    -fx-font-size:1.4em;
-}
-
-.texte-generique { 
-    -fx-font-size:1.0em;
-    -fx-text-fill:white;
-}
-.AssociationTouches{
-    -fx-text-fill:lime;
-}
-.BtnTouches{
-    -fx-border-color:lime;
-    -fx-border-width: 0.1em;
-    -fx-background-color:black; 
-    -fx-font-weight: bold;
-    -fx-font-size: 1em;
-    -fx-text-fill:lime;
-    -fx-min-width: 27px;
-    -fx-max-width: 27px;
-}
-.BtnOptions{
-    -fx-border-color:lime;
-    -fx-border-width: 0.1em;
-    -fx-background-color:black; 
-    -fx-font-weight: bold;
-    -fx-font-size: 1em;
-    -fx-text-fill:lime;
-    -fx-min-width: 40px;
-    -fx-max-width: 90px;
-}
-.children{
-    -fx-background-color:red;
-} */
+  }
+  
+  /* CSS pour les autres éléments avec des classes modifiées */
+  .content-container {
+    -fx-pref-width: 300;
+    -fx-alignment: center;
+    -fx-spacing: 8;
+  }
+  
+  .association-container {
+    -fx-background-color: lightgray;
+    -fx-padding: 10;
+  }
+  
+  .exit-container {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+  }
+  
+  .button-options {
+    -fx-font-size: 14px;
+    -fx-min-width: 80px;
+    -fx-padding: 5px 10px;
+  }
+  
+  .test-container {
+    -fx-vbox-grow: always;
+    -fx-alignment: center;
+  }
+  
