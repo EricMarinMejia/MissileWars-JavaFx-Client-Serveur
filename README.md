@@ -12,8 +12,8 @@ Travail effectué:
 
     Ajout de nouvelles traductions en plusieurs langues (certaines plus utiles que d'autres)
         -Ajouts/Ajustements des 47 textes présentes dans le projet en CHINOIS.
-        -Anglais
-        -Espagnol (Complètement fait par Eric)
+        -Ajouts/Ajustements des 47 textes présentes dans le projet en ANGLAIS.
+        -Espagnol 
         -Québecois
         -Et quelques ajustements sur la langue Francaise
     
