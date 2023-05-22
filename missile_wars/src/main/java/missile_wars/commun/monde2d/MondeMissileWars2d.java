@@ -56,7 +56,7 @@ public class MondeMissileWars2d extends World2dFx {
 
         
         for (Plancher2d plancher2d : listePlanchers) {
-        	addObject2d(plancher2d);
+        	plancher2d.initialiser(this);
         }
         
 //        addObject2d(joueur1);

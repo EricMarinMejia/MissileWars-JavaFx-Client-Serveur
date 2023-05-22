@@ -15,7 +15,7 @@ public class Plancher2d extends ObjetMissileWars2d{
 	
 	private static final double FIN_X = 1.0;
 	
-	List<Float> tableauPlancher = new ArrayList<Float>();
+	List<Float> tableauPlancher;
 	
 	private static final int NB_DIVISION_PLANCHER = 10;
 	
@@ -24,16 +24,18 @@ public class Plancher2d extends ObjetMissileWars2d{
 	}
 	
 	public Plancher2d(int positionY) {
-		super();
+		this();
 		setTopLeftY(positionY);
 	}
 	
-	@Override
-	public void initialize() {
+	
+	public void initialiser(MondeMissileWars2d mondeMissileWars2d) {
+		this.tableauPlancher = new ArrayList<Float>();
+		
 		setWidth(MondeMissileWars2d.LARGEUR_MONDE);
 		setHeight(10);
 		
-		setTopLeftX(getWorld2d().getWidth()/2 - getWidth()/2);
+		setTopLeftX(mondeMissileWars2d.getWidth()/2 - getWidth()/2);
 		
 		for (int i = 0; i < NB_DIVISION_PLANCHER; i++) {
 			tableauPlancher.add(10f);

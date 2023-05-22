@@ -5,7 +5,7 @@ import missile_wars.commun.monde2d.ObjetMissileWars2d;
 
 public class ReferenceJoueur extends ObjetMissileWars2d implements ModelValue{
 	
-	private double coordX;	// entre 0.0 à 1.0
+	private double position = 0.3d;	// entre 0.0 ï¿½ 1.0
 	
 	private int idJoueur = -1;
 	
@@ -14,11 +14,11 @@ public class ReferenceJoueur extends ObjetMissileWars2d implements ModelValue{
 	
 	
 	
-	public double getCoordX() {
-		return coordX;
+	public double getPosition() {
+		return position;
 	}
-	public void setCoordX(double coordX) {
-		this.coordX = coordX;
+	public void setPosition(double position) {
+		this.position = position;
 	}
 	
 	public int getIdJoueur() {

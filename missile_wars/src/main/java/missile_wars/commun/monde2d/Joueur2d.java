@@ -10,11 +10,11 @@ public class Joueur2d extends ObjetMissileWars2d {
 	
 //	private String nomJoueur;	NON IMPL�MENTER ENCORE
 	
-	private double coordX;
+	private double position;
 	
 	public Point2D calculerPositionGraphiqueActuelle(Plancher2d plancher2d) {
 		return new Point2D(
-			plancher2d.getTopLeftX() + (this.coordX * plancher2d.getWidth()),
+			plancher2d.getTopLeftX() + (this.position * plancher2d.getWidth()),
 			plancher2d.getTopLeftY() + (plancher2d.getHeight() / 2d)
 		);
 	}
@@ -33,12 +33,12 @@ public class Joueur2d extends ObjetMissileWars2d {
 		this.idJoueur = idJoueur;
 	}
 
-	public double getCoordX() {
-		return coordX;
+	public double getPosition() {
+		return position;
 	}
 
-	public void setCoordX(double coordX) {
-		this.coordX = coordX;
+	public void setPosition(double position) {
+		this.position = position;
 	}
 
 	public Joueur2d(int positionY) {
@@ -65,10 +65,15 @@ public class Joueur2d extends ObjetMissileWars2d {
 		
 		
 		
+		Point2D posGraphique = this.calculerPositionGraphiqueActuelle(plancher2d);
+		
+		
 		
 		gc.setFill(Color.RED);
 		
-		gc.fillRect(getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
+//		gc.fillRect(getTopLeftX(), getTopLeftY(), getWidth(), getHeight());
+		gc.fillRect(posGraphique.getX() - (getWidth() / 2d), plancher2d.getTopLeftY(), getWidth(), plancher2d.getHeight());
+//		gc.fillRect(0, 0, 10, 10);
 		
 		
 		gc.restore();

@@ -125,7 +125,7 @@ public class DonneesVuePartie implements ViewData {
     		//TODO RETIRER LES JOUEURS EN TROP
     		
     		for (int j = 0; j < joueursEquipeModele.size(); j++) {
-    			joueursEquipeModele2d.get(j).setCoordX(joueursEquipeModele.get(j).getCoordX());
+    			joueursEquipeModele2d.get(j).setPosition(joueursEquipeModele.get(j).getPosition());
     		}
     		
     	}
