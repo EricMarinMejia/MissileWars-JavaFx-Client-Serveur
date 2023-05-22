@@ -158,7 +158,7 @@ public class VueInscription extends ViewFx {
 
 	public void viderTouches() {
 		this.fragments.clear();
-		this.vbAssociationContainer.getChildren().clear();
+		// this.vbAssociationContainer.getChildren().clear();
 	}
 	
 	public void afficherTouche(String action, KeyStringRepresentation touche) {
@@ -167,7 +167,6 @@ public class VueInscription extends ViewFx {
 		fragment.setTouche(touche);
 		
 		this.fragments.add(fragment);
-		this.vbAssociationContainer.getChildren().add(fragment.rootNode());
 	}
 	
 	private void afficherTouchesEcraser(Map<String, KeyStringRepresentation> touches) {
