@@ -166,7 +166,6 @@
     -fx-spacing: 8;
   }
   
-/* CSS pour centrer le texte et le champ de texte */
   .name-entry-container {
     -fx-alignment: center;
     -fx-spacing: 8;
