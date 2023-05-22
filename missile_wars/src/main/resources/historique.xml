@@ -9,33 +9,25 @@
 	<?import javafx.scene.layout.Pane?>
 	<?import javafx.scene.layout.HBox?>
 	<?import javafx.scene.control.ScrollPane?>
-
 <VBox xmlns:fx="http://javafx.com/fxml"
 	fx:controller="missile_wars.frontal.vues.VueHistorique"
 	styleClass="conteneur" id="vue-historique">
-
 	<Pane styleClass="petit-espace-vertical"/>
-	
 	<HBox>
 		<HBox HBox.hgrow="ALWAYS">
 		</HBox>
-
 		<HBox styleClass="hbox-">
 			<Text styleClass="titre" text="%titreHistorique">
 			</Text>
 		</HBox>
-
 		<HBox HBox.hgrow="ALWAYS" styleClass="hbox-quitter">
-		
 			<Button 
 				fx:id="boutonRevenirMenu"
 				text="%retourMenu" styleClass="bouton"
 				id="bouton-revenir-menu">
 			</Button>
 		</HBox>
-
 	</HBox>
-
 	<ImageView>
 		<image>
 			<Image url="@logo.png" />
