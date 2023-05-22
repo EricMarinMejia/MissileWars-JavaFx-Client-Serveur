@@ -171,7 +171,6 @@
     -fx-spacing: 8;
   }
   
-/* CSS pour placer le texte autest4-dessus du champ de texte */
   .name-entry-container > .label {
     -fx-alignment: center;
     -fx-font-weight: bold;
