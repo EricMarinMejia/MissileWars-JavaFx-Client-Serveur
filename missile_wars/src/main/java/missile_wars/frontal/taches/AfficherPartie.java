@@ -23,7 +23,6 @@ import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
 import missile_wars.frontal.vues.VuePartie;
 
 public class AfficherPartie {
-
 	public static void creerTachesStatiques(FrontendTasks tasks) {
 		tasks.taskGroup("AfficherPartie")
 				.waitsFor("Initialisation")
