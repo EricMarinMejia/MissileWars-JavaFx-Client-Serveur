@@ -150,7 +150,6 @@
     }
 }
 
-/* Ajout d'un hover sur le titre */
 .titre:hover {
     -fx-cursor: pointer;
     animation: scaleAnimation 0.5s infinite alternate;
