@@ -13,7 +13,7 @@
 <VBox xmlns:fx="http://javafx.com/fxml"
     fx:controller="missile_wars.frontal.vues.VueFileAttente" styleClass="conteneur">
 
-    <Label text="%titre" styleClass="texte-large" />
+    <Label text="%titre" styleClass="titre"/>
 
     <Button
         text="%ajouterNouvellePartie"
