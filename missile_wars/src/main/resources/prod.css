@@ -161,7 +161,6 @@
     -fx-text-fill: lime;
 }
 
-/* CSS pour centrer l'ensemble de l'interface */
 .interface-container {
     -fx-alignment: center;
     -fx-spacing: 8;
