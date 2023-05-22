@@ -209,13 +209,15 @@
     -fx-alignment: center;
   }
   .TFNomJoueur{
-    -fx-pref-width: 80px;
-    -fx-min-width: 80px;
-    -fx-max-width: 80px;
+    -fx-pref-width: 150px;
+    -fx-min-width: 150px;
+    -fx-max-width: 150px;
     -fx-alignment: center;
     -fx-spacing: 8;
     -fx-border-color: lime;
     -fx-border-width: 0.1em;
     -fx-background-color: black;
+    -fx-text-fill: white;
+    -ms-flex-item-align: left;
   }
   
