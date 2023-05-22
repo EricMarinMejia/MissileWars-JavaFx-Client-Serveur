@@ -12,9 +12,9 @@ Travail effectué:
 
     Ajout de nouvelles traductions en plusieurs langues (certaines plus utiles que d'autres)
         -Ajouts/Ajustements des 47 textes présentes dans le projet en CHINOIS.
-        -Ajouts/Ajustements des 47 textes présentes dans le projet en ANGLAIS.
-        -Espagnol 
-        -Québecois
+        -Ajouts/Ajustements des 47 textes présents dans le projet en ANGLAIS.
+        -Ajouts/Ajustements des 47 textes présents dans le projet en ESPAGNOL.
+        -Ajouts/Ajustements des 47 textes présents dans le projet en Québecois (pas parfait)
         -Et quelques ajustements sur la langue Francaise
     
     Refonte complète de la page d'inscription
