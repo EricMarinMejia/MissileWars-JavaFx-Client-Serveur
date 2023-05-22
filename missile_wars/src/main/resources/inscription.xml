@@ -20,14 +20,12 @@
 		</HBox>
 		<HBox VBox.vgrow="ALWAYS" styleClass="test-container">
 			<children>
-				
 					<VBox prefWidth="300" alignment="CENTER" spacing="8" styleClass="content-container">
 						<VBox
 							fx:id="vbAssociationContainer"
 							styleClass="test4">
 						</VBox>
 					</VBox> 
-				
 				<VBox
 					fx:id="exit_container" styleClass="exit-container">
 					<children>
