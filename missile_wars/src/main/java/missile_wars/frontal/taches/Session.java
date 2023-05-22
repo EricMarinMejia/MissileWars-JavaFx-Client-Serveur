@@ -2,8 +2,9 @@ package missile_wars.frontal.taches;
 
 import static ca.ntro.app.tasks.frontend.FrontendTasks.clock;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.create;
-import static ca.ntro.app.tasks.frontend.FrontendTasks.message;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.message;
 
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
@@ -12,6 +13,7 @@ import missile_wars.commun.messages.MsgDemandeNouveauJoueur;
 import missile_wars.commun.messages.MsgJoueurExiste;
 import missile_wars.commun.messages.MsgNouveauIdJoueurBroadcast;
 import missile_wars.frontal.donnees.DonneesSession;
+import missile_wars.frontal.evenements.EvtEnvoyerSignalJoueurExiste;
 
 public class Session {
 	
@@ -35,7 +37,7 @@ public class Session {
 			return new DonneesSession();
 		});
 	}
-
+	
 	
 	private static void demanderNouveauIdJoueur(FrontendTasks subTasks) {
 		subTasks.task("demanderNouveauIdJoueur")
@@ -51,20 +53,25 @@ public class Session {
 	
 	private static int envoyerSignalJoueurExisteTickSkip = 0; 
 	private static void envoyerSignalJoueurExiste(FrontendTasks subTasks) {
-		subTasks.task("envoyerSignalJoueurExiste")
-        .waitsFor(clock().nextTick())
-		.thenExecutes(inputs -> {
+		EvtEnvoyerSignalJoueurExiste evtEnvoyerSignalJoueurExiste = NtroApp.newEvent(EvtEnvoyerSignalJoueurExiste.class);
+		Interval.ajouterMethode(() -> {
 			envoyerSignalJoueurExisteTickSkip--;
 			if (envoyerSignalJoueurExisteTickSkip <= 0) {
 				envoyerSignalJoueurExisteTickSkip = 60;
 				if (idJoueur >= 0) {
 					
-					MsgJoueurExiste msg = NtroApp.newMessage(MsgJoueurExiste.class);
-					msg.setIdJoueur(idJoueur);
-					msg.send();
+					evtEnvoyerSignalJoueurExiste.trigger();
 					
 				}
 			}
+		});
+		
+		subTasks.task("envoyerSignalJoueurExiste")
+        .waitsFor(event(EvtEnvoyerSignalJoueurExiste.class))
+		.thenExecutes(inputs -> {
+			MsgJoueurExiste msg = NtroApp.newMessage(MsgJoueurExiste.class);
+			msg.setIdJoueur(idJoueur);
+			msg.send();
 		});
 	}
 	

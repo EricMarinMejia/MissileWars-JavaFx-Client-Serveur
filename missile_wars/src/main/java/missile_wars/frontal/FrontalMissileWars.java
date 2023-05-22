@@ -15,6 +15,8 @@ import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.evenements.EvtAfficherPages;
 import missile_wars.frontal.evenements.EvtAfficherParametres;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
+import missile_wars.frontal.evenements.EvtEnvoyerSignalJoueurExiste;
+import missile_wars.frontal.evenements.EvtProchaineImagePartie;
 import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
 import missile_wars.frontal.evenements.EvtRemettreTouchesParDefaut;
 import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
@@ -24,6 +26,7 @@ import missile_wars.frontal.taches.AfficherParametres;
 import missile_wars.frontal.taches.AfficherPartie;
 import missile_wars.frontal.taches.AfficherSInscrire;
 import missile_wars.frontal.taches.Initialisation;
+import missile_wars.frontal.taches.Interval;
 import missile_wars.frontal.taches.Navigation;
 import missile_wars.frontal.taches.Session;
 import missile_wars.frontal.vues.VueDidacticiel;
@@ -51,7 +54,7 @@ public class FrontalMissileWars implements FrontendFx {
         AfficherPartie.creerTachesStatiques(tasks);
         AfficherSInscrire.creerTaches(tasks);
         AfficherFileAttente.creerTaches(tasks);
-
+        Interval.creerTaches(tasks);
         
         Navigation.creerTaches(tasks);
     }
@@ -75,6 +78,8 @@ public class FrontalMissileWars implements FrontendFx {
         registrar.registerEvent(EvtAfficherHistorique.class);
         registrar.registerEvent(EvtAfficherFileAttente.class);
         registrar.registerEvent(EvtUtilisateurACreeNouvellePartie.class);
+        registrar.registerEvent(EvtProchaineImagePartie.class);
+        registrar.registerEvent(EvtEnvoyerSignalJoueurExiste.class);
     }
 
     @Override

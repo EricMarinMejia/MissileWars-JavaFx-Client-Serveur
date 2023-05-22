@@ -20,6 +20,7 @@ import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.frontal.donnees.DonneesVuePartie;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
+import missile_wars.frontal.evenements.EvtProchaineImagePartie;
 import missile_wars.frontal.evenements.EvtUtilisateurACreeNouvellePartie;
 import missile_wars.frontal.vues.VuePartie;
 
@@ -80,27 +81,37 @@ public class AfficherPartie {
 	}
 
 	private static List<Task> tachesDynamiques = new ArrayList<>();
+	private static List<Integer> idIntervales = new ArrayList<>();
 
 	public static void supprimerTachesDynamiques() {
-		
-		for (Task tache : tachesDynamiques) {
-			tache.removeFromGraph();
+		for (int idIntervale : idIntervales) {
+			Interval.retirerMethode(idIntervale);
 		}
+		for (Task task : tachesDynamiques) {
+			task.removeFromGraph();
+		}
+		idIntervales.clear();
 		tachesDynamiques.clear();
 	}
 
 	public static void creerTachesDynamiques(FrontendTasks tasks, String idPartie) {
-
+		
 		tachesDynamiques.add(creerDonneesVuePartie(tasks, idPartie));
-
+		
+		EvtProchaineImagePartie evtProchaineImagePartie = NtroApp.newEvent(EvtProchaineImagePartie.class);
+		idIntervales.add(Interval.ajouterMethode(() -> {
+			evtProchaineImagePartie.trigger();
+		}));
+		
+		
 		tasks.taskGroup("AfficherPartieDynamique")
 		.waitsFor(created(VuePartie.class))
 				.waitsFor(created(DonneesVuePartie.class))
 				.andContains(subTasks -> {
-
+					
 					observerModelPartie(subTasks, idPartie);
 					prochaineImagePartie(subTasks);
-
+					
 				});
 	}
 
@@ -124,7 +135,7 @@ public class AfficherPartie {
 			Modified<ModelePartie> modifiedModelePartie = inputs.get(modified(ModelePartie.class, idPartie));
 			ModelePartie current = modifiedModelePartie.currentValue();
 			
-			donneesVuePartie.memoriserIdJoueur(Session.idJoueur); //TODO: demander au prof comment stoquer/communiquer correctement l'id du joueur.
+			donneesVuePartie.memoriserIdJoueur(Session.idJoueur);
 			donneesVuePartie.memoriserIdPartie(idPartie);
 			current.copierDonneesDans(donneesVuePartie);
 			
@@ -138,16 +149,17 @@ public class AfficherPartie {
 		subTasks.task("prochaineImagePartie")
 				
 		.waitsFor(created(VuePartie.class))
-		.waitsFor(clock().nextTick())
+		.waitsFor(event(EvtProchaineImagePartie.class))
 		
 				.thenExecutes(inputs -> {
 
-					Tick tick = inputs.get(clock().nextTick());
+//					Tick tick = inputs.get(clock().nextTick());
 
 					DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
 					VuePartie vuePartie = inputs.get(created(VuePartie.class));
-					
-					donneesVuePartie.reagirTempsQuiPasse(tick.elapsedTime());
+
+//					donneesVuePartie.reagirTempsQuiPasse(tick.elapsedTime());
+					donneesVuePartie.reagirTempsQuiPasse(1d / 60d);
 
 					donneesVuePartie.afficherSur(vuePartie);
 				});

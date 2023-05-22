@@ -18,11 +18,16 @@ import missile_wars.frontal.vues.VueDidacticiel;
 public class AfficherDidacticiel {
 	
 	private static List<Task> tachesDynamiques = new ArrayList<>();
+	private static List<Integer> idIntervales = new ArrayList<>();
 	
 	public static void supprimerTachesDynamiques() {
-		for (Task tache : tachesDynamiques) {
-			tache.removeFromGraph();
+		for (int idIntervale : idIntervales) {
+			Interval.retirerMethode(idIntervale);
 		}
+		for (Task task : tachesDynamiques) {
+			task.removeFromGraph();
+		}
+		idIntervales.clear();
 		tachesDynamiques.clear();
 	}
 	
