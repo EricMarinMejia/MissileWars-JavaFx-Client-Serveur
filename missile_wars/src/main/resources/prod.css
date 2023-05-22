@@ -155,27 +155,9 @@
     -fx-cursor: pointer;
     animation: scaleAnimation 0.5s infinite alternate;
 }
-
-/* Ajout d'un after sur les gros boutons */
-.gros-bouton:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-   
-}
-.test1{
-    background-color: pink;
-}
-.test2{
-    -fx-background-color: blueviolet;
-}
-.test3{
-    -fx-background-color: orange;
-}
-.test4{
-    -fx-background-color: lightgray;
+.LabelNomUtilisateur{
+    -fx-background-color: black;
+    -fx-text-fill: lime;
 }
 
 /* CSS pour centrer l'ensemble de l'interface */
