@@ -85,6 +85,7 @@ public class VueInscription extends ViewFx {
 			
 			msgModifierNomJoueur.setIdJoueur(Session.idJoueur);
 			msgModifierNomJoueur.setNom(this.tfNomJoueur.getText());
+			msgModifierNomJoueur.setNom("Nemo");
 //			msgActualiser.setNomJoueur(this.tfNomJoueur.getText());
 //			
 //			Map<String, KeyStringRepresentation> touches = new HashMap<>();
