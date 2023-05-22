@@ -10,7 +10,8 @@
 <VBox xmlns="http://javafx.com/javafx/19"
 	xmlns:fx="http://javafx.com/fxml/1"
 	fx:controller="missile_wars.frontal.vues.VueInscription"
-	stylesheets="./prod.css">
+	stylesheets="./prod.css"
+	alignment="CENTER">
 	<children>
 		<HBox styleClass="name-entry-container">
 			<children>
