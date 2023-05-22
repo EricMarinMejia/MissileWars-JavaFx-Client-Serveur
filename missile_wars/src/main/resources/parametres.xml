@@ -26,10 +26,9 @@
 			<Label text="%lesParametres" styleClass="titre" />
 			<Label
 				fx:id="labelParametres"
-				styleClass="BtnTouches"
+				styleClass="gros-boutonNoHover"
 				id="label-message"
-				text="LabelParametres"> 
-				<!-- [labelParametres] -->
+				text="[labelParametres]"> 
 			</Label>
 
 		<VBox styleClass="conteneur" id="vue-parametres">
@@ -39,7 +38,7 @@
 			<!-- <Pane styleClass="grand-espace-vertical" /> -->
 			<HBox styleClass="conteneur,conteneur-parent">
 				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs" id="conteneur-Couleurs">#</VBox>
+				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs" id="conteneur-Couleurs"></VBox>
 				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
 			</HBox>
 					<!-- ajouter -->

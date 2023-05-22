@@ -31,6 +31,17 @@
     -fx-max-width: 280px;
     -fx-transition-duration: 0.3s;
 }
+.gros-boutonNoHover {
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: lime;
+    -fx-min-width: 280px;
+    -fx-max-width: 280px;
+    -fx-transition-duration: 0.3s;
+}
 
 .gros-bouton:pressed {
     -fx-font-size: 1em;
