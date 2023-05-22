@@ -181,26 +181,25 @@
     -fx-alignment: center;
 }
 
-
 /* CSS pour centrer l'ensemble de l'interface */
 .interface-container {
     -fx-alignment: center;
     -fx-spacing: 8;
   }
   
-  /* CSS pour centrer le texte et le champ de texte */
+/* CSS pour centrer le texte et le champ de texte */
   .name-entry-container {
     -fx-alignment: center;
     -fx-spacing: 8;
   }
   
-  /* CSS pour placer le texte au-dessus du champ de texte */
+/* CSS pour placer le texte au-dessus du champ de texte */
   .name-entry-container > .label {
     -fx-alignment: center;
     -fx-font-weight: bold;
   }
   
-  /* CSS pour les autres éléments avec des classes modifiées */
+/* CSS pour les autres éléments avec des classes modifiées */
   .content-container {
     -fx-pref-width: 300;
     -fx-alignment: center;
