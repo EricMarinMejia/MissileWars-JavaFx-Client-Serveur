@@ -66,8 +66,6 @@ public class VueInscription extends ViewFx {
 		});
 		
 	}
-
-	
 	private void installerButtonReset() {
 		EvtRemettreInfosActuelles evtRemettreInfosActuelles = NtroApp.newEvent(EvtRemettreInfosActuelles.class);
 		
@@ -76,7 +74,6 @@ public class VueInscription extends ViewFx {
 		});
 		
 	}
-
 	private void installerBoutonValider() {
 		EvtAfficherMenu evtAfficherMenu= NtroApp.newEvent(EvtAfficherMenu.class);
 		MsgModifierNomJoueur msgModifierNomJoueur = NtroApp.newMessage(MsgModifierNomJoueur.class);
@@ -87,16 +84,9 @@ public class VueInscription extends ViewFx {
 			evtAfficherMenu.trigger();
 		});
 	}
-	
-	
-	
-	
 	public void remettreInfosActuelles() {
 		this.tfNomJoueur.setText(this.nomJoueurActuel);
 	}
-	
-	
-	
 	public void afficherNom(String nom) {
 		this.tfNomJoueur.setText(nom);
 	}
