@@ -8,11 +8,13 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.ntro.app.NtroApp;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.clock.Tick;
 import ca.ntro.core.task_graphs.task_graph.Task;
 import missile_wars.frontal.donnees.DonneesVueDidacticiel;
 import missile_wars.frontal.evenements.EvtActionJoueur;
+import missile_wars.frontal.evenements.EvtProchaineImageDidacticiel;
 import missile_wars.frontal.vues.VueDidacticiel;
 
 public class AfficherDidacticiel {
@@ -34,6 +36,12 @@ public class AfficherDidacticiel {
     public static void creerTaches(FrontendTasks taches) {
         tachesDynamiques.add(creerDonneesVueDidacticiel(taches));
         
+        EvtProchaineImageDidacticiel evtProchaineImageDidacticiel = NtroApp.newEvent(EvtProchaineImageDidacticiel.class);
+        idIntervales.add(Interval.ajouterMethode(() -> {
+        	evtProchaineImageDidacticiel.trigger();
+        }));
+        
+        
         taches.taskGroup("AfficherDidacticiel")
                 .waitsFor("Initialisation")
                 .waitsFor(created(DonneesVueDidacticiel.class))
@@ -52,13 +60,14 @@ public class AfficherDidacticiel {
 
     private static void prochaineImageDidacticiel(FrontendTasks sousTaches) {
         sousTaches.task("prochaineImageDidacticiel")
-                .waitsFor(clock().nextTick())
+                .waitsFor(event(EvtProchaineImageDidacticiel.class))
                 .thenExecutes(entrees -> {
-                    Tick tick = entrees.get(clock().nextTick());
+//                    Tick tick = entrees.get(clock().nextTick());
                     DonneesVueDidacticiel donneesVueDidacticiel = entrees.get(created(DonneesVueDidacticiel.class));
                     VueDidacticiel vueDidacticiel = entrees.get(created(VueDidacticiel.class));
 
-                    donneesVueDidacticiel.reagirTempsQuiPasse(tick.elapsedTime());
+//                    donneesVueDidacticiel.reagirTempsQuiPasse(tick.elapsedTime());
+                    donneesVueDidacticiel.reagirTempsQuiPasse(1d / 60d);
                     donneesVueDidacticiel.afficherSur(vueDidacticiel);
 
                 });
