@@ -85,15 +85,6 @@ public class VueInscription extends ViewFx {
 			
 			msgModifierNomJoueur.setIdJoueur(Session.idJoueur);
 			msgModifierNomJoueur.setNom(this.tfNomJoueur.getText());
-			msgModifierNomJoueur.setNom("Nemo");
-//			msgActualiser.setNomJoueur(this.tfNomJoueur.getText());
-//			
-//			Map<String, KeyStringRepresentation> touches = new HashMap<>();
-//			for (FragmentActionTouche fragment : this.fragments) {
-//				touches.put(fragment.getAction(), fragment.getTouche());
-//			}
-//			msgActualiser.setTouches(touches);
-			
 			msgModifierNomJoueur.send();
 			evtAfficherMenu.trigger();
 		});
