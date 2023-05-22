@@ -1,2 +1,23 @@
-# 4f5_missile_wars
-## Environment
+-Florentin Toupet-
+    Branches:
+        CSSMaster
+        main
+    Commits noMerges: Ftoupet #29
+
+Travail effectué:
+    Refonte complète du Menu
+        -Mise en place d'un CSS style LimeGreen & Black sur le Menu.
+        -Animations de boutons lors du hover & after
+        -Ajustements mineurs sur la vueMenu.java afin de coordonner avec le nouveau menu.xml
+
+    Ajout de nouvelles traductions en plusieurs langues (certaines plus utiles que d'autres)
+        -Chinois
+        -Anglais
+        -Espagnol (Eric)
+        -Québecois
+        -Et quelques ajustements sur la langue Francaise
+    
+    Refonte complète de la page d'inscription
+        -Incorporation du style/thème du jeu sur la page
+        -Changements sur le Label joueur via le VueInscription.java
+        -Fix du bouton Reset pour seulement Reset le LabalPlayer qui était écrit, afin de permettre à l'utilisateur de simplement appuyer sur le bouton pour réécrire 
