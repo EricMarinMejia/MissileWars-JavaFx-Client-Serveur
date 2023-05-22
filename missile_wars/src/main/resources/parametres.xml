@@ -23,31 +23,29 @@
 			text="%rejoindre"
 			styleClass="gros-bouton"
 			id="bouton-joindre-menu"></Button>
-			<Label text="%lesParametres" styleClass="moyen-texte" />
+			<Label text="%lesParametres" styleClass="titre" />
 			<Label
 				fx:id="labelParametres"
 				styleClass="BtnTouches"
 				id="label-message"
-				text="[labelParametres]">
+				text="LabelParametres"> 
+				<!-- [labelParametres] -->
 			</Label>
+
 		<VBox styleClass="conteneur" id="vue-parametres">
 			<!-- <Pane styleClass="petit-espace-vertical" /> -->
 			<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal" />
-			<Button
-				fx:id="boutonAddColor"
-				text="%add"
-				styleClass="gros-bouton"
-				id="bouton-s-inscrire">
-			</Button>
+
 			<!-- <Pane styleClass="grand-espace-vertical" /> -->
 			<HBox styleClass="conteneur,conteneur-parent">
 				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs" id="conteneur-Couleurs"></VBox>
+				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs" id="conteneur-Couleurs">#</VBox>
 				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
 			</HBox>
-			<!-- ajouter -->
-			<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
-		</VBox>
+					<!-- ajouter -->
+					<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
+				</VBox>
+
 		<Button
 			fx:id="boutonAddColor"
 			text="%add"
