@@ -12,6 +12,7 @@ import missile_wars.commun.messages.MsgAjouterReferenceJoueurAPartie;
 import missile_wars.commun.messages.MsgDemandeNouveauJoueur;
 import missile_wars.commun.messages.MsgJoueurExiste;
 import missile_wars.commun.messages.MsgModifierNomJoueur;
+import missile_wars.commun.messages.MsgModifierPositionJoueur;
 import missile_wars.commun.messages.MsgNouveauIdJoueurBroadcast;
 import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
 import missile_wars.commun.messages.MsgNouvellePartie;
@@ -51,6 +52,7 @@ public class Declarations {
 		registrar.registerMessage(MsgJoueurExiste.class);
 		registrar.registerMessage(MsgModifierNomJoueur.class);
 		registrar.registerMessage(MsgAjouterReferenceJoueurAPartie.class);
+		registrar.registerMessage(MsgModifierPositionJoueur.class);
 	}
 
 	public static void declarerModeles(ModelRegistrar registrar) {
@@ -78,7 +80,7 @@ public class Declarations {
 
 	public static void declarerServeur(ServerRegistrar registrar) {
 		registrar.registerName("localhost");
-		registrar.registerPort(8005); // 8002
+		registrar.registerPort(8004); // 8002
 	}
 
 }

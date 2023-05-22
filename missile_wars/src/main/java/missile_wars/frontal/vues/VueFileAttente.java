@@ -74,6 +74,7 @@ public class VueFileAttente extends ViewFx {
     public void ajouterReferencePartie(ReferencePartie uneReferencePartie) {
         FragmentReferencePartieRejoindre fragment = viewLoaderFragmentReferencePartieRejoindre.createView();
         uneReferencePartie.afficherSur(fragment);
+        System.out.println("VueFileAttente fragment.memoriserIdJoueur : " + String.valueOf(this.idJoueur));
         fragment.memoriserIdJoueur(this.idJoueur);
         conteneurPages.getChildren().add(fragment.rootNode());
     }

@@ -6,6 +6,7 @@ import static ca.ntro.app.tasks.backend.BackendTasks.model;
 import ca.ntro.app.tasks.backend.BackendTasks;
 import missile_wars.commun.messages.MsgAjouterPoint;
 import missile_wars.commun.messages.MsgAjouterReferenceJoueurAPartie;
+import missile_wars.commun.messages.MsgModifierPositionJoueur;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.dorsal.messages.MsgAjusterPartie;
 
@@ -19,6 +20,7 @@ public class ModifierPartie {
 		.contains(subTasks -> {
 			msgAjusterPartie(subTasks, idPartie);
 			msgAjouterReferenceJoueurAPartie(subTasks, idPartie);
+			msgModifierPositionJoueur(subTasks, idPartie);
 			ajouterPoint(subTasks, idPartie);
 		});
 	}
@@ -44,13 +46,21 @@ public class ModifierPartie {
 			MsgAjouterReferenceJoueurAPartie msg = inputs.get(message(MsgAjouterReferenceJoueurAPartie.class, idPartie));
 			ModelePartie partie = inputs.get(model(ModelePartie.class, idPartie));
 			
-			System.out.println("=========== " + String.valueOf(idPartie) + " " + String.valueOf(msg.getIdPartie()));
-			
 			partie.ajouterReferenceJoueur(msg.getIdJoueur());
 			
 		});
 	}
 	
+	private static void msgModifierPositionJoueur(BackendTasks subTasks, String idPartie) {
+		subTasks.task("msgModifierPositionJoueur/" + idPartie)
+		.waitsFor(message(MsgModifierPositionJoueur.class, idPartie))
+		.thenExecutes(inputs -> {
+			MsgModifierPositionJoueur msgModifierPositionJoueur = inputs.get(message(MsgModifierPositionJoueur.class, idPartie));
+			
+			System.out.println("ASDFASDFASDF");
+			
+		});
+	}
 	
 	private static void ajouterPoint(BackendTasks subTasks, String idPartie) {
 		subTasks.task("ajouterPoint" + "/" + idPartie)

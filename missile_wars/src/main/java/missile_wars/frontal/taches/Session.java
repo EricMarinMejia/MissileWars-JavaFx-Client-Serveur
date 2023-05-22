@@ -1,9 +1,8 @@
 package missile_wars.frontal.taches;
 
-import static ca.ntro.app.tasks.frontend.FrontendTasks.clock;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.create;
-import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.message;
 
 import ca.ntro.app.NtroApp;
@@ -14,6 +13,7 @@ import missile_wars.commun.messages.MsgJoueurExiste;
 import missile_wars.commun.messages.MsgNouveauIdJoueurBroadcast;
 import missile_wars.frontal.donnees.DonneesSession;
 import missile_wars.frontal.evenements.EvtEnvoyerSignalJoueurExiste;
+import missile_wars.frontal.evenements.EvtIdJoueurMemorise;
 
 public class Session {
 	
@@ -48,8 +48,6 @@ public class Session {
 		});
 	}
 	
-	
-	// TODO : quand on va dans la page didacticiel et qu'on revient au menu, l'envois du signal arrête. demander au prof pourquoi.
 	
 	private static int envoyerSignalJoueurExisteTickSkip = 0; 
 	private static void envoyerSignalJoueurExiste(FrontendTasks subTasks) {
@@ -90,9 +88,14 @@ public class Session {
 			
 			donneesSession.setIdJoueur(msg.getIdJoueur());
 			idJoueur = msg.getIdJoueur();
+			System.out.println("NOUVEAU ID REÇU : " + String.valueOf(idJoueur));
 			
-			recevoirTask.removeFromGraph(); // TODO: demander au prof pourquoi y'a un problème dans le graph quand cette ligne est là
-			//TODO: demander au prof pourquoi le timer s'arrête
+			recevoirTask.removeFromGraph();
+			
+			
+			EvtIdJoueurMemorise evtIdJoueurMemorise = NtroApp.newEvent(EvtIdJoueurMemorise.class);
+			evtIdJoueurMemorise.trigger();
+			
 			
 		}).getTask();
 	}

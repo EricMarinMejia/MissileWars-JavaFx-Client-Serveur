@@ -16,6 +16,7 @@ import missile_wars.frontal.evenements.EvtAfficherPages;
 import missile_wars.frontal.evenements.EvtAfficherParametres;
 import missile_wars.frontal.evenements.EvtAfficherPartie;
 import missile_wars.frontal.evenements.EvtEnvoyerSignalJoueurExiste;
+import missile_wars.frontal.evenements.EvtIdJoueurMemorise;
 import missile_wars.frontal.evenements.EvtProchaineImageDidacticiel;
 import missile_wars.frontal.evenements.EvtProchaineImagePartie;
 import missile_wars.frontal.evenements.EvtRemettreInfosActuelles;
@@ -83,6 +84,7 @@ public class FrontalMissileWars implements FrontendFx {
         registrar.registerEvent(EvtEnvoyerSignalJoueurExiste.class);
         registrar.registerEvent(EvtTouchePressed.class);
         registrar.registerEvent(EvtToucheReleased.class);
+        registrar.registerEvent(EvtIdJoueurMemorise.class);
     }
 
 

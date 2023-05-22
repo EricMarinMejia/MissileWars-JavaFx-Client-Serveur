@@ -2,13 +2,14 @@ package missile_wars.frontal.taches;
 
 import static ca.ntro.app.tasks.frontend.FrontendTasks.create;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.created;
+import static ca.ntro.app.tasks.frontend.FrontendTasks.event;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.viewLoader;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.window;
 
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import missile_wars.commun.modeles.ModeleInscriptionJoueur;
+import missile_wars.frontal.evenements.EvtIdJoueurMemorise;
 import missile_wars.frontal.vues.VueDidacticiel;
 import missile_wars.frontal.vues.VueFileAttente;
 import missile_wars.frontal.vues.VueHistorique;
@@ -162,6 +163,7 @@ public class Initialisation {
     	subTasks.task(create(VueFileAttente.class))
 		.waitsFor(viewLoader(VueFileAttente.class))
 		.waitsFor(viewLoader(FragmentReferencePartieRejoindre.class))
+        .waitsFor(event(EvtIdJoueurMemorise.class))
 		.thenExecutesAndReturnsValue(inputs -> {
 			
 			ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));

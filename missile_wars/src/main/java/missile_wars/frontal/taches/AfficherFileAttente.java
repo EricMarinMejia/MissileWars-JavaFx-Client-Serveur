@@ -27,9 +27,10 @@ public class AfficherFileAttente {
 			Modified<ModeleFileAttente> fileAttente = inputs.get(modified(ModeleFileAttente.class));
 			
 			ModeleFileAttente valeurActuelle = fileAttente.currentValue();
-			
-			valeurActuelle.afficherSur(vueFileAttente);
+
+			System.out.println("afficherFileAttente : " + String.valueOf(Session.idJoueur));
 			vueFileAttente.memoriserIdJoueur(Session.idJoueur);
+			valeurActuelle.afficherSur(vueFileAttente);
 			
 		});
 		
