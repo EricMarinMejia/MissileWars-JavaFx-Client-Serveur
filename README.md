@@ -11,7 +11,7 @@ Travail effectué:
         -Ajustements mineurs sur la vueMenu.java afin de coordonner avec le nouveau menu.xml
 
     Ajout de nouvelles traductions en plusieurs langues (certaines plus utiles que d'autres)
-        -Chinois
+        -Ajouts/Ajustements des 47 textes présentes dans le projet en CHINOIS.
         -Anglais
         -Espagnol (Complètement fait par Eric)
         -Québecois
