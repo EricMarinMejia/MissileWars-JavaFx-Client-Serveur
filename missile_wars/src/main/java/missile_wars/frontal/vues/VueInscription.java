@@ -82,7 +82,6 @@ public class VueInscription extends ViewFx {
 //		MsgActualiserInscriptionJoueur msgActualiser = NtroApp.newMessage(MsgActualiserInscriptionJoueur.class);
 		MsgModifierNomJoueur msgModifierNomJoueur = NtroApp.newMessage(MsgModifierNomJoueur.class);
 		this.buttonValider.setOnAction(evtFx -> {
-			
 			msgModifierNomJoueur.setIdJoueur(Session.idJoueur);
 			msgModifierNomJoueur.setNom(this.tfNomJoueur.getText());
 			msgModifierNomJoueur.send();
