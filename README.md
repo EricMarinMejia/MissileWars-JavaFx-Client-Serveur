@@ -24,5 +24,7 @@ Travail effectué:
         -Replacement des éléments dans un grand éléments
         -Fix de la méthode de validation (Bouton valider) via le vueInscription.java
         -Ajout du CSS (Oviously)
+    Ajout Style File_Attente.xml:
+        Ajouts des StyleClass css utilisées
     Général:
         -Mise en place des boutons pour toutes les pages pour avoir un style/thème général
