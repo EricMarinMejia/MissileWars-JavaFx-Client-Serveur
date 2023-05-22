@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
     <?import javafx.scene.control.Button?>
     <?import javafx.scene.image.ImageView?>
     <?import javafx.scene.text.Text?>
@@ -9,56 +8,40 @@
 	<?import javafx.scene.layout.Pane?>
 	<?import javafx.scene.layout.HBox?>
 	<?import javafx.scene.control.ScrollPane?>
-
 <VBox xmlns:fx="http://javafx.com/fxml"
 	fx:controller="missile_wars.frontal.vues.VueHistorique"
 	styleClass="conteneur" id="vue-historique">
-
 	<Pane styleClass="petit-espace-vertical"/>
-	
 	<HBox>
 		<HBox HBox.hgrow="ALWAYS">
 		</HBox>
-
 		<HBox styleClass="hbox-">
 			<Text styleClass="titre" text="%titreHistorique">
 			</Text>
 		</HBox>
-
 		<HBox HBox.hgrow="ALWAYS" styleClass="hbox-quitter">
-		
 			<Button 
 				fx:id="boutonRevenirMenu"
 				text="%retourMenu" styleClass="bouton"
 				id="bouton-revenir-menu">
 			</Button>
 		</HBox>
-
 	</HBox>
-
 	<ImageView>
 		<image>
 			<Image url="@logo.png" />
 		</image>
 	</ImageView>
-
 	<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
-
 	<HBox styleClass="conteneur, conteneur-parent">
-
 		<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-
 		<ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true">
 			<content>
 				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurParties" id="conteneur-parties">
 				</VBox>
 			</content>
 		</ScrollPane>
-		
 		<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-
 	</HBox>
-
 	<Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
-
 </VBox>

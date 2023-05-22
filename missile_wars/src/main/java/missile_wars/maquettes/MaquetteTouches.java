@@ -7,7 +7,7 @@ import java.util.Map;
 import ca.ntro.core.initialization.Ntro;
 import missile_wars.commun.valeurs.KeyStringRepresentation;
 
-import static missile_wars.commun.enums.ActionsJoueur.*;
+import static missile_wars.commun.enums.ActionsJoueurEnum.*;
 
 public class MaquetteTouches {
 

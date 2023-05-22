@@ -8,11 +8,16 @@ import ca.ntro.core.initialization.Ntro;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
+import missile_wars.commun.enums.ActionsJoueurEnum;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.controles.CanvasPartie;
 import missile_wars.frontal.evenements.EvtActionJoueur;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
+import missile_wars.frontal.evenements.EvtTouchePressed;
+import missile_wars.frontal.evenements.EvtToucheReleased;
 
 public class VuePartie extends ViewFx {
 
@@ -50,8 +55,7 @@ public class VuePartie extends ViewFx {
 		
 		Ntro.assertNotNull("boutonQuitter", boutonQuitter);
 		Ntro.assertNotNull("canvasPartie", canvasPartie);
-		
-//		Ntro.assertNotNull("vboxPartie", vboxPartie);
+		Ntro.assertNotNull("vboxPartie", vboxPartie);
 		
 		installerEvtAfficherAccueil();
 		installerEvtActionJoueur();
@@ -68,79 +72,42 @@ public class VuePartie extends ViewFx {
 	}
 	
 	private void installerEvtActionJoueur() {
+		
+        EvtTouchePressed evtNtro = NtroApp.newEvent(EvtTouchePressed.class);
+        EvtToucheReleased evtNtroReleased = NtroApp.newEvent(EvtToucheReleased.class);
 
-        EvtActionJoueur evtNtro = NtroApp.newEvent(EvtActionJoueur.class);
+        vboxPartie.addEventFilter(KeyEvent.KEY_PRESSED, evtFx -> {
+        	
+        	if(evtFx.getCode().equals(KeyCode.D)) {
+                //evtNtro.setAction(new ActionJoueur(ActionsJoueurEnum.DROITE));
+                evtNtro.setTouche(KeyCode.D.toString());
+                evtNtro.trigger();
 
-//        vboxPartie.addEventFilter(KeyEvent.KEY_PRESSED, evtFx -> {
+            }else if(evtFx.getCode().equals(KeyCode.A)) {
 
-//            if(evtFx.getCode().equals(KeyCode.W)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.HAUT));
-//                evtNtro.trigger();
-//
-//            }else if(evtFx.getCode().equals(KeyCode.S)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.BAS));
-//                evtNtro.trigger();
-//
-//            }else if(evtFx.getCode().equals(KeyCode.D)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.DROITE));
-//                evtNtro.trigger();
-//
-//            }else if(evtFx.getCode().equals(KeyCode.A)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.GAUCHE));
-//                evtNtro.trigger();
-//
-//            }else if(evtFx.getCode().equals(KeyCode.E)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.TIRER));
-//                evtNtro.trigger();
-//
-//            }else if(evtFx.getCode().equals(KeyCode.UP)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.HAUT));
-//                evtNtro.trigger();
-//
-//            }else if(evtFx.getCode().equals(KeyCode.DOWN)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.BAS));
-//                evtNtro.trigger();
-//            }else if(evtFx.getCode().equals(KeyCode.RIGHT)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.DROITE));
-//                evtNtro.trigger();
-//            }else if(evtFx.getCode().equals(KeyCode.LEFT)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.GAUCHE));
-//                evtNtro.trigger();
-//            }else if(evtFx.getCode().equals(KeyCode.L)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.TIRER));
-//                evtNtro.trigger();
-//            }
-//        });
+                //evtNtro.setAction(new ActionJoueur(ActionsJoueurEnum.GAUCHE));
+            	evtNtro.setTouche(KeyCode.A.toString());
+                evtNtro.trigger();
 
-//        vboxPartie.addEventFilter(KeyEvent.KEY_RELEASED, evtFx -> {
+            }else if(evtFx.getCode().equals(KeyCode.W)) {
 
-//            if(evtFx.getCode().equals(KeyCode.W)
-//                    || evtFx.getCode().equals(KeyCode.S)
-//                    || evtFx.getCode().equals(KeyCode.A)
-//                    || evtFx.getCode().equals(KeyCode.D)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.GAUCHE, Action.ARRET));
-//                evtNtro.trigger();
-//
-//            }else if(evtFx.getCode().equals(KeyCode.UP)
-//                    || evtFx.getCode().equals(KeyCode.DOWN)
-//                    || evtFx.getCode().equals(KeyCode.LEFT)
-//                    || evtFx.getCode().equals(KeyCode.RIGHT)) {
-//
-//                evtNtro.setAction(new ActionJoueur(Cadran.DROITE, Action.ARRET));
-//                evtNtro.trigger();
-//            }
-//        });
+                //evtNtro.setAction(new ActionJoueur(ActionsJoueurEnum.TIRER));
+            	evtNtro.setTouche(KeyCode.W.toString());
+                evtNtro.trigger();
+
+            }
+        });
+
+        vboxPartie.addEventFilter(KeyEvent.KEY_RELEASED, evtFx -> {
+
+            if(evtFx.getCode().equals(KeyCode.A)
+                    || evtFx.getCode().equals(KeyCode.D)) {
+
+                //evtNtro.setAction(new ActionJoueur(ActionsJoueurEnum.ARRET));
+                evtNtroReleased.trigger();
+
+            }
+        });
     }
 
 	public void viderCanvas() {

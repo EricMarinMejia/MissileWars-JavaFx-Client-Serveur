@@ -1,9 +1,9 @@
 package missile_wars.commun.modeles;
 
-import static missile_wars.commun.enums.ActionsJoueur.BAS;
-import static missile_wars.commun.enums.ActionsJoueur.HAUT;
-import static missile_wars.commun.enums.ActionsJoueur.LANCER_BOUCLIER;
-import static missile_wars.commun.enums.ActionsJoueur.TIRER;
+import static missile_wars.commun.enums.ActionsJoueurEnum.BAS;
+import static missile_wars.commun.enums.ActionsJoueurEnum.HAUT;
+import static missile_wars.commun.enums.ActionsJoueurEnum.LANCER_BOUCLIER;
+import static missile_wars.commun.enums.ActionsJoueurEnum.TIRER;
 
 import java.util.HashMap;
 import java.util.Map;

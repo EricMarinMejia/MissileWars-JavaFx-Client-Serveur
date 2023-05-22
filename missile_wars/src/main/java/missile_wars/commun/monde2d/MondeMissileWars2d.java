@@ -8,6 +8,7 @@ import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.app.fx.world2d.World2dFx;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import missile_wars.commun.enums.ActionsJoueurEnum;
 
 public class MondeMissileWars2d extends World2dFx {
     public static final double LARGEUR_MONDE = 640;
@@ -18,6 +19,7 @@ public class MondeMissileWars2d extends World2dFx {
     List<Plancher2d> listePlanchers;
     
     List<Equipe2d>  listeEquipes;
+    
 //    
 //    List<Joueur2d> listeJoueursEquipe1;
 //    List<Joueur2d> listeJoueursEquipe2;
@@ -122,25 +124,50 @@ public class MondeMissileWars2d extends World2dFx {
         
         // faire le dessin récursif ici 
         
+        
         //ne pas oublier qu'il y a la même quantité d'équipe que de plancher
         for (int indexEquipe = 0; indexEquipe < this.listeEquipes.size(); indexEquipe++ ) {
         	Equipe2d equipe2d = this.listeEquipes.get(indexEquipe);
         	Plancher2d plancher2d = this.listePlanchers.get(indexEquipe);
         	
         	// on fait dessiner le plancher en premier
+        	
         	plancher2d.dessinerSurLeMonde(gc);
         	
         	// on fait dessiner les équipes ensuite
         	equipe2d.dessinerSurLeMonde(gc, plancher2d);
         	
         }
-        
-        
+
     }
 
     @Override
     protected void onMouseEventNotConsumed(World2dMouseEventFx mouseEvent) {
     	
     }
+    
+	/*
+	 * public void appliquerActionJoueur(ActionsJoueurEnum action) { //Joueur2d
+	 * joueur = joueurDuCadran(cadran);
+	 * 
+	 * appliquerActionJoueur(action, cadran);
+	 * 
+	 * }
+	 * 
+	 * private void appliquerActionJoueur(Joueur2d joueur, Action action, Cadran
+	 * cadran) { switch (action) { case HAUT: joueur.monter(); break;
+	 * 
+	 * case BAS: joueur.descendre(); break;
+	 * 
+	 * case DROITE: joueur.droite(); break;
+	 * 
+	 * case GAUCHE: joueur.gauche(); break;
+	 * 
+	 * case TIRER: joueur.tirer(cadran.name()); break;
+	 * 
+	 * case ARRET: default: joueur.arreter(); break; }
+	 * 
+	 * }
+	 */
     
 }
