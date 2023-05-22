@@ -8,6 +8,7 @@ import ca.ntro.app.models.Model;
 import missile_wars.commun.enums.EtatPartie;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.commun.valeurs.Equipe;
+import missile_wars.commun.valeurs.Plancher;
 import missile_wars.commun.valeurs.ReferenceJoueur;
 import missile_wars.frontal.donnees.DonneesVuePartie;
 import missile_wars.frontal.vues.VuePartie;
@@ -17,14 +18,34 @@ public class ModelePartie implements Model {
 	
 	private MondeMissileWars2d mondeMS2d = new MondeMissileWars2d();
 	
+	private String partieGagnee;
+	
+	private String datePartie;
+	
+	private String idPartie;
 	
 	private List<Equipe> lesEquipes = new ArrayList<>(); //il est censé y avoir seulement 2 équipes
 	
+	private List<Plancher> lesPlancher = new ArrayList<>();
+	
+	//LISTE MISSILES
+	
+
+	public ModelePartie() {
+		this.lesEquipes.add(new Equipe());
+		this.lesEquipes.add(new Equipe());
+		this.lesPlancher.add(new Plancher());
+		this.lesPlancher.add(new Plancher());
+	}
+	
 	public void ajouterReferenceJoueur(int idJoueur) {
 		int totalJoueurs = 0;
+		
 		for (Equipe equipe : this.lesEquipes) {
 			totalJoueurs += equipe.getLesJoueurs().size();
+			
 			for (ReferenceJoueur referenceJoueur : equipe.getLesJoueurs()) {
+				
 				//si le joueur est déjà dans la partie, on ne l'ajoute pas une 2e fois
 				if (referenceJoueur.getIdJoueur() == idJoueur) {
 					return;
@@ -36,6 +57,7 @@ public class ModelePartie implements Model {
 			ReferenceJoueur referenceJoueur = new ReferenceJoueur();
 			referenceJoueur.setIdJoueur(idJoueur);
 			int indexEquipe = 0;
+			
 			if (this.lesEquipes.get(0).getLesJoueurs().size() <= this.lesEquipes.get(1).getLesJoueurs().size()) {
 				indexEquipe = 0;
 			}
@@ -46,19 +68,8 @@ public class ModelePartie implements Model {
 			this.lesEquipes.get(indexEquipe).getLesJoueurs().add(referenceJoueur);
 		}
 	}
-
-	private String partieGagnee;
 	
 	
-	
-	// TODO: ajouter ici une liste de Plancher (2 Plancher dans la liste, parce qu'il y a 2 équipes)
-	
-	
-	
-
-	private String datePartie;
-	
-	private String idPartie;
 	
 	public int getEtatPartie() {
 		return etatPartie;
@@ -77,6 +88,15 @@ public class ModelePartie implements Model {
 		return mondeMS2d;
 	}
 
+	
+	public List<Plancher> getLesPlancher() {
+		return lesPlancher;
+	}
+
+	public void setLesPlancher(List<Plancher> lesPlancher) {
+		this.lesPlancher = lesPlancher;
+	}
+	
 
 	public void setMondeMS2d(MondeMissileWars2d mondeMS2d) {
 		this.mondeMS2d = mondeMS2d;
@@ -114,11 +134,6 @@ public class ModelePartie implements Model {
 		this.idPartie = idPartie;
 	}
 
-	
-	public ModelePartie() {
-		this.lesEquipes.add(new Equipe());
-		this.lesEquipes.add(new Equipe());
-	}
 
 	public void afficherInfoPartieSur(VuePartie vuePartie) {
 //		vueJeu.afficherNomPremierJoueur(nomJoueur1);
