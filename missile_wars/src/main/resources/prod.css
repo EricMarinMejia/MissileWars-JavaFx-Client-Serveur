@@ -92,6 +92,16 @@
     -fx-min-width: 27px;
     -fx-max-width: 27px;
 }
+.BtnTouchesX{
+    -fx-border-color: lime;
+    -fx-border-width: 0.1em;
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-text-fill: lime;
+    -fx-min-width: 20px;
+    -fx-max-width: 20px;
+}
 
 .BtnOptions {
     -fx-border-color: lime;
