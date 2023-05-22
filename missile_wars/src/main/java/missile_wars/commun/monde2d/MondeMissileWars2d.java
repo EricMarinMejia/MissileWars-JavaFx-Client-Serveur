@@ -33,8 +33,8 @@ public class MondeMissileWars2d extends World2dFx {
     	listeJoueursEquipe1 = new ArrayList<Joueur2d>();
     	listeJoueursEquipe2 = new ArrayList<Joueur2d>();
     	
-    	joueur1 = new Joueur2d();
-    	joueur2 = new Joueur2d();
+    	joueur1 = new Joueur2d((int) HAUTEUR_MONDE - 25);
+    	joueur2 = new Joueur2d(25);
     	
     	listeJoueursEquipe1.add(joueur1);
     	listeJoueursEquipe2.add(joueur2);
@@ -49,8 +49,6 @@ public class MondeMissileWars2d extends World2dFx {
     	
     	listeEquipes.get(0).setListeJoueurs(listeJoueursEquipe1);
     	listeEquipes.get(1).setListeJoueurs(listeJoueursEquipe2);
-    	
-    	
     	
     	
         setWidth(LARGEUR_MONDE);
