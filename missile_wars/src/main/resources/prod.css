@@ -176,7 +176,6 @@
     -fx-font-weight: bold;
   }
   
-/* CSS pour les autres éléments avec des classes modifiées */
   .content-container {
     -fx-pref-width: 300;
     -fx-alignment: center;
