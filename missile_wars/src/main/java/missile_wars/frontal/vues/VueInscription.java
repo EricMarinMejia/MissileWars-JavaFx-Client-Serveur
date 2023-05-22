@@ -69,19 +69,16 @@ public class VueInscription extends ViewFx {
 
 	
 	private void installerButtonReset() {
-		EvtRemettreTouchesParDefaut evtRemettreTouchesParDefaut = NtroApp.newEvent(EvtRemettreTouchesParDefaut.class);
 		EvtRemettreInfosActuelles evtRemettreInfosActuelles = NtroApp.newEvent(EvtRemettreInfosActuelles.class);
 		
 		this.buttonReset.setOnAction(evtFx -> {
 			evtRemettreInfosActuelles.trigger();
-			// evtRemettreTouchesParDefaut.trigger();
 		});
 		
 	}
 
 	private void installerBoutonValider() {
 		EvtAfficherMenu evtAfficherMenu= NtroApp.newEvent(EvtAfficherMenu.class);
-//		MsgActualiserInscriptionJoueur msgActualiser = NtroApp.newMessage(MsgActualiserInscriptionJoueur.class);
 		MsgModifierNomJoueur msgModifierNomJoueur = NtroApp.newMessage(MsgModifierNomJoueur.class);
 		this.buttonValider.setOnAction(evtFx -> {
 			msgModifierNomJoueur.setIdJoueur(Session.idJoueur);
