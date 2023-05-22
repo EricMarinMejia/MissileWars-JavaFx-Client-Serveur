@@ -100,8 +100,6 @@ public class Initialisation {
 
                     VueInscription vueInscription = viewLoader.createView();
                     
-                    vueInscription.setViewLoaderActionTouche(viewLoaderActionTouche);
-                    vueInscription.memoriserTouchesDefaut(ModeleInscriptionJoueur.instancierTouchesDefaut());
                     
                     return vueInscription;
                 });

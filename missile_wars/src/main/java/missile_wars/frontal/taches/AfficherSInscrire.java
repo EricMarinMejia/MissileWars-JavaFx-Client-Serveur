@@ -54,16 +54,7 @@ public class AfficherSInscrire {
 			
 			Joueur joueur = current.obtenirJoueurParId(Session.idJoueur);
 			if (joueur != null) {
-				vueSInscrire.memoriserNomJoueur(joueur.getNom());
-//				vueSInscrire.memoriserTouches(current.getTouches());
-				
-				vueSInscrire.viderTouches();
 				vueSInscrire.afficherNom(joueur.getNom());
-//				for (String key : current.getTouches().keySet()) {
-//					vueSInscrire.afficherTouche(key, current.getTouches().get(key));
-//				}
-//				
-//				current.afficherSur(vueSInscrire);
 				
 			}
 			
@@ -78,7 +69,6 @@ public class AfficherSInscrire {
 		.executes(inputs -> {
 			
 			VueInscription vueSInscrire = inputs.get(created(VueInscription.class));
-			vueSInscrire.remettreTouchesParDefaut();
 			
 		});
 	}

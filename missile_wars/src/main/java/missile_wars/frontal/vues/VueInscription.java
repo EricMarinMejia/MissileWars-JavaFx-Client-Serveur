@@ -34,49 +34,9 @@ public class VueInscription extends ViewFx {
 	@FXML
 	private TextField tfNomJoueur;
 	
-	@FXML
-	private VBox vbAssociationContainer;
-	
-	
-	private List<FragmentActionTouche> fragments = new ArrayList<>();
-	
-
-	ViewLoader<FragmentActionTouche> viewLoaderActionTouche;
-	
-	public ViewLoader<FragmentActionTouche> getViewLoaderActionTouche() {
-		return viewLoaderActionTouche;
-	}
-
-	public void setViewLoaderActionTouche(ViewLoader<FragmentActionTouche> viewLoaderActionTouche) {
-		this.viewLoaderActionTouche = viewLoaderActionTouche;
-	}
-	
-	
-	private void putTouches(Map<String, KeyStringRepresentation> source, Map<String, KeyStringRepresentation> dest) {
-		for (Entry<String, KeyStringRepresentation> entry : source.entrySet()) {
-			dest.put(entry.getKey(), entry.getValue().clone());
-		}
-	}
-	
 	
 	//données actuelles du backend
 	private String nomJoueurActuel = "";
-	private Map<String, KeyStringRepresentation> touchesActuel = new HashMap<>();
-	private Map<String, KeyStringRepresentation> touchesParDefaut = new HashMap<>();
-	
-	public void memoriserNomJoueur(String value) {
-		this.nomJoueurActuel = value;
-	}
-	
-	public void memoriserTouches(Map<String, KeyStringRepresentation> value) {
-		this.putTouches(value, this.touchesActuel);
-	}
-	
-	public void memoriserTouchesDefaut(Map<String, KeyStringRepresentation> value) {
-		this.putTouches(value, this.touchesParDefaut);
-	}
-	
-	
 	
 	
 	
@@ -143,11 +103,6 @@ public class VueInscription extends ViewFx {
 	
 	public void remettreInfosActuelles() {
 		this.tfNomJoueur.setText(this.nomJoueurActuel);
-		this.afficherTouchesEcraser(this.touchesActuel);
-	}
-	
-	public void remettreTouchesParDefaut() {
-		this.afficherTouchesEcraser(this.touchesParDefaut);
 	}
 	
 	
@@ -156,24 +111,4 @@ public class VueInscription extends ViewFx {
 		this.tfNomJoueur.setText(nom);
 	}
 
-	public void viderTouches() {
-		this.fragments.clear();
-		this.vbAssociationContainer.getChildren().clear();
-	}
-	
-	public void afficherTouche(String action, KeyStringRepresentation touche) {
-		FragmentActionTouche fragment = this.viewLoaderActionTouche.createView();
-		fragment.setAction(action);
-		fragment.setTouche(touche);
-		
-		this.fragments.add(fragment);
-		this.vbAssociationContainer.getChildren().add(fragment.rootNode());
-	}
-	
-	private void afficherTouchesEcraser(Map<String, KeyStringRepresentation> touches) {
-		this.viderTouches();
-		for (Entry<String, KeyStringRepresentation> entry : touches.entrySet()) {
-			this.afficherTouche(entry.getKey(), entry.getValue());
-		}
-	}
 }
