@@ -12,8 +12,10 @@ import missile_wars.commun.enums.EtatPartie;
 import missile_wars.commun.messages.MsgModifierPositionJoueur;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.commun.monde2d.Joueur2d;
+import missile_wars.commun.monde2d.Missile2d;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.commun.valeurs.Equipe;
+import missile_wars.commun.valeurs.Missile;
 import missile_wars.commun.valeurs.Plancher;
 import missile_wars.commun.valeurs.ReferenceJoueur;
 import missile_wars.frontal.evenements.EvtTouchePressed;
@@ -35,6 +37,7 @@ public class DonneesVuePartie implements ViewData {
 
 	private List<Equipe> lesEquipes = new ArrayList<>();
 	private List<Plancher> lesPlanchers = new ArrayList<>();
+	private List<Missile> lesMissiles= new ArrayList<>();
 	private int quantiteJoueursCible = 2; //un nombre pair.
 	private int etatPartie = EtatPartie.NULLE.ordinal();
 	
@@ -115,6 +118,7 @@ public class DonneesVuePartie implements ViewData {
     	this.quantiteJoueursCible = modelePartie.getQuantiteJoueursCible();
     	this.etatPartie = modelePartie.getEtatPartie();
     	this.lesPlanchers = modelePartie.getLesPlancher();
+    	this.lesMissiles = modelePartie.getLesMissiles();
     	
     	
     	for (int i = 0; i < lesEquipes.size(); i++) {
@@ -140,6 +144,12 @@ public class DonneesVuePartie implements ViewData {
     	}
     	
     	//TODO les missiles
+    	
+    	List<Missile2d> lesMissiles2d = this.mondeMissileWars2d.getListeMissiles();
+    	
+    	while (lesMissiles.size() >  lesMissiles2d.size()) {
+    		lesMissiles2d.add(new Missile2d());
+    	}
     	
     	
     	

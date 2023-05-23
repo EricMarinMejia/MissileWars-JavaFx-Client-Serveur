@@ -16,6 +16,7 @@ import missile_wars.commun.monde2d.MondeMissileWars2d;
 import missile_wars.frontal.controles.CanvasPartie;
 import missile_wars.frontal.evenements.EvtActionJoueur;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
+import missile_wars.frontal.evenements.EvtAjouterMissile;
 import missile_wars.frontal.evenements.EvtTouchePressed;
 import missile_wars.frontal.evenements.EvtToucheReleased;
 
@@ -71,29 +72,28 @@ public class VuePartie extends ViewFx {
 		});
 	}
 	
+	
 	private void installerEvtActionJoueur() {
 		
         EvtTouchePressed evtNtro = NtroApp.newEvent(EvtTouchePressed.class);
         EvtToucheReleased evtNtroReleased = NtroApp.newEvent(EvtToucheReleased.class);
+        EvtAjouterMissile evtNtroMissile = NtroApp.newEvent(EvtAjouterMissile.class);
 
         vboxPartie.addEventFilter(KeyEvent.KEY_PRESSED, evtFx -> {
         	
         	if(evtFx.getCode().equals(KeyCode.D)) {
-                //evtNtro.setAction(new ActionJoueur(ActionsJoueurEnum.DROITE));
+
                 evtNtro.setTouche(KeyCode.D.toString());
                 evtNtro.trigger();
 
             }else if(evtFx.getCode().equals(KeyCode.A)) {
 
-                //evtNtro.setAction(new ActionJoueur(ActionsJoueurEnum.GAUCHE));
             	evtNtro.setTouche(KeyCode.A.toString());
                 evtNtro.trigger();
 
             }else if(evtFx.getCode().equals(KeyCode.W)) {
 
-                //evtNtro.setAction(new ActionJoueur(ActionsJoueurEnum.TIRER));
-            	evtNtro.setTouche(KeyCode.W.toString());
-                evtNtro.trigger();
+            	evtNtroMissile.trigger();
 
             }
         });
@@ -101,9 +101,9 @@ public class VuePartie extends ViewFx {
         vboxPartie.addEventFilter(KeyEvent.KEY_RELEASED, evtFx -> {
 
             if(evtFx.getCode().equals(KeyCode.A)
-                    || evtFx.getCode().equals(KeyCode.D)) {
+                    || evtFx.getCode().equals(KeyCode.D)
+                    || evtFx.getCode().equals(KeyCode.W)) {
 
-                //evtNtro.setAction(new ActionJoueur(ActionsJoueurEnum.ARRET));
                 evtNtroReleased.trigger();
 
             }
