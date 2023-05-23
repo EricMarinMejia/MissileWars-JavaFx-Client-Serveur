@@ -38,6 +38,18 @@ public class ModelePartie implements Model {
 		this.lesPlancher.add(new Plancher());
 	}
 	
+	
+	public ReferenceJoueur obtenirJouerSelonId(int idJoueur) {
+		for (Equipe equipe : this.lesEquipes) {
+			for (ReferenceJoueur referenceJoueur : equipe.getLesJoueurs()) {
+				if (referenceJoueur.getIdJoueur() == idJoueur) {
+					return referenceJoueur;
+				}
+			}
+		}
+		return null;
+	}
+	
 	public void ajouterReferenceJoueur(int idJoueur) {
 		int totalJoueurs = 0;
 		

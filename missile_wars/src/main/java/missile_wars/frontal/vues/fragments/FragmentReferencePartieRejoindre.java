@@ -47,14 +47,13 @@ public class FragmentReferencePartieRejoindre extends ViewFx {
     	EvtAfficherPartie evtAfficherPartie = NtroApp.newEvent(EvtAfficherPartie.class);
     	MsgAjouterReferenceJoueurAPartie msgAjouterReferenceJoueurAPartie = NtroApp.newMessage(MsgAjouterReferenceJoueurAPartie.class, this.idPartie);
     	this.boutonRejoindrePartie.setOnAction(evtFx -> {
-    		System.out.println("asdf : " + this.idPartie);
     		evtAfficherPartie.setIdPartie(this.idPartie);
     		evtAfficherPartie.trigger();
     		
     		msgAjouterReferenceJoueurAPartie.setIdPartie(this.idPartie);
     		msgAjouterReferenceJoueurAPartie.setIdJoueur(this.idJoueur);
     		msgAjouterReferenceJoueurAPartie.setChannelId(this.idPartie);
-    		System.out.println("SENDING at " + this.idPartie + " with idJoueur : " + String.valueOf(this.idJoueur));
+//    		System.out.println("SENDING at " + this.idPartie + " with idJoueur : " + String.valueOf(this.idJoueur));
     		msgAjouterReferenceJoueurAPartie.send();
     	});
     }

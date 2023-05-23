@@ -88,6 +88,7 @@ public class VueInscription extends ViewFx {
 		this.tfNomJoueur.setText(this.nomJoueurActuel);
 	}
 	public void afficherNom(String nom) {
+		this.nomJoueurActuel = nom;
 		this.tfNomJoueur.setText(nom);
 	}
 

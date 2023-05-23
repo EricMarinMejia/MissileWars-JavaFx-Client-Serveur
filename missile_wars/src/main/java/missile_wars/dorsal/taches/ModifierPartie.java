@@ -8,6 +8,7 @@ import missile_wars.commun.messages.MsgAjouterPoint;
 import missile_wars.commun.messages.MsgAjouterReferenceJoueurAPartie;
 import missile_wars.commun.messages.MsgModifierPositionJoueur;
 import missile_wars.commun.modeles.ModelePartie;
+import missile_wars.commun.valeurs.ReferenceJoueur;
 import missile_wars.dorsal.messages.MsgAjusterPartie;
 
 public class ModifierPartie {
@@ -56,8 +57,10 @@ public class ModifierPartie {
 		.waitsFor(message(MsgModifierPositionJoueur.class, idPartie))
 		.thenExecutes(inputs -> {
 			MsgModifierPositionJoueur msgModifierPositionJoueur = inputs.get(message(MsgModifierPositionJoueur.class, idPartie));
+			ModelePartie partie = inputs.get(model(ModelePartie.class, idPartie));
 			
-			System.out.println("ASDFASDFASDF");
+			ReferenceJoueur referenceJoueur = partie.obtenirJouerSelonId(msgModifierPositionJoueur.getIdJoueur());
+			referenceJoueur.setPosition(msgModifierPositionJoueur.getPosition());
 			
 		});
 	}

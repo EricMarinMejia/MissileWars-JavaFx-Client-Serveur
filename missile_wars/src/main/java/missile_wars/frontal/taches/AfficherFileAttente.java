@@ -28,7 +28,7 @@ public class AfficherFileAttente {
 			
 			ModeleFileAttente valeurActuelle = fileAttente.currentValue();
 
-			System.out.println("afficherFileAttente : " + String.valueOf(Session.idJoueur));
+//			System.out.println("afficherFileAttente : " + String.valueOf(Session.idJoueur));
 			vueFileAttente.memoriserIdJoueur(Session.idJoueur);
 			valeurActuelle.afficherSur(vueFileAttente);
 			
