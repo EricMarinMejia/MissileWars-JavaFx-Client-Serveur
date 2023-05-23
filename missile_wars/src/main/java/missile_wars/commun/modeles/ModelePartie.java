@@ -7,6 +7,7 @@ import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.Model;
 import missile_wars.commun.enums.EtatPartie;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
+import missile_wars.commun.monde2d.Plancher2d;
 import missile_wars.commun.valeurs.Equipe;
 import missile_wars.commun.valeurs.Missile;
 import missile_wars.commun.valeurs.Plancher;
@@ -31,6 +32,8 @@ public class ModelePartie implements Model {
 	
 	private List<Missile> lesMissiles = new ArrayList<>();
 	
+	private static final int PLANCHER_DECALAGE_BORDURE = 25;
+	
 	//LISTE MISSILES
 	
 
@@ -45,8 +48,9 @@ public class ModelePartie implements Model {
 	public ModelePartie() {
 		this.lesEquipes.add(new Equipe());
 		this.lesEquipes.add(new Equipe());
-		this.lesPlancher.add(new Plancher());
-		this.lesPlancher.add(new Plancher());
+		this.lesPlancher.add(new Plancher((int) MondeMissileWars2d.HAUTEUR_MONDE - PLANCHER_DECALAGE_BORDURE));
+		this.lesPlancher.add(new Plancher(PLANCHER_DECALAGE_BORDURE));
+		System.out.println("HEY--------------------------------------------------------");
 	}
 	
 	

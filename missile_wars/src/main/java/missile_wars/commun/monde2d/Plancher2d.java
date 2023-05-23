@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 
 public class Plancher2d extends ObjetMissileWars2d{
 
-	int positionY;
+	//int positionY;
 	
 	private static final double DEBUT_X = 0.0;
 	
@@ -26,6 +26,10 @@ public class Plancher2d extends ObjetMissileWars2d{
 	public Plancher2d(int positionY) {
 		this();
 		setTopLeftY(positionY);
+	}
+	
+	public void setYMilieu(int milieuY) {
+		this.setTopLeftY(milieuY - getHeight()/2);
 	}
 	
 	

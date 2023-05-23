@@ -18,6 +18,11 @@ public class Plancher implements ModelValue {
 			tableauPlancher.add(10f);
 		}
 	}
+	
+	public Plancher(int positionY) {
+		this();
+		this.positionY = positionY;
+	}
 
 	public int getPositionY() {
 		return positionY;

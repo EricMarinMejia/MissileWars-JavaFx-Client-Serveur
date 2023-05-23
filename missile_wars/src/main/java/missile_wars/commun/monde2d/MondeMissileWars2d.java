@@ -72,8 +72,8 @@ public class MondeMissileWars2d extends World2dFx {
     protected void initialize() {
     	
     	this.listePlanchers = new ArrayList<>();
-    	listePlanchers.add(new Plancher2d((int) HAUTEUR_MONDE - 25));
-    	listePlanchers.add(new Plancher2d(25));
+    	listePlanchers.add(new Plancher2d(0));
+    	listePlanchers.add(new Plancher2d(0));
     	
     	this.listeEquipes = new ArrayList<>();
     	listeEquipes.add(new Equipe2d());
@@ -86,11 +86,8 @@ public class MondeMissileWars2d extends World2dFx {
         	plancher2d.initialiser(this);
         }
         
-        
-        
         this.listeMissiles = new ArrayList<>();
-        
-        
+          
     }
     
     

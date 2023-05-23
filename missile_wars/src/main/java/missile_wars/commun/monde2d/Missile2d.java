@@ -67,6 +67,4 @@ public class Missile2d extends ObjetMissileWars2d {
 	 * super.onTimePasses(secondesPassees); }
 	 */
     
-    
-
 }

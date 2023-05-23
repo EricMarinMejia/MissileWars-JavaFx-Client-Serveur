@@ -13,6 +13,7 @@ import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.clock.Tick;
 import ca.ntro.core.reflection.observer.Modified;
 import ca.ntro.core.task_graphs.task_graph.Task;
+import missile_wars.commun.messages.MsgAjouterMissile;
 import missile_wars.commun.messages.MsgAjouterReferenceJoueurAPartie;
 import missile_wars.commun.messages.MsgNouveauIdPartieBroadcast;
 import missile_wars.commun.modeles.ModelePartie;
@@ -208,7 +209,7 @@ public class AfficherPartie {
 			DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
 			VuePartie vuePartie = inputs.get(created(VuePartie.class));
 			
-//			donneesVuePartie.ajouterUnMissile(evt);
+			//donneesVuePartie.ajouterUnMissile();
 		});
 	}
 

@@ -81,21 +81,9 @@ public class VuePartie extends ViewFx {
 
         vboxPartie.addEventFilter(KeyEvent.KEY_PRESSED, evtFx -> {
         	
-        	if(evtFx.getCode().equals(KeyCode.D)) {
-
-                evtNtro.setTouche(KeyCode.D.toString());
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.A)) {
-
-            	evtNtro.setTouche(KeyCode.A.toString());
-                evtNtro.trigger();
-
-            }else if(evtFx.getCode().equals(KeyCode.W)) {
-
-            	evtNtroMissile.trigger();
-
-            }
+        	evtNtro.setTouche(evtFx.getCode().toString());
+        	evtNtro.trigger();
+        	
         });
 
         vboxPartie.addEventFilter(KeyEvent.KEY_RELEASED, evtFx -> {

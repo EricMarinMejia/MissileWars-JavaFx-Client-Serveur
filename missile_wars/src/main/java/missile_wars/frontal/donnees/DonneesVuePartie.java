@@ -8,12 +8,15 @@ import ca.ntro.app.NtroApp;
 import ca.ntro.app.frontend.ViewData;
 import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.core.initialization.Ntro;
+import javafx.geometry.Point2D;
 import missile_wars.commun.enums.EtatPartie;
+import missile_wars.commun.messages.MsgAjouterMissile;
 import missile_wars.commun.messages.MsgModifierPositionJoueur;
 import missile_wars.commun.modeles.ModelePartie;
 import missile_wars.commun.monde2d.Joueur2d;
 import missile_wars.commun.monde2d.Missile2d;
 import missile_wars.commun.monde2d.MondeMissileWars2d;
+import missile_wars.commun.monde2d.Plancher2d;
 import missile_wars.commun.valeurs.Equipe;
 import missile_wars.commun.valeurs.Missile;
 import missile_wars.commun.valeurs.Plancher;
@@ -59,6 +62,8 @@ public class DonneesVuePartie implements ViewData {
 	
 
     private static long CALCULER_FPS_A_CHAQUE_X_MILLISECONDES = 200;
+    
+    private static double VITESSE_MISSILE = 2;
 
 
     private long horodatageDernierCalculFps = Ntro.time().nowMilliseconds();
@@ -140,32 +145,40 @@ public class DonneesVuePartie implements ViewData {
     	
     	for (int i = 0; i < lesPlanchers.size(); i++) {
     		this.mondeMissileWars2d.getListePlanchers().get(i).setTableauPlancher(lesPlanchers.get(i).getTableauPlancher());
-    
+    		this.mondeMissileWars2d.getListePlanchers().get(i).setYMilieu(lesPlanchers.get(i).getPositionY());
     	}
+    	
     	
     	//TODO les missiles
     	
     	List<Missile2d> lesMissiles2d = this.mondeMissileWars2d.getListeMissiles();
-    	int asdfasdf = lesMissiles2d.size();
+
     	while (lesMissiles.size() > lesMissiles2d.size()) {
     		lesMissiles2d.add(new Missile2d());
     	}
-    	
-    	
-    	
+
     }
     
     MsgModifierPositionJoueur msgModifierPositionJoueur = NtroApp.newMessage(MsgModifierPositionJoueur.class);
     
     public void appliquerTouchePressed(EvtTouchePressed evt) {
     	
-    	ReferenceJoueur joueur = obtenirReferenceJoueurThis();
+    	Joueur2d joueur = mondeMissileWars2d.obtenirJoueur2dSelonId(idJoueur);
     	double positionActuelle = joueur.getPosition();
     	
-    	if (evt.getTouche() == "D") {
+    	if (evt.getTouche().equals("D")) {
     		joueur.setPosition(positionActuelle + 0.2);
-    	} else if (evt.getTouche() == "A") {
+    	} else if (evt.getTouche().equals("A")) {
     		joueur.setPosition(positionActuelle - 0.2);
+    	} else if (evt.getTouche().equals("W")) {
+    		MsgAjouterMissile msgMissile = new MsgAjouterMissile();
+    		Plancher2d plancher = mondeMissileWars2d.obtenirPlancher2dSelonIdJoueur(idJoueur);
+    		Point2D positionGraphique = joueur.calculerPositionGraphiqueActuelle(plancher);
+    		msgMissile.setPositionX(positionGraphique.getX());
+    		msgMissile.setPositionY(positionGraphique.getY());
+    		msgMissile.setVitesseY(-VITESSE_MISSILE);
+    		
+    		msgMissile.send();
     	}
     	
     	positionActuelle = joueur.getPosition();
@@ -177,6 +190,7 @@ public class DonneesVuePartie implements ViewData {
     	msgModifierPositionJoueur.send();
     }
     
+    
     public void appliquerToucheReleased(EvtToucheReleased evt) {
     	
     }
@@ -186,6 +200,7 @@ public class DonneesVuePartie implements ViewData {
 		mondeMissileWars2d.dispatchMouseEvent(evt);
 	}
 	
+
 }
 
 
