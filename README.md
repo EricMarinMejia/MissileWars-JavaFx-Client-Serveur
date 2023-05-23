@@ -36,8 +36,16 @@ Travail effectué:
 
 
 -Charles-
-
-
+	- Programmation de la file d'attente et du dorsal.
+		Au démarage d'un client, le client demande reçois du serveur un id.
+			Messages et évènements pour l'algorithme qui donne des id de joueur à chaque client.
+			Solution de contournement pour régler un problème : 
+				S'il y a déjà des parties, la fil d'attente et les boutons seront créé avant d'avoir reçu un id du serveur. les premiers bouton créé seront associé à des lambdas qui ont encore l'idJoueur -1. Solution est de faire attendre la création de la file d'attente jusqu'à ce qu'on ait un idJoueur (waitsFor(event(...)))
+		Solution de contournement pour un problème avec des *clock()*:
+			Il ne semble pas possible de conserver différentes clock() et les retirer dynamiquement sans que toutes les clocks s'arrêtent. Alors j'ai centralisé une clock dans Interval 
+	- J'ai indiqué à Éric comment architecturer les classes et le code.
+	- Vraiment beaucoup de débugage. 
+	- De nombreux autres détails. 
 
 -Antonii-
 
