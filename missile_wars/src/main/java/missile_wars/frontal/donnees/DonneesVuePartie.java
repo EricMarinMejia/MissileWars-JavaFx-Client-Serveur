@@ -126,6 +126,8 @@ public class DonneesVuePartie implements ViewData {
     	this.lesMissiles = modelePartie.getLesMissiles();
     	
     	
+    	
+    	
     	for (int i = 0; i < lesEquipes.size(); i++) {
     		
     		List<ReferenceJoueur> joueursEquipeModele = lesEquipes.get(i).getLesJoueurs();
@@ -136,9 +138,11 @@ public class DonneesVuePartie implements ViewData {
     			joueursEquipeModele2d.add(new Joueur2d());
     		}
     		//TODO RETIRER LES JOUEURS EN TROP
+    	
     		
     		for (int j = 0; j < joueursEquipeModele.size(); j++) {
     			joueursEquipeModele2d.get(j).setPosition(joueursEquipeModele.get(j).getPosition());
+    			joueursEquipeModele2d.get(j).setIdJoueur(joueursEquipeModele.get(j).getIdJoueur());
     		}
     		
     	}
