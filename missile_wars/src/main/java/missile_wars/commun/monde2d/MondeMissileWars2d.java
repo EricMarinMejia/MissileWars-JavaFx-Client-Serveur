@@ -22,6 +22,18 @@ public class MondeMissileWars2d extends World2dFx {
     
     List<Missile2d> listeMissiles;
     
+    
+    public Joueur2d obtenirJoueur2dSelonId(int idJoueur) {
+    	for (Equipe2d equipe2d : this.listeEquipes) {
+    		for (Joueur2d joueur2d : equipe2d.getListeJoueurs()) {
+    			if (joueur2d.getIdJoueur() == idJoueur) {
+    				return joueur2d;
+    			}
+    		}
+    	}
+    	return null;
+    }
+    
 //    
 //    List<Joueur2d> listeJoueursEquipe1;
 //    List<Joueur2d> listeJoueursEquipe2;
