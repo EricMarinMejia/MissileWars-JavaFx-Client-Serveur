@@ -208,7 +208,7 @@ public class AfficherPartie {
 			DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
 			VuePartie vuePartie = inputs.get(created(VuePartie.class));
 			
-			donneesVuePartie.ajouterUnMissile(evt);
+//			donneesVuePartie.ajouterUnMissile(evt);
 		});
 	}
 

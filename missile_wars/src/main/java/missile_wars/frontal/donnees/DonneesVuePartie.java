@@ -146,8 +146,8 @@ public class DonneesVuePartie implements ViewData {
     	//TODO les missiles
     	
     	List<Missile2d> lesMissiles2d = this.mondeMissileWars2d.getListeMissiles();
-    	
-    	while (lesMissiles.size() >  lesMissiles2d.size()) {
+    	int asdfasdf = lesMissiles2d.size();
+    	while (lesMissiles.size() > lesMissiles2d.size()) {
     		lesMissiles2d.add(new Missile2d());
     	}
     	
