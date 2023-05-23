@@ -60,6 +60,20 @@ Travail effectué:
 	- De nombreux autres détails. 
 
 -Antonii-
+Branche:
+    antonii
+    
+Travail effectué:
+    Consolidation des projets:
+        
+Faire en sorte qu'on peux naviguer entre les pages.
+  Travail sur la page didacticiel:
+      Faire la logique des boutons.
+      Text Basique.
+  Travail sur la page parametre :
+      Implementation de la fonctionnalite de changement de couleur.
+  Travail sur la page inscription : 
+      Implementation du validateur du text field
 
 
 
