@@ -30,9 +30,15 @@ Travail effectué:
         -Mise en place des boutons pour toutes les pages pour avoir un style/thème général
 
 
-
 -Eric-
-
+    Travail effectué:
+        Développement du jeu (assisté par Charles):
+            - Programmation des planchers, joueurs, équipes et missiles dans le monde2d 
+            - Programmation de la valeur plancher, joueur, équipes et missiles
+		    - Programmation des EvtTouchePressed, EvtToucheReleased, EvtAjouterMissile
+            - Programmation des messages MsgAjouterMissile, MsgModifierPositionJoueur
+            - Programmation de la synchronisation des planchers, joueurs, équipes et missiles en suivant le modèle MVC
+            - Programmation du mouvement des joueurs sur le canvas
 
 
 -Charles-
@@ -43,6 +49,7 @@ Travail effectué:
 				S'il y a déjà des parties, la fil d'attente et les boutons seront créé avant d'avoir reçu un id du serveur. les premiers bouton créé seront associé à des lambdas qui ont encore l'idJoueur -1. Solution est de faire attendre la création de la file d'attente jusqu'à ce qu'on ait un idJoueur (waitsFor(event(...)))
 		Solution de contournement pour un problème avec des *clock()*:
 			Il ne semble pas possible de conserver différentes clock() et les retirer dynamiquement sans que toutes les clocks s'arrêtent. Alors j'ai centralisé une clock dans Interval 
+    - Réorganisation de base des appels de dessin sur le canvas
 	- J'ai indiqué à Éric comment architecturer les classes et le code.
 	- Vraiment beaucoup de débugage. 
 	- De nombreux autres détails. 
