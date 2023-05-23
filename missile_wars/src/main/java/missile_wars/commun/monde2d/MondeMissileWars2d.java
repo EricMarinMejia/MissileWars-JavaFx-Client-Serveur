@@ -34,6 +34,18 @@ public class MondeMissileWars2d extends World2dFx {
     	return null;
     }
     
+    public Plancher2d obtenirPlancher2dSelonIdJoueur(int idJoueur) {
+    	for (int i = 0; i < this.listeEquipes.size(); i++) {
+    		Equipe2d equipe2d = this.listeEquipes.get(i);
+    		for (Joueur2d joueur2d : equipe2d.getListeJoueurs()) {
+    			if (joueur2d.getIdJoueur() == idJoueur) {
+    				return this.listePlanchers.get(i);
+    			}
+    		}
+    	}
+    	return null;
+    }
+    
 //    
 //    List<Joueur2d> listeJoueursEquipe1;
 //    List<Joueur2d> listeJoueursEquipe2;
