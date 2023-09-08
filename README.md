@@ -7,7 +7,7 @@ planchers et les jouers qui peuvent bouger. Nous avons différentes traductions 
     Branches:
         CSSMaster
         main
-    Commits noMerges: Ftoupet #51
+    Commits noMerges: Ftoupet #51 
 
 Travail effectué:
     Refonte complète du Menu
