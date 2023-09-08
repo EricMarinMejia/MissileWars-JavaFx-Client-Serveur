@@ -1,7 +1,7 @@
-Nous les avons le cadriciel Ntro et JavaFx pour coder le jeu Missile Wars. Cependant, le projet est encore en cours de développement au moment de la remise.
+Nous avons utilisé le cadriciel Ntro et JavaFx pour coder le jeu Missile Wars. Cependant, le projet est encore en cours de développement au moment de la remise.
 Nous avons plusieurs fonctionnalités tel que l'inscription, le didacticiel, les paramètres, l'historique, les contrôles et le jeu.
-Dans le code nous avons presque fini d'implémenter les missiles, cependant du à une contrainte de temps nous avons seulement les 
-planchers et les jouers qui peuvent bouger. Nous avons différentes traductions ainsi que du CSS pour personaliser nos pages.
+Dans le code, nous avons presque fini d'implémenter les missiles, cependant du à une contrainte de temps nous avons seulement les 
+planchers et les joueurs qui peuvent bouger. Nous avons différentes traductions ainsi que du CSS pour personaliser nos pages.
 
 -Florentin Toupet-
     Branches:
